@@ -9,17 +9,19 @@ class Network:
     def __init__(self, num_neurons, adj_list):
         self.num_neurons = num_neurons
         self.adj_list = adj_list
-        self.neurons = [Neuron(i) for i in range(num_neurons)]
+        self.neurons = [Neuron(i, lambda x: x, lambda x: 1) for i in range(num_neurons)]
         self.weights = self._set_weights()
         self.topo_order = self._topological_sort()
         self._setup_neurons()
         self._set_output_neurons()
+        self.has_forwarded = False
 
     def forward(self, f_mapper):
+        self.has_forwarded = True
         for n_id in self.topo_order:
             if self.neurons[n_id].predeccesor_neurons:
                 for pred in self.neurons[n_id].predeccesor_neurons:
-                    self.neurons[n_id].value += (
+                    self.neurons[n_id].value = self.neurons[n_id].value + (
                         self.weights[(pred, n_id)] * self.neurons[pred].value
                     )
                 self.neurons[n_id].value = f_mapper[n_id] * self.neurons[
@@ -31,10 +33,11 @@ class Network:
         return [self.neurons[i].value for i in self.output_neurons]
 
     def backward(self, f_mapper, lr, loss_val, loss_grad_fn: Callable):
-        # TODO: Check backward pass
+        if not self.has_forwarded:
+            raise Exception("Network has not been forwarded.")
+
         for n_id in self.topo_order[::-1]:
             for pred in self.neurons[n_id].predeccesor_neurons:
-                print(f"({n_id}, {pred})")
                 if len(self.neurons[n_id].successor_neurons) == 0:
 
                     self.neurons[n_id].grad = loss_grad_fn(self.neurons[n_id].value)
@@ -47,7 +50,7 @@ class Network:
                         )
                         * self.weights[(pred, n_id)]
                     )
-                    print(self.neurons[pred].grad)
+
                     self.weights[(pred, n_id)] = self.weights[(pred, n_id)] - (
                         lr
                         * loss_grad_fn(self.neurons[n_id].value)
@@ -57,7 +60,6 @@ class Network:
                         )
                         * self.neurons[pred].value.item()
                     )
-                    print("HI")
                 else:
                     self.neurons[pred].grad = (
                         self.neurons[n_id].grad
@@ -67,7 +69,6 @@ class Network:
                         )
                         * self.weights[(pred, n_id)]
                     )
-                    print(self.neurons[pred].grad)
                     self.weights[(pred, n_id)] = self.weights[(pred, n_id)] - (
                         lr
                         * self.neurons[n_id].grad
@@ -77,6 +78,11 @@ class Network:
                         )
                         * self.neurons[pred].value
                     )
+
+    def reset(self):
+        for n in self.neurons:
+            n.value = 0
+            n.grad = 0
 
     def _set_output_neurons(self):
         self.output_neurons = []
