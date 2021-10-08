@@ -6,18 +6,29 @@ from crm import Neuron
 
 
 class Network:
-    def __init__(self, num_neurons, adj_list):
+    def __init__(self, num_neurons, adj_list, custom_activations=None):
         self.num_neurons = num_neurons
         self.adj_list = adj_list
-        self.neurons = [Neuron(i, lambda x: x, lambda x: 1) for i in range(num_neurons)]
+        self.neurons = [
+            Neuron(i)
+            if custom_activations is None
+            else Neuron(i, custom_activations[i][0], custom_activations[i][1])
+            for i in range(num_neurons)
+        ]
         self.weights = self._set_weights()
         self.topo_order = self._topological_sort()
         self._setup_neurons()
         self._set_output_neurons()
         self.has_forwarded = False
+        self.is_fresh = True
 
     def forward(self, f_mapper):
+        if not self.is_fresh:
+            raise Exception(
+                "Network has already been forwarded. You may want to reset it."
+            )
         self.has_forwarded = True
+        self.is_fresh = False
         for n_id in self.topo_order:
             if self.neurons[n_id].predeccesor_neurons:
                 for pred in self.neurons[n_id].predeccesor_neurons:
@@ -28,11 +39,11 @@ class Network:
                     n_id
                 ].activation_fn(self.neurons[n_id].value)
             else:
-                self.neurons[n_id].value = f_mapper[n_id]
+                self.neurons[n_id].value = torch.tensor(f_mapper[n_id])
 
-        return [self.neurons[i].value for i in self.output_neurons]
+        return torch.stack([self.neurons[i].value for i in self.output_neurons])
 
-    def backward(self, f_mapper, lr, loss_val, loss_grad_fn: Callable):
+    def backward(self, f_mapper, lr, loss_val, loss_grad_fn):
         if not self.has_forwarded:
             raise Exception("Network has not been forwarded.")
 
@@ -40,10 +51,12 @@ class Network:
             for pred in self.neurons[n_id].predeccesor_neurons:
                 if len(self.neurons[n_id].successor_neurons) == 0:
 
-                    self.neurons[n_id].grad = loss_grad_fn(self.neurons[n_id].value)
+                    self.neurons[n_id].grad = loss_grad_fn[n_id](
+                        self.neurons[n_id].value
+                    )
 
                     self.neurons[pred].grad = (
-                        loss_grad_fn(self.neurons[n_id].value)
+                        loss_grad_fn[n_id](self.neurons[n_id].value)
                         * f_mapper[n_id]
                         * self.neurons[n_id].activation_fn_grad(
                             self.neurons[n_id].value
@@ -53,7 +66,7 @@ class Network:
 
                     self.weights[(pred, n_id)] = self.weights[(pred, n_id)] - (
                         lr
-                        * loss_grad_fn(self.neurons[n_id].value)
+                        * loss_grad_fn[n_id](self.neurons[n_id].value)
                         * f_mapper[n_id]
                         * self.neurons[n_id].activation_fn_grad(
                             self.neurons[n_id].value
@@ -61,7 +74,7 @@ class Network:
                         * self.neurons[pred].value.item()
                     )
                 else:
-                    self.neurons[pred].grad = (
+                    self.neurons[pred].grad = self.neurons[pred].grad + (
                         self.neurons[n_id].grad
                         * f_mapper[n_id]
                         * self.neurons[n_id].activation_fn_grad(
@@ -79,10 +92,19 @@ class Network:
                         * self.neurons[pred].value
                     )
 
+    def parameters(self):
+        return (p for p in self.weights.values())
+
+    def set_neuron_activation(
+        self, n_id: int, activation_fn: Callable, activation_fn_grad: Callable
+    ):
+        self.neurons[n_id].set_activation_fn(activation_fn, activation_fn_grad)
+
     def reset(self):
         for n in self.neurons:
             n.value = 0
             n.grad = 0
+        self.is_fresh = True
 
     def _set_output_neurons(self):
         self.output_neurons = []
@@ -107,7 +129,7 @@ class Network:
         weights = {}
         for u in range(self.num_neurons):
             for v in self.adj_list[u]:
-                weights[(u, v)] = torch.rand(1)
+                weights[(u, v)] = torch.rand(1, requires_grad=True)
         return weights
 
     def _topological_sort_util(self, v, visited, stack):
@@ -130,24 +152,3 @@ class Network:
             if visited[i] is False:
                 self._topological_sort_util(i, visited, stack)
         return stack[::-1]
-
-    def _assign_levels(self):
-        """This function assigns levels to the nodes in the network, using BFS."""
-        visited = set()
-        cur_level = 0
-        q = self.input_neurons
-        self.levels[cur_level] = q
-        while len(q) > 0:
-            n_elem = len(q)
-            while n_elem > 0:
-                cur = q.pop()
-                if cur in visited:
-                    continue
-                visited.add(cur)
-                self.levels[cur_level].append(cur)
-                for neigh in self.adj_list[cur]:
-                    q.append(neigh)
-            cur_level += 1
-
-    def __str__(self):
-        return "\n".join(map(str, self.nodes))
