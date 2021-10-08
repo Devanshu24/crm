@@ -25,6 +25,10 @@ class Neuron:
     def set_predecessor_neurons(self, predeccesor_neurons: list):
         self.predeccesor_neurons = predeccesor_neurons
 
+    def set_activation_fn(self, activation_fn: Callable, activation_fn_grad: Callable):
+        self.activation_fn = activation_fn
+        self.activation_fn_grad = activation_fn_grad
+
     def __repr__(self):
         return (
             super().__repr__()
