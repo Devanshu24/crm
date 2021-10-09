@@ -5,8 +5,12 @@ import torch.nn.functional as F
 from crm import Network
 
 if __name__ == "__main__":
-    n = Network(2, [[1], []])
-    optimizer = torch.optim.SGD(n.parameters(), lr=0.1)
+    n = Network(
+        2,
+        [[1], []],
+        custom_activations=((lambda x: x, lambda x: 1), (lambda x: x, lambda x: 1)),
+    )
+    optimizer = torch.optim.Adam(n.parameters(), lr=0.001)
     inputs = torch.linspace(-1, 1, 1000)
     labels = inputs / 2
     losses = []

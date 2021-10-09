@@ -43,55 +43,6 @@ class Network:
 
         return torch.stack([self.neurons[i].value for i in self.output_neurons])
 
-    def backward(self, f_mapper, lr, loss_val, loss_grad_fn):
-        if not self.has_forwarded:
-            raise Exception("Network has not been forwarded.")
-
-        for n_id in self.topo_order[::-1]:
-            for pred in self.neurons[n_id].predeccesor_neurons:
-                if len(self.neurons[n_id].successor_neurons) == 0:
-
-                    self.neurons[n_id].grad = loss_grad_fn[n_id](
-                        self.neurons[n_id].value
-                    )
-
-                    self.neurons[pred].grad = (
-                        loss_grad_fn[n_id](self.neurons[n_id].value)
-                        * f_mapper[n_id]
-                        * self.neurons[n_id].activation_fn_grad(
-                            self.neurons[n_id].value
-                        )
-                        * self.weights[(pred, n_id)]
-                    )
-
-                    self.weights[(pred, n_id)] = self.weights[(pred, n_id)] - (
-                        lr
-                        * loss_grad_fn[n_id](self.neurons[n_id].value)
-                        * f_mapper[n_id]
-                        * self.neurons[n_id].activation_fn_grad(
-                            self.neurons[n_id].value
-                        )
-                        * self.neurons[pred].value.item()
-                    )
-                else:
-                    self.neurons[pred].grad = self.neurons[pred].grad + (
-                        self.neurons[n_id].grad
-                        * f_mapper[n_id]
-                        * self.neurons[n_id].activation_fn_grad(
-                            self.neurons[n_id].value
-                        )
-                        * self.weights[(pred, n_id)]
-                    )
-                    self.weights[(pred, n_id)] = self.weights[(pred, n_id)] - (
-                        lr
-                        * self.neurons[n_id].grad
-                        * f_mapper[n_id]
-                        * self.neurons[n_id].activation_fn_grad(
-                            self.neurons[n_id].value
-                        )
-                        * self.neurons[pred].value
-                    )
-
     def parameters(self):
         return (p for p in self.weights.values())
 
