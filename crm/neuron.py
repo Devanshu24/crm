@@ -16,6 +16,7 @@ class Neuron:
         self.n_id = n_id
         self.value = torch.tensor(0)
         self.grad = 0
+        self.relevance = 0
         self.predeccesor_neurons = []
         self.successor_neurons = []
 

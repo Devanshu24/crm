@@ -103,3 +103,24 @@ class Network:
             if visited[i] is False:
                 self._topological_sort_util(i, visited, stack)
         return stack[::-1]
+
+    def lrp(self, R):
+        self.neurons[self.topo_order[-1]].relevance = R
+        for n_id in self.topo_order[::-1]:
+            for succ in self.neurons[n_id].successor_neurons:
+                my_contribution = 0
+                total_contribution = 0
+                for pred in self.neurons[succ].predeccesor_neurons:
+                    if pred == n_id:
+                        my_contribution = (
+                            self.neurons[n_id].value * self.weights[(pred, succ)]
+                        )
+                        total_contribution += my_contribution
+                    else:
+                        total_contribution += (
+                            self.neurons[pred].value * self.weights[(pred, succ)]
+                        )
+
+                self.neurons[n_id].relevance += (
+                    self.neurons[succ].relevance * my_contribution / total_contribution
+                )

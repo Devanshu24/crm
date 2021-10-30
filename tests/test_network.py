@@ -77,3 +77,27 @@ def test_set_neuron_activation():
     assert n.forward({0: 1, 1: 1, 2: 1, 3: 1}) == torch.exp(torch.tensor(6.0)).reshape(
         1, 1
     )
+
+
+def test_lrp():
+    n = Network(4, [[2], [2, 3], [3], []])
+    n.weights = {
+        (0, 2): torch.tensor(1.0, requires_grad=True),
+        (1, 2): torch.tensor(3.0, requires_grad=True),
+        (1, 3): torch.tensor(2.0, requires_grad=True),
+        (2, 3): torch.tensor(2.0, requires_grad=True),
+    }
+    n.forward({0: -3, 1: 2, 2: 1, 3: 1})
+    assert [n.neurons[i].value for i in range(len(n.neurons))] == [
+        torch.tensor(-3),
+        torch.tensor(2),
+        torch.tensor(3.0),
+        torch.tensor(10.0),
+    ]
+    n.lrp(torch.tensor(10.0))
+    assert [n.neurons[i].relevance for i in range(len(n.neurons))] == [
+        torch.tensor(-6.0),
+        torch.tensor(16.0),
+        torch.tensor(6.0),
+        torch.tensor(10.0),
+    ]
