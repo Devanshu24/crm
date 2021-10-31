@@ -55,6 +55,7 @@ class Network:
         for n in self.neurons:
             n.value = 0
             n.grad = 0
+            n.relevance = 0
         self.is_fresh = True
 
     def _set_output_neurons(self):
@@ -105,11 +106,14 @@ class Network:
         return stack[::-1]
 
     def lrp(self, R, n_id):
+        for n in self.neurons:
+            if n.relevance != 0:
+                raise Exception("Relevances are not cleared, try reseting the network")
         self.neurons[n_id].relevance = R
         for n_id in self.topo_order[::-1]:
             for succ in self.neurons[n_id].successor_neurons:
-                my_contribution = 0
-                total_contribution = 0
+                my_contribution = 1e-9
+                total_contribution = 1e-9
                 for pred in self.neurons[succ].predeccesor_neurons:
                     if pred == n_id:
                         my_contribution = (
