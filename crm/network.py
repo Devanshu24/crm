@@ -104,8 +104,8 @@ class Network:
                 self._topological_sort_util(i, visited, stack)
         return stack[::-1]
 
-    def lrp(self, R):
-        self.neurons[self.topo_order[-1]].relevance = R
+    def lrp(self, R, n_id):
+        self.neurons[n_id].relevance = R
         for n_id in self.topo_order[::-1]:
             for succ in self.neurons[n_id].successor_neurons:
                 my_contribution = 0

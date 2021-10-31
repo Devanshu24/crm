@@ -94,10 +94,25 @@ def test_lrp():
         torch.tensor(3.0),
         torch.tensor(10.0),
     ]
-    n.lrp(torch.tensor(10.0))
+    n.lrp(torch.tensor(10.0), 3)
     assert [n.neurons[i].relevance for i in range(len(n.neurons))] == [
         torch.tensor(-6.0),
         torch.tensor(16.0),
         torch.tensor(6.0),
         torch.tensor(10.0),
     ]
+
+    n = Network(7, [[4], [4], [5], [5], [6], [6], []])
+    n.weights = {
+        (0, 4): torch.tensor(6.0, requires_grad=True),
+        (1, 4): torch.tensor(5.0, requires_grad=True),
+        (2, 5): torch.tensor(4.0, requires_grad=True),
+        (3, 5): torch.tensor(6.0, requires_grad=True),
+        (4, 6): torch.tensor(4.0, requires_grad=True),
+        (5, 6): torch.tensor(3.0, requires_grad=True),
+    }
+    n.forward({0: 1, 1: -1, 2: 2, 3: -1, 4: 1, 5: 1, 6: 1})
+    print([n.neurons[i].value for i in range(len(n.neurons))])
+    n.lrp(torch.tensor(10.0), 6)
+    print([n.neurons[i].relevance for i in range(len(n.neurons))])
+    # assert False
