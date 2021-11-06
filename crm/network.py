@@ -19,6 +19,7 @@ class Network:
         self.topo_order = self._topological_sort()
         self._setup_neurons()
         self._set_output_neurons()
+        self._assign_layers()
         self.has_forwarded = False
         self.is_fresh = True
 
@@ -104,6 +105,17 @@ class Network:
             if visited[i] is False:
                 self._topological_sort_util(i, visited, stack)
         return stack[::-1]
+
+    def _assign_layers(self):
+        """Assigns layers to neurons of the network"""
+        for n in self.neurons:
+            if len(n.predeccesor_neurons)==0:
+                n.layer=0
+        
+        for n_id in self.topo_order:
+            if len(self.neurons[n_id].predeccesor_neurons)>0:
+                self.neurons[n_id].layer = max([self.neurons[i].layer for i in self.neurons[n_id].predeccesor_neurons]) + 1
+
 
     def lrp(self, R, n_id):
         for n in self.neurons:

@@ -78,6 +78,12 @@ def test_set_neuron_activation():
         1, 1
     )
 
+def test_assign_layers():
+    n = Network(4, [[2], [2, 3], [3], []])
+    assert n.neurons[0].layer == 0
+    assert n.neurons[1].layer == 0
+    assert n.neurons[2].layer == 1
+    assert n.neurons[3].layer == 2
 
 def test_lrp():
     n = Network(4, [[2], [2, 3], [3], []])
