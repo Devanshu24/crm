@@ -2,7 +2,7 @@ from typing import Callable
 
 import torch
 
-from crm import Neuron
+from crm.core import Neuron
 
 
 class Network:

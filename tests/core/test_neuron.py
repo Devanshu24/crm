@@ -1,6 +1,6 @@
 import torch
 
-from crm import Neuron
+from crm.core import Neuron
 
 
 def test_neuron():

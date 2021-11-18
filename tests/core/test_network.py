@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from crm import Network
+from crm.core import Network
 
 
 def test_network():
