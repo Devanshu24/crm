@@ -109,13 +109,20 @@ class Network:
     def _assign_layers(self):
         """Assigns layers to neurons of the network"""
         for n in self.neurons:
-            if len(n.predeccesor_neurons)==0:
-                n.layer=0
-        
-        for n_id in self.topo_order:
-            if len(self.neurons[n_id].predeccesor_neurons)>0:
-                self.neurons[n_id].layer = max([self.neurons[i].layer for i in self.neurons[n_id].predeccesor_neurons]) + 1
+            if len(n.predeccesor_neurons) == 0:
+                n.layer = 0
 
+        for n_id in self.topo_order:
+            if len(self.neurons[n_id].predeccesor_neurons) > 0:
+                self.neurons[n_id].layer = (
+                    max(
+                        [
+                            self.neurons[i].layer
+                            for i in self.neurons[n_id].predeccesor_neurons
+                        ]
+                    )
+                    + 1
+                )
 
     def lrp(self, R, n_id):
         for n in self.neurons:
