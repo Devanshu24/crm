@@ -1,7 +1,7 @@
 import random
 
 import torch
-from tqdm import trange
+from tqdm.auto import trange
 
 from crm.core import Network
 
