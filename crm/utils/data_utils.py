@@ -65,7 +65,7 @@ def make_dataset(folder, network_name, save: bool = True):
             if not gg:
                 break
             all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+            dd = torch.tensor([1. if i in all_pos else 0. for i in range(num_neurons)])
             X_train.append(dd)
             y_train.append(torch.tensor(1))
 
@@ -75,9 +75,12 @@ def make_dataset(folder, network_name, save: bool = True):
             if not gg:
                 break
             all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+            dd = torch.tensor([1. if i in all_pos else 0. for i in range(num_neurons)])
             X_train.append(dd)
             y_train.append(torch.tensor(0))
+
+    X_train = torch.stack([elem for elem in X_train], dim=0)
+    y_train = torch.stack([elem for elem in y_train], dim=0)
 
     X_test = []
     y_test = []
@@ -88,7 +91,7 @@ def make_dataset(folder, network_name, save: bool = True):
             if not gg:
                 break
             all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+            dd = torch.tensor([1. if i in all_pos else 0. for i in range(num_neurons)])
             X_test.append(dd)
             y_test.append(torch.tensor(1))
 
@@ -98,9 +101,12 @@ def make_dataset(folder, network_name, save: bool = True):
             if not gg:
                 break
             all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+            dd = torch.tensor([1. if i in all_pos else 0. for i in range(num_neurons)])
             X_test.append(dd)
             y_test.append(torch.tensor(0))
+
+    X_test = torch.stack([elem for elem in X_test], dim=0)
+    y_test = torch.stack([elem for elem in y_test], dim=0)
 
     adj_list = [[] for i in range(num_neurons)]
     for u, v in edges:
@@ -116,14 +122,9 @@ def make_dataset(folder, network_name, save: bool = True):
             adj_list[i].append(num_neurons - 2)
             adj_list[i].append(num_neurons - 1)
 
-    for i in range(len(X_train)):
-        X_train[i][num_neurons - 2] = 1
-        X_train[i][num_neurons - 1] = 1
-
-    for i in range(len(X_test)):
-        X_test[i][num_neurons - 2] = 1
-        X_test[i][num_neurons - 1] = 1
-
+    X_train = torch.hstack([X_train, torch.ones(X_train.shape[0], 2)])
+    X_test = torch.hstack([X_test, torch.ones(X_test.shape[0], 2)])
+    
     n = Network(num_neurons, adj_list)
     n.forward(X_train[0])
     n.reset()
@@ -136,4 +137,4 @@ def make_dataset(folder, network_name, save: bool = True):
         save_object(y_train, f"{folder}/y_train.dill")
         save_object(y_test, f"{folder}/y_test.dill")
 
-    return X_train, X_test, y_train, y_test
+    return X_train, y_train, X_test, y_test, adj_list

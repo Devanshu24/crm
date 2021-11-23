@@ -14,10 +14,10 @@ class Neuron:
         self.activation_fn = activation_fn
         self.activation_fn_grad = activation_fn_grad
         self.n_id = n_id
-        self.value = torch.tensor(0)
-        self.grad = 0
-        self.relevance = 0
-        self.layer = 0
+        self.value = torch.tensor(0.)
+        self.grad = torch.tensor(0.)
+        self.relevance = torch.tensor(0.)
+        self.layer = torch.tensor(0.)
         self.predeccesor_neurons = []
         self.successor_neurons = []
 

@@ -22,6 +22,7 @@ class Network:
         self._assign_layers()
         self.has_forwarded = False
         self.is_fresh = True
+        self.device = torch.device("cpu")
 
     def forward(self, f_mapper):
         if not self.is_fresh:
@@ -33,6 +34,8 @@ class Network:
         for n_id in self.topo_order:
             if self.neurons[n_id].predeccesor_neurons:
                 for pred in self.neurons[n_id].predeccesor_neurons:
+                    print(f"W: {self.weights[(pred, n_id)]}")
+                    print(f"V: {self.neurons[n_id].value}")
                     self.neurons[n_id].value = self.neurons[n_id].value + (
                         self.weights[(pred, n_id)] * self.neurons[pred].value
                     )
@@ -58,6 +61,14 @@ class Network:
             n.grad = 0
             n.relevance = 0
         self.is_fresh = True
+
+    def to(self, device):
+        # pass
+        # with torch.no_grad():
+        self.device = device
+        for (u, v) in self.weights:
+            self.weights[(u, v)] = self.weights[(u, v)].to(device)
+            # self.weights[(u, v)].requires_grad=True
 
     def _set_output_neurons(self):
         self.output_neurons = []
