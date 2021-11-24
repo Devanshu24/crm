@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import torch
 import torch.nn.functional as F
 
-from crm import Network
+from crm.core import Network
 
 if __name__ == "__main__":
     n = Network(
