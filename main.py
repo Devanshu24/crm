@@ -20,6 +20,9 @@ def cmd_line_args():
     parser.add_argument(
         "-e", "--explain", help="get explanations for predictions", action="store_true"
     )
+    parser.add_argument(
+        "-v", "--verbose", help="get verbose outputs", action="store_true"
+    )
     args = parser.parse_args()
     return args
 
@@ -54,7 +57,7 @@ def main():
     criterion = F.cross_entropy
     optimizer = torch.optim.Adam(n.parameters(), lr=0.001)
     train_losses, train_accs = train(
-        n, X_train, y_train, args.num_epochs, optimizer, criterion, verbose=True
+        n, X_train, y_train, args.num_epochs, optimizer, criterion, verbose=args.verbose
     )
     print("Test Metrics")
     for X_test, y_test in test_dataset:
@@ -63,7 +66,7 @@ def main():
     if args.explain:
         print("Explanations")
         for X_test, y_test in test_dataset:
-            print(get_explanations(n, X_test, y_test))
+            get_explanations(n, X_test, y_test, verbose=args.verbose)
             print("##############################")
 
 
