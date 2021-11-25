@@ -5,17 +5,20 @@ import torch
 import torch.nn.functional as F
 
 from crm.core import Network
-from crm.utils import get_metrics, make_dataset_cli, train
+from crm.utils import get_explanations, get_metrics, make_dataset_cli, train
 
 
 def cmd_line_args():
     parser = argparse.ArgumentParser(
-        description="CRM; Example: python3 main.py -f inp.file -o out.file -e 20"
+        description="CRM; Example: python3 main.py -f inp.file -o out.file -n 20"
     )
     parser.add_argument("-f", "--file", help="input file", required=True)
     parser.add_argument("-o", "--output", help="output file", required=True)
     parser.add_argument(
-        "-e", "--epochs", type=int, help="number of epochs", required=True
+        "-n", "--num-epochs", type=int, help="number of epochs", required=True
+    )
+    parser.add_argument(
+        "-e", "--explain", help="get explanations for predictions", action="store_true"
     )
     args = parser.parse_args()
     return args
@@ -35,6 +38,8 @@ class Logger(object):
 
 
 def main():
+    torch.manual_seed(24)
+
     args = cmd_line_args()
     sys.stdout = Logger(args.output)
     file_name = args.file
@@ -47,14 +52,19 @@ def main():
     )
     n = Network(len(adj_list), adj_list)
     criterion = F.cross_entropy
-    optimizer = torch.optim.Adam(n.parameters(), lr=0.01)
+    optimizer = torch.optim.Adam(n.parameters(), lr=0.001)
     train_losses, train_accs = train(
-        n, X_train, y_train, args.epochs, optimizer, criterion, verbose=True
+        n, X_train, y_train, args.num_epochs, optimizer, criterion, verbose=True
     )
     print("Test Metrics")
     for X_test, y_test in test_dataset:
         print(get_metrics(n, X_test, y_test))
         print("##############################")
+    if args.explain:
+        print("Explanations")
+        for X_test, y_test in test_dataset:
+            print(get_explanations(n, X_test, y_test))
+            print("##############################")
 
 
 if __name__ == "__main__":
