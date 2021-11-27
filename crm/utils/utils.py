@@ -1,3 +1,5 @@
+import random
+
 import dill
 import torch
 from sklearn.metrics import classification_report
@@ -25,3 +27,30 @@ def get_metrics(n, X_test, y_test, output_dict=False):
         output_dict=output_dict,
         zero_division=1,
     )
+
+
+def seed_all(seed: int) -> None:
+    """Setup random state from a seed for `torch`, `random` and optionally `numpy` (if can be imported).
+
+    Args:
+        seed: Random state seed
+    """
+    random.seed(seed)
+    torch.manual_seed(seed)
+
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+    try:
+        import torch_xla.core.xla_model as xm
+
+        xm.set_rng_state(seed)
+    except ImportError:
+        pass
+
+    try:
+        import numpy as np
+
+        np.random.seed(seed)
+    except ImportError:
+        pass

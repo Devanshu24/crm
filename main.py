@@ -5,7 +5,7 @@ import torch
 import torch.nn.functional as F
 
 from crm.core import Network
-from crm.utils import get_explanations, get_metrics, make_dataset_cli, train
+from crm.utils import get_explanations, get_metrics, make_dataset_cli, seed_all, train
 
 
 def cmd_line_args():
@@ -23,6 +23,7 @@ def cmd_line_args():
     parser.add_argument(
         "-v", "--verbose", help="get verbose outputs", action="store_true"
     )
+    parser.add_argument("-g", "--gpu", help="run model on gpu", action="store_true")
     args = parser.parse_args()
     return args
 
@@ -41,9 +42,9 @@ class Logger(object):
 
 
 def main():
-    torch.manual_seed(24)
-
+    seed_all(24)
     args = cmd_line_args()
+    device = torch.device("cuda" if torch.cuda.is_available() and args.gpu else "cpu")
     sys.stdout = Logger(args.output)
     file_name = args.file
     with open(file_name, "r") as f:
@@ -51,9 +52,10 @@ def main():
         train_file = f.readline()[:-1]
         test_files = f.readline()[:-1].split()
     X_train, y_train, test_dataset, adj_list = make_dataset_cli(
-        graph_file, train_file, test_files
+        graph_file, train_file, test_files, device=device
     )
     n = Network(len(adj_list), adj_list)
+    n.to(device)
     criterion = F.cross_entropy
     optimizer = torch.optim.Adam(n.parameters(), lr=0.001)
     train_losses, train_accs = train(
@@ -67,7 +69,7 @@ def main():
         print("Explanations")
         for X_test, y_test in test_dataset:
             get_explanations(
-                n, X_test, y_test, true_explanations=[0, 3], verbose=args.verbose
+                n, X_test, y_test, true_explanations=[0, 3], k=5, verbose=args.verbose
             )
             print("##############################")
 

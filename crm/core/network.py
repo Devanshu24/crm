@@ -40,7 +40,7 @@ class Network:
                     n_id
                 ].activation_fn(self.neurons[n_id].value)
             else:
-                self.neurons[n_id].value = torch.tensor(f_mapper[n_id])
+                self.neurons[n_id].value = f_mapper[n_id]
 
         return torch.stack([self.neurons[i].value for i in self.output_neurons])
 
@@ -58,6 +58,12 @@ class Network:
             n.grad = 0
             n.relevance = 0
         self.is_fresh = True
+
+    def to(self, device):
+        for key, value in self.weights.items():
+            self.weights[key] = (
+                self.weights[key].to(device).detach().requires_grad_(True)
+            )
 
     def _set_output_neurons(self):
         self.output_neurons = []

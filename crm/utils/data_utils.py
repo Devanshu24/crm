@@ -8,9 +8,7 @@ from crm.utils import save_object
 
 
 def make_dataset_cli(
-    graph_file: str,
-    train_file: str,
-    test_files: List[str],
+    graph_file: str, train_file: str, test_files: List[str], device=torch.device("cpu")
 ):
     """
     Create a dataset from a CLI.
@@ -139,10 +137,20 @@ def make_dataset_cli(
             X_test[i][num_neurons - 2] = 1
             X_test[i][num_neurons - 1] = 1
 
+    for i in range(len(X_train)):
+        X_train[i] = list(X_train[i].values())
+    X_train = torch.tensor(X_train).to(device)
+    y_train = torch.tensor(y_train).to(device)
+
+    for X_test, y_test in test_dataset:
+        for i in range(len(X_test)):
+            X_test[i] = list(X_test[i].values())
+        X_test = torch.tensor(X_test).to(device)
+        y_test = torch.tensor(y_test).to(device)
     return X_train, y_train, test_dataset, adj_list
 
 
-def make_dataset(folder, network_name, save: bool = False):
+def make_dataset(folder, network_name, device=torch.device("cpu"), save: bool = False):
     """Creates dataset from raw files"""
     graph_file = f"{folder}/raw/{network_name}.pl"
     train_pos_file = f"{folder}/raw/{network_name}_train_features_pos"
@@ -264,6 +272,16 @@ def make_dataset(folder, network_name, save: bool = False):
     n.forward(X_train[0])
     n.reset()
     n.forward(X_test[0])
+
+    for i in range(len(X_train)):
+        X_train[i] = list(X_train[i].values())
+    X_train = torch.tensor(X_train).to(device)
+    y_train = torch.tensor(y_train).to(device)
+
+    for i in range(len(X_test)):
+        X_test[i] = list(X_test[i].values())
+    X_test = torch.tensor(X_test).to(device)
+    y_test = torch.tensor(y_test).to(device)
 
     if save:
         save_object(adj_list, f"{folder}/adj_list.dill")
