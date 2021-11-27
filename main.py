@@ -66,7 +66,9 @@ def main():
     if args.explain:
         print("Explanations")
         for X_test, y_test in test_dataset:
-            get_explanations(n, X_test, y_test, verbose=args.verbose)
+            get_explanations(
+                n, X_test, y_test, true_explanations=[0, 3], verbose=args.verbose
+            )
             print("##############################")
 
 

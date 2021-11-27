@@ -121,6 +121,15 @@ def make_dataset_cli(
             adj_list[i].append(num_neurons - 2)
             adj_list[i].append(num_neurons - 1)
 
+    # TODO: Verifyyyyy
+    # Connecting all the input neurons to output also
+    for i in range(n.num_neurons):
+        if len(n.neurons[i].predeccesor_neurons) == 0 and n.neurons[
+            i
+        ].successor_neurons != [num_neurons - 2, num_neurons - 1]:
+            adj_list[i].append(num_neurons - 2)
+            adj_list[i].append(num_neurons - 1)
+
     for i in range(len(X_train)):
         X_train[i][num_neurons - 2] = 1
         X_train[i][num_neurons - 1] = 1
