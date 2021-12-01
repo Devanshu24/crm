@@ -60,6 +60,7 @@ class Network:
         self.is_fresh = True
 
     def to(self, device):
+        # https://discuss.pytorch.org/t/tensor-to-device-changes-is-leaf-causing-cant-optimize-a-non-leaf-tensor/37659
         for key, value in self.weights.items():
             self.weights[key] = (
                 self.weights[key].to(device).detach().requires_grad_(True)

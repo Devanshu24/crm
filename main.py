@@ -46,11 +46,13 @@ def main():
     args = cmd_line_args()
     device = torch.device("cuda" if torch.cuda.is_available() and args.gpu else "cpu")
     sys.stdout = Logger(args.output)
+    print(args)
     file_name = args.file
     with open(file_name, "r") as f:
         graph_file = f.readline()[:-1]
         train_file = f.readline()[:-1]
         test_files = f.readline()[:-1].split()
+        true_explanations = list(map(int, f.readline()[:-1].split()))
     X_train, y_train, test_dataset, adj_list = make_dataset_cli(
         graph_file, train_file, test_files, device=device
     )
@@ -61,17 +63,31 @@ def main():
     train_losses, train_accs = train(
         n, X_train, y_train, args.num_epochs, optimizer, criterion, verbose=args.verbose
     )
+
+    # Train metrics
+    print("Train Metrics")
+    print(get_metrics(n, X_train, y_train))
+    print("##############################")
+
+    # Test metrics
     print("Test Metrics")
     for X_test, y_test in test_dataset:
         print(get_metrics(n, X_test, y_test))
-        print("##############################")
+        print("-------------------------------------")
+    print("##############################")
+
     if args.explain:
         print("Explanations")
         for X_test, y_test in test_dataset:
             get_explanations(
-                n, X_test, y_test, true_explanations=[0, 3], k=5, verbose=args.verbose
+                n,
+                X_test,
+                y_test,
+                true_explanations=true_explanations,
+                verbose=args.verbose,
             )
-            print("##############################")
+            print("-------------------------------------")
+        print("##############################")
 
 
 if __name__ == "__main__":

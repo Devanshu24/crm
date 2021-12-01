@@ -119,14 +119,14 @@ def make_dataset_cli(
             adj_list[i].append(num_neurons - 2)
             adj_list[i].append(num_neurons - 1)
 
-    # TODO: Verifyyyyy
-    # Connecting all the input neurons to output also
-    for i in range(n.num_neurons):
-        if len(n.neurons[i].predeccesor_neurons) == 0 and n.neurons[
-            i
-        ].successor_neurons != [num_neurons - 2, num_neurons - 1]:
-            adj_list[i].append(num_neurons - 2)
-            adj_list[i].append(num_neurons - 1)
+    # # TODO: Verifyyyyy
+    # print("Connecting all the input neurons to output also!!!!!!!!!!!!!!!!!!!!!!!!!")
+    # for i in range(n.num_neurons):
+    #     if len(n.neurons[i].predeccesor_neurons) == 0 and n.neurons[
+    #         i
+    #     ].successor_neurons != [num_neurons - 2, num_neurons - 1]:
+    #         adj_list[i].append(num_neurons - 2)
+    #         adj_list[i].append(num_neurons - 1)
 
     for i in range(len(X_train)):
         X_train[i][num_neurons - 2] = 1
@@ -142,11 +142,13 @@ def make_dataset_cli(
     X_train = torch.tensor(X_train).to(device)
     y_train = torch.tensor(y_train).to(device)
 
-    for X_test, y_test in test_dataset:
-        for i in range(len(X_test)):
-            X_test[i] = list(X_test[i].values())
-        X_test = torch.tensor(X_test).to(device)
-        y_test = torch.tensor(y_test).to(device)
+    for i in range(len(test_dataset)):
+        for j in range(len(test_dataset[i][0])):
+            test_dataset[i][0][j] = list(test_dataset[i][0][j].values())
+        test_dataset[i] = (
+            torch.tensor(test_dataset[i][0]).to(device),
+            torch.tensor(test_dataset[i][1]).to(device),
+        )
     return X_train, y_train, test_dataset, adj_list
 
 

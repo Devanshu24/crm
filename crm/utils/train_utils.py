@@ -1,5 +1,3 @@
-import random
-
 import torch
 from tqdm.auto import tqdm, trange
 
@@ -23,9 +21,9 @@ def train(
     train_accs = []
     val_accs = []
     for e in trange(num_epochs):
-        c = list(zip(X_train, y_train))
-        random.shuffle(c)
-        X_train, y_train = zip(*c)
+        idx = torch.randperm(X_train.shape[0])
+        X_train = X_train[idx]
+        y_train = y_train[idx]
         local_train_losses = []
         for i in trange(len(X_train)):
             f_mapper = X_train[i]
