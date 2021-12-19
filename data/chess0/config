@@ -1,0 +1,4 @@
+./data/chess0/raw/rand_crm_1np.pl
+./data/chess0/raw/rand_crm_1np_train_features
+./data/chess0/raw/rand_crm_1np_test_1_features ./data/chess0/raw/rand_crm_1np_test_2_features ./data/chess0/raw/rand_crm_1np_test_3_features
+0 3
