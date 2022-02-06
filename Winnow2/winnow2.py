@@ -242,9 +242,9 @@ def main():
     #load and test the saved model
     #with open('model.pkl', 'rb') as fp:
     #    savedmodel = pickle.load(fp)
-    #acc = ComputePerf(model['W'], X_test, y_test, model['thres'])
+    #acc = ComputePerf(savedmodel['W'], X_test, y_test, savedmodel['thres'])
     #print(acc)
-    #print(classification_report(y_test, predictAll(W, X_test, thres)))
+    #print(classification_report(y_test, predictAll(savedmodel['W'], X_test, savedmodel['thres'])))
     #fp.close()
 
 	#for analysis of the weights

@@ -16,6 +16,6 @@ cat $srcpath/$dir/raw/$pos_tst_file | sed "s/>  //g" > test.pos;
 cat $srcpath/$dir/raw/$neg_tst_file | sed "s/>  //g" > test.neg;
 
 #prepare the data for Winnow2
-matlab -nodisplay -nojvm -batch 'preparedata'
+#matlab -nodisplay -nojvm -batch 'preparedata'
 
-python winnow2.py
+#python winnow2.py
