@@ -137,19 +137,19 @@ def make_dataset_cli(
             X_test[i][num_neurons - 2] = 1
             X_test[i][num_neurons - 1] = 1
 
-    for i in range(len(X_train)):
-        X_train[i] = list(X_train[i].values())
-    X_train = torch.tensor(X_train).to(device)
-    y_train = torch.tensor(y_train).to(device)
+    # for i in range(len(X_train)):
+    #     X_train[i] = list(X_train[i].values())
+    # X_train = torch.tensor(X_train).to(device)
+    # y_train = torch.tensor(y_train).to(device)
 
-    for i in range(len(test_dataset)):
-        for j in range(len(test_dataset[i][0])):
-            test_dataset[i][0][j] = list(test_dataset[i][0][j].values())
-        test_dataset[i] = (
-            torch.tensor(test_dataset[i][0]).to(device),
-            torch.tensor(test_dataset[i][1]).to(device),
-        )
-    return X_train, y_train, test_dataset, adj_list
+    # for i in range(len(test_dataset)):
+    #     for j in range(len(test_dataset[i][0])):
+    #         test_dataset[i][0][j] = list(test_dataset[i][0][j].values())
+    #     test_dataset[i] = (
+    #         torch.tensor(test_dataset[i][0]).to(device),
+    #         torch.tensor(test_dataset[i][1]).to(device),
+    #     )
+    return X_train, y_train, test_dataset, adj_list, edges
 
 
 def make_dataset(folder, network_name, device=torch.device("cpu"), save: bool = False):
@@ -293,3 +293,11 @@ def make_dataset(folder, network_name, device=torch.device("cpu"), save: bool = 
         save_object(y_test, f"{folder}/y_test.dill")
 
     return X_train, y_train, X_test, y_test, adj_list
+
+
+def edges_to_adj_list(edges):
+    num_neurons = max([max(u, v) for u, v in edges]) + 1
+    adj_list = [[] for i in range(num_neurons)]
+    for u, v in edges:
+        adj_list[u].append(v)
+    return adj_list

@@ -18,10 +18,11 @@ def load_object(filename):
 def get_metrics(n, X_test, y_test, output_dict=False):
     y_pred = []
     for inp in X_test:
+        # print(inp)
         y_pred.append(torch.argmax(n.forward(inp)))
         n.reset()
     return classification_report(
-        (y_test).numpy(),
+        torch.stack(y_test).numpy(),
         torch.tensor(y_pred).numpy(),
         digits=4,
         output_dict=output_dict,
