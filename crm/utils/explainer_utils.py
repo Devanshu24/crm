@@ -1,4 +1,5 @@
 import torch
+from tqdm.auto import tqdm
 
 from crm.core import Network
 
@@ -16,7 +17,7 @@ def get_explanations(
     tn_scores, tn_count = 0, 0
     fn_scores, fn_count = 0, 0
 
-    for i in range(len(X_test)):
+    for i in tqdm(range(len(X_test)), desc="Explanations XTest"):
         n.reset()
         pred = torch.argmax(n.forward(X_test[i]))
         if pred == 1:
@@ -53,7 +54,12 @@ def get_explanations(
                 if len(
                     list(
                         set(true_explanations)
-                        & set([rels[n.num_layers - 1][j][1] for j in range(k)])
+                        & set(
+                            [
+                                rels[n.num_layers - 1][j][1]
+                                for j in range(min(k, len(rels[n.num_layers - 1])))
+                            ]
+                        )
                     )
                 )
                 > 0
@@ -67,7 +73,12 @@ def get_explanations(
                 if len(
                     list(
                         set(true_explanations)
-                        & set([rels[n.num_layers - 1][j][1] for j in range(k)])
+                        & set(
+                            [
+                                rels[n.num_layers - 1][j][1]
+                                for j in range(min(k, len(rels[n.num_layers - 1])))
+                            ]
+                        )
                     )
                 )
                 > 0
@@ -81,7 +92,12 @@ def get_explanations(
                 if len(
                     list(
                         set(true_explanations)
-                        & set([rels[n.num_layers - 1][j][1] for j in range(k)])
+                        & set(
+                            [
+                                rels[n.num_layers - 1][j][1]
+                                for j in range(min(k, len(rels[n.num_layers - 1])))
+                            ]
+                        )
                     )
                 )
                 > 0
@@ -95,7 +111,12 @@ def get_explanations(
                 if len(
                     list(
                         set(true_explanations)
-                        & set([rels[n.num_layers - 1][j][1] for j in range(k)])
+                        & set(
+                            [
+                                rels[n.num_layers - 1][j][1]
+                                for j in range(min(k, len(rels[n.num_layers - 1])))
+                            ]
+                        )
                     )
                 )
                 > 0
