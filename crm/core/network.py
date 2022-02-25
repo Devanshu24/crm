@@ -15,6 +15,7 @@ class Network:
             else Neuron(i, custom_activations[i][0], custom_activations[i][1])
             for i in range(num_neurons)
         ]
+        self.num_layers = 1
         self.weights = self._set_weights()
         self.topo_order = self._topological_sort()
         self._setup_neurons()
@@ -130,6 +131,7 @@ class Network:
                     )
                     + 1
                 )
+                self.num_layers = max(self.num_layers, self.neurons[n_id].layer + 1)
 
     def lrp(self, R, n_id):
         for n in self.neurons:
