@@ -1,5 +1,6 @@
 import torch
 from tqdm.auto import tqdm
+
 from crm.core import Network
 
 
@@ -174,8 +175,7 @@ def get_explanations(
     print(f"FN (top-{k}): {fn_rels[:k]}")
 
 
-
-#added by T:BFS to get the ancestors
+# added by T:BFS to get the ancestors
 def get_ancestors_of_neuron(
     n: Network, current_neuron
 ):
@@ -196,7 +196,7 @@ def get_ancestors_of_neuron(
     return visited
 
 
-#added by T: Get maximal explanation of a CRM
+# added by T: Get maximal explanation of a CRM
 def get_max_explanations(
     n: Network, X_test, y_test, true_explanations, k=1, verbose=False
 ):
@@ -231,33 +231,32 @@ def get_max_explanations(
                     assert False
 
         rels = [sorted(x, key=lambda x: x, reverse=True) for x in rels]
-        top1_vertex = rels[n.num_layers-2][:1][0][1]
-        ancestors = get_ancestors_of_neuron(n,top1_vertex)
+        top1_vertex = rels[n.num_layers - 2][:1][0][1]
+        ancestors = get_ancestors_of_neuron(n, top1_vertex)
 
-        #obtain eval metrics: accuracy and fidelity
+        # obtain eval metrics: accuracy and fidelity
         if y_test[i] == 1:
             if pred == 1:
                 tp_count += 1
             else:
                 fn_count += 1
 
-            if (set(true_explanations) & set(ancestors)):
+            if set(true_explanations) & set(ancestors):
                 ce_count += 1
             else:
                 ie_count += 1
-        
-        
-        if y_test[i] == 0: 
+
+        if y_test[i] == 0:
             if pred == 0:
                 tn_count += 1
             else:
                 fp_count += 1
-            
-            if (set(true_explanations) & set(ancestors)):
+
+            if set(true_explanations) & set(ancestors):
                 ie_count += 1
             else:
                 ce_count += 1
-                
+
         print(f"Explained {i}/{len(X_test)}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{top1_vertex},{ce_count},{ie_count}")
         print(f"\t\tAncestors of {top1_vertex}:{ancestors}")
 
@@ -271,4 +270,3 @@ def get_max_explanations(
     print(f"CE: {ce_count}")
     print(f"IE: {ie_count}")
     print(f"Accuracy: {accuracy}, Fidelity: {fidelity}")
-
