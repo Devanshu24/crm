@@ -5,7 +5,7 @@ import torch
 import torch.nn.functional as F
 
 from crm.core import Network
-from crm.utils import get_explanations, get_metrics, make_dataset_cli, seed_all, train
+from crm.utils import get_explanations, get_max_explanations, get_metrics, make_dataset_cli, seed_all, train
 
 
 def cmd_line_args():
@@ -105,12 +105,22 @@ def main():
     if args.explain:
         print("Explanations")
         for X_test, y_test in test_dataset:
-            get_explanations(
+            #get_explanations(
+            #    n,
+            #    X_test,
+            #    y_test,
+            #    true_explanations=true_explanations,
+            #    k=1,
+            #    verbose=args.verbose
+            #)
+
+            #added by T: get max explanations
+            get_max_explanations(
                 n,
                 X_test,
                 y_test,
                 true_explanations=true_explanations,
-                verbose=args.verbose,
+                verbose=args.verbose
             )
             print("-------------------------------------")
         print("##############################")

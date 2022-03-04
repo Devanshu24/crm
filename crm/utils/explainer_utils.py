@@ -1,6 +1,5 @@
 import torch
 from tqdm.auto import tqdm
-
 from crm.core import Network
 
 
@@ -173,3 +172,91 @@ def get_explanations(
         ]:
             fn_rels.append((fn_values[j].item(), fn_indices[j].item()))
     print(f"FN (top-{k}): {fn_rels[:k]}")
+
+
+
+#added by T:BFS to get the ancestors
+def get_acestors_of_neuron(n: Network, current_neuron):
+
+    visited = []
+    queue = []
+
+    visited.append(current_neuron)
+    queue.append(current_neuron)
+
+    while queue:
+        visit = queue.pop(0)
+
+        for predecessor_neuron in n.neurons[current_neuron].predecessor_neurons:
+            if predecessor_neuron not in visited:
+                visited.append(predecessor_neuron)
+                queue.append(predecessor_neuron)
+
+    return visited
+
+
+#added by T: Get maximal explanation of a CRM
+def get_max_explanations(
+    n: Network, X_test, y_test, true_explanations, k=1, verbose=False
+):
+    tp_count = 0
+    fn_count = 0
+    tn_count = 0
+    fp_count = 0
+
+    ce_count = 0
+    ie_count = 0
+
+    for i in tqdm(range(len(X_test)), desc="Explaining X_test"):
+        print(f"Explaining test instance {i} of {len(X_test)}")
+        n.reset()
+        pred = torch.argmax(n.forward(X_test[i]))
+        if pred == 1:
+            n.lrp(torch.tensor(100.0), n.num_neurons - 1)
+            ancestors = get_acestors_of_neuron(n, n.num_neurons - 1)
+        else:
+            n.lrp(torch.tensor(100.0), n.num_neurons - 2)
+            ancestors = get_acestors_of_neuron(n, n.num_neurons - 2)
+
+        print(f"ancestors:{ancestors}")
+
+        #obtain eval metrics: accuracy and fidelity
+        if y_test[i] == 1 and pred == 1:
+            tp_count += 1
+            if (set(true_explanations) & set(ancestors)):
+                ce_count += 1
+            else:
+                ie_count += 1
+
+        if y_test[i] == 1 and pred == 0:
+            fn_count += 1
+            if (set(true_explanations) & set(ancestors)):
+                ce_count += 1
+            else:
+                ie_count += 1
+        
+        if y_test[i] == 0 and pred == 1:
+            fp_count += 1
+            if (set(true_explanations) & set(ancestors)):
+                ie_count += 1
+            else:
+                ce_count += 1
+        
+        if y_test[i] == 0 and pred == 0:
+            tn_count += 1
+            if (set(true_explanations) & set(ancestors)):
+                ie_count += 1
+            else:
+                ce_count += 1
+
+    accuracy = (tp_count + tn_count) / (tp_count + fn_count + tn_count + fp_count)
+    fidelity = ce_count / (ce_count + ie_count)
+
+    print(f"TP: {tp_count}")
+    print(f"FN: {fn_count}")
+    print(f"TN: {tn_count}")
+    print(f"FP: {fp_count}")
+    print(f"CE: {ce_count}")
+    print(f"IE: {ie_count}")
+    print(f"Accuracy: {accuracy}, Fidelity: {fidelity}")
+

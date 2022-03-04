@@ -1,0 +1,20 @@
+ 1647  python main.py -f ./data/chess3/config -o ./data/chess3/results -n 3 -e -v & disown
+ 1704  python main.py -f ./data/chess1/config -o ./data/chess1/results_layer_one -n 3 -e -v
+ 1706  python main.py -f ./data/chess1/config -o ./data/chess1/results_layer_one -n 3 -e -v
+ 1708  python main.py -f ./data/chess1/config -o ./data/chess1/results_layer_one -n 3 -e -v
+ 1710  python main.py -f ./data/chess1/config -o ./data/chess1/results_layer_one -n 3 -e -v
+ 1711  python main.py -f ./data/chess2/config -o ./data/chess2/results_layer_one -n 3 -e -v
+ 1712  python main.py -f ./data/chess3/config -o ./data/chess3/results_layer_one -n 3 -e -v
+ 1717  python main.py -f ./data/chess1/config -o ./data/chess1/results_layer_one -n 3 -e -v
+ 1718  python main.py -f ./data/chess2/config -o ./data/chess2/results_layer_one -n 3 -e -v
+ 1719  python main.py -f ./data/chess3/config -o ./data/chess3/results_layer_one -n 3 -e -v
+ 1720  python main.py -f ./data/chess0/config -o ./data/chess0/results_layer_one -n 3 -e -v
+ 1724  python main.py -f ./data/chess0/config -o ./data/chess0/results_layer_two -n 3 -e -v
+ 1753  python main.py -f ./data/chess3/config -o ./data/chess3/results_all_connect -n 3 -e -v
+ 1784  python main.py -f ./data/chess3/config -o ./data/chess3/resultsss -n 3 -e -v
+ 1785  python main.py -f ./data/chess3/config -o ./data/chess3/resultsss -n 3 -e -v -gpu True
+ 1919  python main.py -f ./data/chess3/config -o ./data/chess3/ressssss -n 3 -e -v
+ 1920  python main.py -f ./data/chess3/config -o ./data/chess3/ressssss -n 1 -e -v
+ 1922  python main.py -f ./data/chess3/config -o ./data/chess3/res_all_layers -n 1 -e -v
+ 1941  python main.py -f ./data/chess3/config -o ./data/chess3/res_all_layers -n 1 -e -v
+ 1950  python main.py -f ./data/chess3/config -o ./data/chess3/res_all_layers -n 1 -e -v

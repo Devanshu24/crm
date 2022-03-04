@@ -1,0 +1,1 @@
+Namespace(explain=True, file='./data/sample0/config', gpu=False, num_epochs=3, output='./data/sample0/results', verbose=True)

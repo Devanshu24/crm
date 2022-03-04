@@ -32,8 +32,8 @@ class Network:
         self.has_forwarded = True
         self.is_fresh = False
         for n_id in self.topo_order:
-            if self.neurons[n_id].predeccesor_neurons:
-                for pred in self.neurons[n_id].predeccesor_neurons:
+            if self.neurons[n_id].predecessor_neurons:
+                for pred in self.neurons[n_id].predecessor_neurons:
                     self.neurons[n_id].value = self.neurons[n_id].value + (
                         self.weights[(pred, n_id)] * self.neurons[pred].value
                     )
@@ -117,16 +117,16 @@ class Network:
     def _assign_layers(self):
         """Assigns layers to neurons of the network"""
         for n in self.neurons:
-            if len(n.predeccesor_neurons) == 0:
+            if len(n.predecessor_neurons) == 0:
                 n.layer = 0
 
         for n_id in self.topo_order:
-            if len(self.neurons[n_id].predeccesor_neurons) > 0:
+            if len(self.neurons[n_id].predecessor_neurons) > 0:
                 self.neurons[n_id].layer = (
                     max(
                         [
                             self.neurons[i].layer
-                            for i in self.neurons[n_id].predeccesor_neurons
+                            for i in self.neurons[n_id].predecessor_neurons
                         ]
                     )
                     + 1
@@ -142,7 +142,7 @@ class Network:
             for succ in self.neurons[n_id].successor_neurons:
                 my_contribution = 1e-9
                 total_contribution = 1e-9
-                for pred in self.neurons[succ].predeccesor_neurons:
+                for pred in self.neurons[succ].predecessor_neurons:
                     if pred == n_id:
                         my_contribution = (
                             self.neurons[n_id].value * self.weights[(pred, succ)]

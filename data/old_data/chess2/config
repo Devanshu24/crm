@@ -1,0 +1,4 @@
+./data/chess2/raw/rand_crm_1npd3rs.pl
+./data/chess2/raw/rand_crm_1npd3rs_train_features
+./data/chess2/raw/rand_crm_1npd3rs_test_1_features ./data/chess2/raw/rand_crm_1npd3rs_test_2_features ./data/chess2/raw/rand_crm_1npd3rs_test_3_features
+0 3 191 56 52
