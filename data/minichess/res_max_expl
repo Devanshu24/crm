@@ -1,4 +1,4 @@
-Namespace(explain=True, file='./data/minichess/config', gpu=False, num_epochs=3, output='./data/minichess/res_max_expl', verbose=True)
+Namespace(explain=True, file='./data/minichess/config', gpu=False, num_epochs=2, output='./data/minichess/res_max_expl', verbose=True)
 Epoch 0
 Train loss: 1.168466927856207
 Train acc: 0.45
@@ -7,10 +7,8 @@ Epoch 1
 Train loss: 1.0617260420694947
 Train acc: 0.55
 ##############################
-Epoch 2
-Train loss: 0.9774841591715813
-Train acc: 0.55
-##############################
+<<<<<<< Updated upstream
+=======
 Train Metrics
               precision    recall  f1-score   support
 
@@ -25,64 +23,626 @@ weighted avg     0.5505    0.5500    0.5489        20
 Test Metrics
               precision    recall  f1-score   support
 
-           0     0.6364    0.7000    0.6667        10
-           1     0.6667    0.6000    0.6316        10
+           0     0.5385    0.7000    0.6087        10
+           1     0.5714    0.4000    0.4706        10
 
-    accuracy                         0.6500        20
-   macro avg     0.6515    0.6500    0.6491        20
-weighted avg     0.6515    0.6500    0.6491        20
+    accuracy                         0.5500        20
+   macro avg     0.5549    0.5500    0.5396        20
+weighted avg     0.5549    0.5500    0.5396        20
 
 -------------------------------------
 ##############################
 Explanations
-Explaining test instances::
-instance,y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count
-[193, 11, 18]
-Explained 0/20: 1,1,1,0,0,0,193,0,1
-[193, 11, 18]
-Explained 1/20: 1,1,2,0,0,0,193,0,2
-[201, 12, 16]
-Explained 2/20: 1,1,3,0,0,0,201,0,3
-[257, 20, 22]
-Explained 3/20: 1,0,3,1,0,0,257,0,4
-[212, 13, 18]
-Explained 4/20: 1,1,4,1,0,0,212,0,5
-[53, 1, 19]
-Explained 5/20: 1,0,4,2,0,0,53,0,6
-[196, 11, 21]
-Explained 6/20: 1,0,4,3,0,0,196,0,7
-[193, 11, 18]
-Explained 7/20: 1,1,5,3,0,0,193,0,8
-[182, 10, 19]
-Explained 8/20: 1,1,6,3,0,0,182,0,9
-[158, 8, 21]
-Explained 9/20: 1,0,6,4,0,0,158,0,10
-[193, 11, 18]
-Explained 10/20: 0,1,6,4,0,1,193,1,10
-[165, 9, 15]
-Explained 11/20: 0,0,6,4,1,1,165,2,10
-[160, 8, 23]
-Explained 12/20: 0,1,6,4,1,2,160,3,10
-[191, 11, 16]
-Explained 13/20: 0,0,6,4,2,2,191,4,10
-[257, 20, 22]
-Explained 14/20: 0,0,6,4,3,2,257,5,10
-[165, 9, 15]
-Explained 15/20: 0,0,6,4,4,2,165,6,10
-[257, 20, 22]
-Explained 16/20: 0,0,6,4,5,2,257,7,10
-[165, 9, 15]
-Explained 17/20: 0,0,6,4,6,2,165,8,10
-[53, 1, 19]
-Explained 18/20: 0,0,6,4,7,2,53,9,10
-[89, 4, 7]
-Explained 19/20: 0,1,6,4,7,3,89,10,10
-TP: 6
-FN: 4
+Explaining 20 number of test instances::
+Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count
+0: 1,1,1,0,0,0,193,0,1
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(10.3335, 193), (8.6235, 218), (8.5691, 197), (8.194, 177), (6.4991, 96)]
+		L0: [(21.4953, 15), (17.4754, 4), (16.9955, 22), (13.8667, 10), (11.396, 11)]
+1: 1,1,2,0,0,0,193,0,2
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(11.882, 193), (11.7706, 180), (11.4947, 212), (10.1673, 175), (6.6039, 203)]
+		L0: [(23.3777, 18), (18.2787, 10), (18.2234, 12), (17.548, 17), (12.1411, 11)]
+2: 1,0,2,1,0,0,257,0,3
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.3553, 257), (5.5406, 166), (4.7998, 236), (4.7247, 250), (4.5209, 247)]
+		L0: [(13.1843, 16), (13.039, 19), (12.2483, 7), (12.0673, 9), (11.6218, 12)]
+3: 1,0,2,2,0,0,257,0,4
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(5.7445, 257), (5.338, 165), (5.0081, 166), (4.7005, 223), (4.3618, 222)]
+		L0: [(15.3214, 9), (14.7836, 20), (12.16, 7), (11.4607, 19), (10.8916, 16)]
+4: 1,0,2,3,0,0,135,0,5
+	Ancestors of 135: [135, 7, 13]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(9.8916, 135), (8.4334, 250), (7.9331, 163), (6.8877, 168), (6.6406, 216)]
+		L0: [(17.5474, 7), (16.0248, 13), (15.2674, 22), (14.6395, 9), (13.4805, 12)]
+5: 1,0,2,4,0,0,53,0,6
+	Ancestors of 53: [53, 1, 19]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.6863, 53), (5.5254, 257), (4.548, 210), (4.5211, 223), (4.1953, 222)]
+		L0: [(13.6403, 20), (13.5802, 22), (13.4545, 15), (12.862, 19), (11.5898, 18)]
+6: 1,0,2,5,0,0,196,0,7
+	Ancestors of 196: [196, 11, 21]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(8.5, 196), (8.14, 191), (8.0776, 126), (6.9316, 182), (6.4856, 236)]
+		L0: [(19.5733, 10), (18.228, 11), (16.7986, 19), (14.4453, 16), (13.6154, 21)]
+7: 1,1,3,5,0,0,193,0,8
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(8.8274, 193), (8.7446, 180), (7.5535, 175), (7.3201, 197), (5.5519, 96)]
+		L0: [(16.9009, 4), (15.6055, 12), (15.4035, 10), (14.8774, 17), (13.587, 18)]
+8: 1,1,4,5,0,0,182,0,9
+	Ancestors of 182: [182, 10, 19]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(6.6155, 182), (5.8568, 106), (5.5063, 213), (5.3697, 193), (5.1946, 212)]
+		L0: [(14.8804, 12), (14.1928, 19), (13.6477, 5), (12.5746, 18), (12.2982, 10)]
+9: 1,0,4,6,0,0,158,0,10
+	Ancestors of 158: [158, 8, 21]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(12.3691, 158), (10.4713, 196), (8.7078, 210), (7.5433, 176), (7.199, 188)]
+		L0: [(18.5293, 10), (18.4151, 11), (18.1381, 13), (17.5732, 21), (14.3672, 8)]
+Namespace(explain=True, file='./data/minichess/config', gpu=False, num_epochs=2, output='./data/minichess/res_max_expl', verbose=True)
+Epoch 0
+Train loss: 1.168466927856207
+Train acc: 0.45
+##############################
+Epoch 1
+Train loss: 1.0617260420694947
+Train acc: 0.55
+##############################
+>>>>>>> Stashed changes
+***Train Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5556    0.5000    0.5263        10
+           1     0.5455    0.6000    0.5714        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5505    0.5500    0.5489        20
+weighted avg     0.5505    0.5500    0.5489        20
+
+##############################
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5385    0.7000    0.6087        10
+           1     0.5714    0.4000    0.4706        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5549    0.5500    0.5396        20
+weighted avg     0.5549    0.5500    0.5396        20
+
+-------------------------------------
+##############################
+***Generating explanations for the test set***
+Explaining 20 number of test instances::
+Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count
+0: 1,1,1,0,0,0,193,0,1
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(10.3335, 193), (8.6235, 218), (8.5691, 197), (8.194, 177), (6.4991, 96)]
+		L0: [(21.4953, 15), (17.4754, 4), (16.9955, 22), (13.8667, 10), (11.396, 11)]
+1: 1,1,2,0,0,0,193,0,2
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(11.882, 193), (11.7706, 180), (11.4947, 212), (10.1673, 175), (6.6039, 203)]
+		L0: [(23.3777, 18), (18.2787, 10), (18.2234, 12), (17.548, 17), (12.1411, 11)]
+2: 1,0,2,1,0,0,257,0,3
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.3553, 257), (5.5406, 166), (4.7998, 236), (4.7247, 250), (4.5209, 247)]
+		L0: [(13.1843, 16), (13.039, 19), (12.2483, 7), (12.0673, 9), (11.6218, 12)]
+3: 1,0,2,2,0,0,257,0,4
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(5.7445, 257), (5.338, 165), (5.0081, 166), (4.7005, 223), (4.3618, 222)]
+		L0: [(15.3214, 9), (14.7836, 20), (12.16, 7), (11.4607, 19), (10.8916, 16)]
+4: 1,0,2,3,0,0,135,0,5
+	Ancestors of 135: [135, 7, 13]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(9.8916, 135), (8.4334, 250), (7.9331, 163), (6.8877, 168), (6.6406, 216)]
+		L0: [(17.5474, 7), (16.0248, 13), (15.2674, 22), (14.6395, 9), (13.4805, 12)]
+5: 1,0,2,4,0,0,53,0,6
+	Ancestors of 53: [53, 1, 19]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.6863, 53), (5.5254, 257), (4.548, 210), (4.5211, 223), (4.1953, 222)]
+		L0: [(13.6403, 20), (13.5802, 22), (13.4545, 15), (12.862, 19), (11.5898, 18)]
+Namespace(explain=True, file='./data/minichess/config', gpu=False, num_epochs=2, output='./data/minichess/res_max_expl', verbose=True)
+***Loading data***
+***Creating CRM structure***
+***Training CRM***
+Epoch 0
+Train loss: 1.168466927856207
+Train acc: 0.45
+##############################
+Epoch 1
+Train loss: 1.0617260420694947
+Train acc: 0.55
+##############################
+***Train Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5556    0.5000    0.5263        10
+           1     0.5455    0.6000    0.5714        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5505    0.5500    0.5489        20
+weighted avg     0.5505    0.5500    0.5489        20
+
+##############################
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5385    0.7000    0.6087        10
+           1     0.5714    0.4000    0.4706        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5549    0.5500    0.5396        20
+weighted avg     0.5549    0.5500    0.5396        20
+
+-------------------------------------
+##############################
+***Generating explanations for the test set***
+Explaining 20 number of test instances::
+Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count
+0: 1,1,1,0,0,0,193,0,1
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(10.3335, 193), (8.6235, 218), (8.5691, 197), (8.194, 177), (6.4991, 96)]
+		L0: [(21.4953, 15), (17.4754, 4), (16.9955, 22), (13.8667, 10), (11.396, 11)]
+1: 1,1,2,0,0,0,193,0,2
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(11.882, 193), (11.7706, 180), (11.4947, 212), (10.1673, 175), (6.6039, 203)]
+		L0: [(23.3777, 18), (18.2787, 10), (18.2234, 12), (17.548, 17), (12.1411, 11)]
+2: 1,0,2,1,0,0,257,0,3
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.3553, 257), (5.5406, 166), (4.7998, 236), (4.7247, 250), (4.5209, 247)]
+		L0: [(13.1843, 16), (13.039, 19), (12.2483, 7), (12.0673, 9), (11.6218, 12)]
+3: 1,0,2,2,0,0,257,0,4
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(5.7445, 257), (5.338, 165), (5.0081, 166), (4.7005, 223), (4.3618, 222)]
+		L0: [(15.3214, 9), (14.7836, 20), (12.16, 7), (11.4607, 19), (10.8916, 16)]
+4: 1,0,2,3,0,0,135,0,5
+	Ancestors of 135: [135, 7, 13]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(9.8916, 135), (8.4334, 250), (7.9331, 163), (6.8877, 168), (6.6406, 216)]
+		L0: [(17.5474, 7), (16.0248, 13), (15.2674, 22), (14.6395, 9), (13.4805, 12)]
+Namespace(explain=True, file='./data/minichess/config', gpu=False, num_epochs=2, output='./data/minichess/res_max_expl', verbose=True)
+***Loading data***
+***Creating CRM structure***
+***Training CRM***
+Epoch 0
+Train loss: 1.168466927856207
+Train acc: 0.45
+##############################
+Epoch 1
+Train loss: 1.0617260420694947
+Train acc: 0.55
+##############################
+***Train Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5556    0.5000    0.5263        10
+           1     0.5455    0.6000    0.5714        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5505    0.5500    0.5489        20
+weighted avg     0.5505    0.5500    0.5489        20
+
+-------------------------------------
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5385    0.7000    0.6087        10
+           1     0.5714    0.4000    0.4706        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5549    0.5500    0.5396        20
+weighted avg     0.5549    0.5500    0.5396        20
+
+-------------------------------------
+***Generating explanations for the test set***
+Explaining 20 number of test instances::
+Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count
+0: 1,1,1,0,0,0,193,0,1
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(10.3335, 193), (8.6235, 218), (8.5691, 197), (8.194, 177), (6.4991, 96)]
+		L0: [(21.4953, 15), (17.4754, 4), (16.9955, 22), (13.8667, 10), (11.396, 11)]
+1: 1,1,2,0,0,0,193,0,2
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(11.882, 193), (11.7706, 180), (11.4947, 212), (10.1673, 175), (6.6039, 203)]
+		L0: [(23.3777, 18), (18.2787, 10), (18.2234, 12), (17.548, 17), (12.1411, 11)]
+2: 1,0,2,1,0,0,257,0,3
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.3553, 257), (5.5406, 166), (4.7998, 236), (4.7247, 250), (4.5209, 247)]
+		L0: [(13.1843, 16), (13.039, 19), (12.2483, 7), (12.0673, 9), (11.6218, 12)]
+3: 1,0,2,2,0,0,257,0,4
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(5.7445, 257), (5.338, 165), (5.0081, 166), (4.7005, 223), (4.3618, 222)]
+		L0: [(15.3214, 9), (14.7836, 20), (12.16, 7), (11.4607, 19), (10.8916, 16)]
+Namespace(explain=True, file='./data/minichess/config', gpu=False, num_epochs=2, output='./data/minichess/res_max_expl', verbose=True)
+***Loading data***
+***Creating CRM structure***
+***Training CRM***
+Epoch 0
+Train loss: 1.168466927856207
+Train acc: 0.45
+-------------------------------------
+Epoch 1
+Train loss: 1.0617260420694947
+Train acc: 0.55
+-------------------------------------
+***Train Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5556    0.5000    0.5263        10
+           1     0.5455    0.6000    0.5714        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5505    0.5500    0.5489        20
+weighted avg     0.5505    0.5500    0.5489        20
+
+-------------------------------------
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5385    0.7000    0.6087        10
+           1     0.5714    0.4000    0.4706        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5549    0.5500    0.5396        20
+weighted avg     0.5549    0.5500    0.5396        20
+
+-------------------------------------
+***Generating explanations for the test set***
+Explaining 20 number of test instances::
+Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count
+0: 1,1,1,0,0,0,193,0,1
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(10.3335, 193), (8.6235, 218), (8.5691, 197), (8.194, 177), (6.4991, 96)]
+		L0: [(21.4953, 15), (17.4754, 4), (16.9955, 22), (13.8667, 10), (11.396, 11)]
+1: 1,1,2,0,0,0,193,0,2
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(11.882, 193), (11.7706, 180), (11.4947, 212), (10.1673, 175), (6.6039, 203)]
+		L0: [(23.3777, 18), (18.2787, 10), (18.2234, 12), (17.548, 17), (12.1411, 11)]
+2: 1,0,2,1,0,0,257,0,3
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.3553, 257), (5.5406, 166), (4.7998, 236), (4.7247, 250), (4.5209, 247)]
+		L0: [(13.1843, 16), (13.039, 19), (12.2483, 7), (12.0673, 9), (11.6218, 12)]
+3: 1,0,2,2,0,0,257,0,4
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(5.7445, 257), (5.338, 165), (5.0081, 166), (4.7005, 223), (4.3618, 222)]
+		L0: [(15.3214, 9), (14.7836, 20), (12.16, 7), (11.4607, 19), (10.8916, 16)]
+4: 1,0,2,3,0,0,135,0,5
+	Ancestors of 135: [135, 7, 13]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(9.8916, 135), (8.4334, 250), (7.9331, 163), (6.8877, 168), (6.6406, 216)]
+		L0: [(17.5474, 7), (16.0248, 13), (15.2674, 22), (14.6395, 9), (13.4805, 12)]
+5: 1,0,2,4,0,0,53,0,6
+	Ancestors of 53: [53, 1, 19]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.6863, 53), (5.5254, 257), (4.548, 210), (4.5211, 223), (4.1953, 222)]
+		L0: [(13.6403, 20), (13.5802, 22), (13.4545, 15), (12.862, 19), (11.5898, 18)]
+6: 1,0,2,5,0,0,196,0,7
+	Ancestors of 196: [196, 11, 21]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(8.5, 196), (8.14, 191), (8.0776, 126), (6.9316, 182), (6.4856, 236)]
+		L0: [(19.5733, 10), (18.228, 11), (16.7986, 19), (14.4453, 16), (13.6154, 21)]
+7: 1,1,3,5,0,0,193,0,8
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(8.8274, 193), (8.7446, 180), (7.5535, 175), (7.3201, 197), (5.5519, 96)]
+		L0: [(16.9009, 4), (15.6055, 12), (15.4035, 10), (14.8774, 17), (13.587, 18)]
+8: 1,1,4,5,0,0,182,0,9
+	Ancestors of 182: [182, 10, 19]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(6.6155, 182), (5.8568, 106), (5.5063, 213), (5.3697, 193), (5.1946, 212)]
+		L0: [(14.8804, 12), (14.1928, 19), (13.6477, 5), (12.5746, 18), (12.2982, 10)]
+9: 1,0,4,6,0,0,158,0,10
+	Ancestors of 158: [158, 8, 21]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(12.3691, 158), (10.4713, 196), (8.7078, 210), (7.5433, 176), (7.199, 188)]
+		L0: [(18.5293, 10), (18.4151, 11), (18.1381, 13), (17.5732, 21), (14.3672, 8)]
+10: 0,1,4,6,0,1,193,1,10
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(8.3206, 193), (6.9468, 219), (6.9437, 218), (6.8999, 197), (6.5979, 177)]
+		L0: [(16.2556, 15), (15.0828, 22), (14.0492, 11), (13.6647, 18), (11.0399, 16)]
+11: 0,0,4,6,1,1,165,2,10
+	Ancestors of 165: [165, 9, 15]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(9.8166, 165), (9.2099, 166), (8.0213, 222), (7.9786, 236), (7.5149, 247)]
+		L0: [(26.2533, 9), (15.1752, 19), (14.3162, 18), (13.5765, 15), (12.2762, 16)]
+12: 0,1,4,6,1,2,160,3,10
+	Ancestors of 160: [160, 8, 23]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(9.0259, 160), (8.4787, 166), (8.2898, 219), (7.7931, 146), (6.4942, 145)]
+		L0: [(19.7897, 7), (18.5759, 9), (16.0516, 8), (12.7355, 14), (11.502, 16)]
+13: 0,0,4,6,2,2,191,4,10
+	Ancestors of 191: [191, 11, 16]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(13.655, 191), (11.7874, 223), (8.2871, 192), (7.7014, 136), (7.5392, 133)]
+		L0: [(20.7214, 7), (20.6693, 20), (17.8908, 11), (16.8147, 14), (13.8097, 16)]
+14: 0,0,4,6,3,2,257,5,10
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(10.4499, 257), (9.8588, 157), (8.5506, 223), (7.4513, 230), (7.1642, 183)]
+		L0: [(25.9506, 20), (15.5627, 8), (14.8482, 22), (13.8984, 10), (13.2543, 15)]
+15: 0,0,4,6,4,2,165,6,10
+	Ancestors of 165: [165, 9, 15]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(15.2926, 165), (14.3504, 135), (13.5464, 210), (11.5091, 163), (9.4736, 164)]
+		L0: [(29.2724, 9), (21.535, 15), (19.8239, 7), (18.4836, 13), (10.8852, 14)]
+16: 0,0,4,6,5,2,257,7,10
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(11.6539, 257), (10.9947, 157), (9.6449, 149), (8.7269, 180), (7.9896, 183)]
+		L0: [(18.4133, 20), (17.8956, 10), (15.398, 8), (15.0894, 17), (12.8568, 22)]
+17: 0,0,4,6,6,2,165,8,10
+	Ancestors of 165: [165, 9, 15]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(8.9464, 165), (7.4605, 116), (7.1576, 250), (5.8457, 168), (5.5422, 164)]
+		L0: [(21.9765, 9), (18.8548, 7), (13.6105, 6), (13.582, 22), (12.6617, 15)]
+18: 0,0,4,6,7,2,149,9,10
+	Ancestors of 149: [149, 8, 12]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(12.5386, 149), (10.5951, 163), (8.6792, 53), (8.3844, 51), (6.9644, 204)]
+		L0: [(25.3663, 17), (21.1479, 19), (14.2478, 9), (13.9301, 13), (12.7001, 8)]
+19: 0,1,4,6,7,3,167,10,10
+	Ancestors of 167: [167, 9, 17]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(8.8869, 167), (8.8372, 146), (7.5493, 172), (6.258, 203), (6.1975, 131)]
+		L0: [(17.8975, 7), (17.7594, 17), (17.5516, 9), (14.035, 18), (13.051, 12)]
+TP: 4
+FN: 6
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 TN: 7
 FP: 3
 CE: 10
 IE: 10
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Accuracy: 0.65, Fidelity: 0.5
 -------------------------------------
 ##############################
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+Accuracy: 0.55, Fidelity: 0.5
+-------------------------------------
+Namespace(explain=True, file='./data/minichess/config', gpu=False, num_epochs=2, output='./data/minichess/res_max_expl', verbose=True)
+***Loading data***
+***Creating CRM structure***
+***Training CRM***
+Epoch 0
+Train loss: 1.168466927856207
+Train acc: 0.45
+-------------------------------------
+Epoch 1
+Train loss: 1.0617260420694947
+Train acc: 0.55
+-------------------------------------
+***Train Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5556    0.5000    0.5263        10
+           1     0.5455    0.6000    0.5714        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5505    0.5500    0.5489        20
+weighted avg     0.5505    0.5500    0.5489        20
+
+-------------------------------------
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5385    0.7000    0.6087        10
+           1     0.5714    0.4000    0.4706        10
+
+    accuracy                         0.5500        20
+   macro avg     0.5549    0.5500    0.5396        20
+weighted avg     0.5549    0.5500    0.5396        20
+
+-------------------------------------
+***Generating explanations for the test set***
+Explaining 20 number of test instances::
+Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count
+0: 1,1,1,0,0,0,193,0,1
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(10.3335, 193), (8.6235, 218), (8.5691, 197), (8.194, 177), (6.4991, 96)]
+		L0: [(21.4953, 15), (17.4754, 4), (16.9955, 22), (13.8667, 10), (11.396, 11)]
+1: 1,1,2,0,0,0,193,0,2
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(11.882, 193), (11.7706, 180), (11.4947, 212), (10.1673, 175), (6.6039, 203)]
+		L0: [(23.3777, 18), (18.2787, 10), (18.2234, 12), (17.548, 17), (12.1411, 11)]
+2: 1,0,2,1,0,0,257,0,3
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.3553, 257), (5.5406, 166), (4.7998, 236), (4.7247, 250), (4.5209, 247)]
+		L0: [(13.1843, 16), (13.039, 19), (12.2483, 7), (12.0673, 9), (11.6218, 12)]
+3: 1,0,2,2,0,0,257,0,4
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(5.7445, 257), (5.338, 165), (5.0081, 166), (4.7005, 223), (4.3618, 222)]
+		L0: [(15.3214, 9), (14.7836, 20), (12.16, 7), (11.4607, 19), (10.8916, 16)]
+4: 1,0,2,3,0,0,135,0,5
+	Ancestors of 135: [135, 7, 13]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(9.8916, 135), (8.4334, 250), (7.9331, 163), (6.8877, 168), (6.6406, 216)]
+		L0: [(17.5474, 7), (16.0248, 13), (15.2674, 22), (14.6395, 9), (13.4805, 12)]
+5: 1,0,2,4,0,0,53,0,6
+	Ancestors of 53: [53, 1, 19]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(6.6863, 53), (5.5254, 257), (4.548, 210), (4.5211, 223), (4.1953, 222)]
+		L0: [(13.6403, 20), (13.5802, 22), (13.4545, 15), (12.862, 19), (11.5898, 18)]
+6: 1,0,2,5,0,0,196,0,7
+	Ancestors of 196: [196, 11, 21]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(8.5, 196), (8.14, 191), (8.0776, 126), (6.9316, 182), (6.4856, 236)]
+		L0: [(19.5733, 10), (18.228, 11), (16.7986, 19), (14.4453, 16), (13.6154, 21)]
+7: 1,1,3,5,0,0,193,0,8
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(8.8274, 193), (8.7446, 180), (7.5535, 175), (7.3201, 197), (5.5519, 96)]
+		L0: [(16.9009, 4), (15.6055, 12), (15.4035, 10), (14.8774, 17), (13.587, 18)]
+8: 1,1,4,5,0,0,182,0,9
+	Ancestors of 182: [182, 10, 19]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(6.6155, 182), (5.8568, 106), (5.5063, 213), (5.3697, 193), (5.1946, 212)]
+		L0: [(14.8804, 12), (14.1928, 19), (13.6477, 5), (12.5746, 18), (12.2982, 10)]
+9: 1,0,4,6,0,0,158,0,10
+	Ancestors of 158: [158, 8, 21]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(12.3691, 158), (10.4713, 196), (8.7078, 210), (7.5433, 176), (7.199, 188)]
+		L0: [(18.5293, 10), (18.4151, 11), (18.1381, 13), (17.5732, 21), (14.3672, 8)]
+10: 0,1,4,6,0,1,193,1,10
+	Ancestors of 193: [193, 11, 18]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(8.3206, 193), (6.9468, 219), (6.9437, 218), (6.8999, 197), (6.5979, 177)]
+		L0: [(16.2556, 15), (15.0828, 22), (14.0492, 11), (13.6647, 18), (11.0399, 16)]
+11: 0,0,4,6,1,1,165,2,10
+	Ancestors of 165: [165, 9, 15]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(9.8166, 165), (9.2099, 166), (8.0213, 222), (7.9786, 236), (7.5149, 247)]
+		L0: [(26.2533, 9), (15.1752, 19), (14.3162, 18), (13.5765, 15), (12.2762, 16)]
+12: 0,1,4,6,1,2,160,3,10
+	Ancestors of 160: [160, 8, 23]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(9.0259, 160), (8.4787, 166), (8.2898, 219), (7.7931, 146), (6.4942, 145)]
+		L0: [(19.7897, 7), (18.5759, 9), (16.0516, 8), (12.7355, 14), (11.502, 16)]
+13: 0,0,4,6,2,2,191,4,10
+	Ancestors of 191: [191, 11, 16]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(13.655, 191), (11.7874, 223), (8.2871, 192), (7.7014, 136), (7.5392, 133)]
+		L0: [(20.7214, 7), (20.6693, 20), (17.8908, 11), (16.8147, 14), (13.8097, 16)]
+14: 0,0,4,6,3,2,257,5,10
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(10.4499, 257), (9.8588, 157), (8.5506, 223), (7.4513, 230), (7.1642, 183)]
+		L0: [(25.9506, 20), (15.5627, 8), (14.8482, 22), (13.8984, 10), (13.2543, 15)]
+15: 0,0,4,6,4,2,165,6,10
+	Ancestors of 165: [165, 9, 15]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(15.2926, 165), (14.3504, 135), (13.5464, 210), (11.5091, 163), (9.4736, 164)]
+		L0: [(29.2724, 9), (21.535, 15), (19.8239, 7), (18.4836, 13), (10.8852, 14)]
+16: 0,0,4,6,5,2,257,7,10
+	Ancestors of 257: [257, 20, 22]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(11.6539, 257), (10.9947, 157), (9.6449, 149), (8.7269, 180), (7.9896, 183)]
+		L0: [(18.4133, 20), (17.8956, 10), (15.398, 8), (15.0894, 17), (12.8568, 22)]
+17: 0,0,4,6,6,2,165,8,10
+	Ancestors of 165: [165, 9, 15]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(8.9464, 165), (7.4605, 116), (7.1576, 250), (5.8457, 168), (5.5422, 164)]
+		L0: [(21.9765, 9), (18.8548, 7), (13.6105, 6), (13.582, 22), (12.6617, 15)]
+18: 0,0,4,6,7,2,149,9,10
+	Ancestors of 149: [149, 8, 12]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 262), (0, 263)]
+		L1: [(12.5386, 149), (10.5951, 163), (8.6792, 53), (8.3844, 51), (6.9644, 204)]
+		L0: [(25.3663, 17), (21.1479, 19), (14.2478, 9), (13.9301, 13), (12.7001, 8)]
+19: 0,1,4,6,7,3,167,10,10
+	Ancestors of 167: [167, 9, 17]
+	Top-5 neurons in each CRM layer (ordered by relevance descending):
+		L2: [(100.0, 263), (0, 262)]
+		L1: [(8.8869, 167), (8.8372, 146), (7.5493, 172), (6.258, 203), (6.1975, 131)]
+		L0: [(17.8975, 7), (17.7594, 17), (17.5516, 9), (14.035, 18), (13.051, 12)]
+
+Explanation statistics:
+TP: 4
+FN: 6
+TN: 7
+FP: 3
+CE: 10
+IE: 10
+Accuracy: 0.55, Fidelity: 0.5
+-------------------------------------

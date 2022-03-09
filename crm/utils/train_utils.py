@@ -59,7 +59,7 @@ def train(
             if X_val is not None and y_val is not None:
                 tqdm.write(f"Val loss: {val_losses[-1]}")
                 tqdm.write(f"Val acc: {val_accs[-1]}")
-            tqdm.write("##############################")
+            tqdm.write("-------------------------------------")
     return (
         (train_losses, train_accs, val_losses, val_accs)
         if X_val is not None and y_val is not None

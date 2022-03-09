@@ -206,9 +206,9 @@ def get_max_explanations(
     ce_count = 0
     ie_count = 0
 
-    print("Explaining test instances::")
+    print(f"Explaining {len(X_test)} number of test instances::")
     print(
-        "instance,y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count"
+        "Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count"
     )
     for i in tqdm(range(len(X_test)), desc="Explaining X_test"):
         n.reset()
@@ -223,7 +223,7 @@ def get_max_explanations(
             if n.neurons[j] not in [n.num_neurons - 2, n.num_neurons - 1]:
                 try:
                     rels[n.neurons[j].layer].append(
-                        (torch.tensor(n.neurons[j].relevance).item(), j)
+                        (round(torch.tensor(n.neurons[j].relevance).item(), 4), j)
                     )
                 except Exception as e:
                     print(j, n.neurons[j].layer, n.neurons[j].relevance)
@@ -257,15 +257,17 @@ def get_max_explanations(
             else:
                 ce_count += 1
 
-        print(f"Explained {i}/{len(X_test)}:", end="")
         print(
-            f"{y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{top1_vertex},{ce_count},{ie_count}"
+            f"{i}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{top1_vertex},{ce_count},{ie_count}"
         )
-        print(f"\t\tAncestors of {top1_vertex}:{ancestors}")
+        print(f"\tAncestors of {top1_vertex}: {ancestors}")
+        print("\tTop-5 neurons in each CRM layer (ordered by relevance descending):")
+        for l_id in reversed(range(n.num_layers)):
+            print(f"\t\tL{l_id}: {rels[l_id][:5]}")
 
     accuracy = (tp_count + tn_count) / (tp_count + fn_count + tn_count + fp_count)
     fidelity = ce_count / (ce_count + ie_count)
-
+    print("\nExplanation statistics:")
     print(f"TP: {tp_count}")
     print(f"FN: {fn_count}")
     print(f"TN: {tn_count}")

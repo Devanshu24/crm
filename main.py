@@ -53,7 +53,10 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() and args.gpu else "cpu")
     sys.stdout = Logger(args.output)
     print(args)
+
+    # Load data
     file_name = args.file
+    print("***Loading data***")
     with open(file_name, "r") as f:
         graph_file = f.readline()[:-1]
         train_file = f.readline()[:-1]
@@ -88,8 +91,12 @@ def main():
     #         test_dataset[i][0][j][num_neurons - 2] = 1
     #         test_dataset[i][0][j][num_neurons - 1] = 1
 
+    # Create CRM structure and train with input data
+    print("***Creating CRM structure***")
     n = Network(len(adj_list), adj_list)
     n.to(device)
+
+    print("***Training CRM***")
     criterion = F.cross_entropy
     optimizer = torch.optim.Adam(n.parameters(), lr=0.001)
     train_losses, train_accs = train(
@@ -97,19 +104,19 @@ def main():
     )
 
     # Train metrics
-    print("Train Metrics")
+    print("***Train Metrics***")
     print(get_metrics(n, X_train, y_train))
-    print("##############################")
+    print("-------------------------------------")
 
     # Test metrics
-    print("Test Metrics")
+    print("***Test Metrics***")
     for X_test, y_test in test_dataset:
         print(get_metrics(n, X_test, y_test))
         print("-------------------------------------")
-    print("##############################")
 
+    # Explain the test instances
     if args.explain:
-        print("Explanations")
+        print("***Generating explanations for the test set***")
         for X_test, y_test in test_dataset:
             # get_explanations(
             #    n,
@@ -129,7 +136,6 @@ def main():
                 verbose=args.verbose,
             )
             print("-------------------------------------")
-        print("##############################")
 
 
 if __name__ == "__main__":
