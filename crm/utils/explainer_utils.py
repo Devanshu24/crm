@@ -261,7 +261,7 @@ def get_max_explanations(
             f"{i}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{top1_vertex},{ce_count},{ie_count}"
         )
         print(f"\tAncestors of {top1_vertex}: {ancestors}")
-        print("\tTop-5 neurons in each CRM layer (ordered by relevance descending):")
+        print("\tTop-5 neurons in each CRM layer (ordered by relevance, descending):")
         for l_id in reversed(range(n.num_layers)):
             print(f"\t\tL{l_id}: {rels[l_id][:5]}")
 
