@@ -126,25 +126,24 @@ Best model: {'W': array([6.40000000e+01, 1.56250000e-02, 1.25000000e-01, 6.40000
        3.81469727e-06, 1.95312500e-03, 2.38418579e-07, 4.88281250e-04,
        7.62939453e-06, 9.76562500e-04]), 'alpha': 2, 'thres': 262, 'train_perf': 0.99925, 'val_perf': 1.0}
 Independent test accuracy: 0.9965351812366737
-(base) dell5810@dell5810:~/tdash/crm/Winnow2$ vi preparedata.m 
-(base) dell5810@dell5810:~/tdash/crm/Winnow2$ vi preparedata.m 
-(base) dell5810@dell5810:~/tdash/crm/Winnow2$ vi winnow2.py 
+(base) dell5810@dell5810:~/tdash/crm/Winnow2$ vi preparedata.m
+(base) dell5810@dell5810:~/tdash/crm/Winnow2$ vi preparedata.m
+(base) dell5810@dell5810:~/tdash/crm/Winnow2$ vi winnow2.py
 (base) dell5810@dell5810:~/tdash/crm/Winnow2$ python
-Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
+Python 3.7.6 (default, Jan  8 2020, 19:59:22)
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import numpy as np
 >>> import pandas as pd
 >>> with open('model.pkl', 'rb') as fp:
 ...     savedmodel = pickle.load(fp)
-... 
+...
 Traceback (most recent call last):
   File "<stdin>", line 2, in <module>
 NameError: name 'pickle' is not defined
 >>> import pickle
 >>> with open('model.pkl', 'rb') as fp:
 ...     savedmodel = pickle.load(fp)
-... 
+...
 >>> DF = pd.DataFrame(savedmodel['W'])
 >>> DF.to_csv("weights.csv")
-

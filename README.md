@@ -3,6 +3,7 @@
 Neural networks that are explainable by design
 
 ## Usage
+
 ```console
 $ python3 main.py -h
 usage: main.py [-h] -f FILE -o OUTPUT -n NUM_EPOCHS [-e] [-v]

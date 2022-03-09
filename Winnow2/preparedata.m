@@ -17,7 +17,7 @@ lineCounter = 1;
 while ischar(textLine)
     numbers = sscanf(textLine, '%d ');
     line{lineCounter} = numbers;
-    
+
     % Read the next line.
     textLine = fgets(fid);
     lineCounter = lineCounter + 1;
@@ -45,7 +45,7 @@ lineCounter = numPosInstance + 1;
 while ischar(textLine)
     numbers = sscanf(textLine, '%d ');
     line{lineCounter} = numbers;
-    
+
     % Read the next line.
     textLine = fgets(fid);
     lineCounter = lineCounter + 1;
@@ -94,7 +94,7 @@ lineCounter = 1;
 while ischar(textLine)
     numbers = sscanf(textLine, '%d ');
     line{lineCounter} = numbers;
-    
+
     % Read the next line.
     textLine = fgets(fid);
     lineCounter = lineCounter + 1;
@@ -122,7 +122,7 @@ lineCounter = numPosInstance + 1;
 while ischar(textLine)
     numbers = sscanf(textLine, '%d ');
     line{lineCounter} = numbers;
-    
+
     % Read the next line.
     textLine = fgets(fid);
     lineCounter = lineCounter + 1;

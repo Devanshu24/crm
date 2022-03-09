@@ -176,9 +176,7 @@ def get_explanations(
 
 
 # added by T:BFS to get the ancestors
-def get_ancestors_of_neuron(
-    n: Network, current_neuron
-):
+def get_ancestors_of_neuron(n: Network, current_neuron):
     visited = []
     queue = []
 
@@ -186,7 +184,7 @@ def get_ancestors_of_neuron(
     queue.append(current_neuron)
 
     while queue:
-        visit = queue.pop(0)
+        visit = queue.pop(0)  # noqa
 
         for predecessor_neuron in n.neurons[current_neuron].predecessor_neurons:
             if predecessor_neuron not in visited:
@@ -208,8 +206,10 @@ def get_max_explanations(
     ce_count = 0
     ie_count = 0
 
-    print(f"Explaining test instances::")
-    print(f"instance,y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count")
+    print("Explaining test instances::")
+    print(
+        "instance,y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count"
+    )
     for i in tqdm(range(len(X_test)), desc="Explaining X_test"):
         n.reset()
         pred = torch.argmax(n.forward(X_test[i]))
@@ -257,7 +257,10 @@ def get_max_explanations(
             else:
                 ce_count += 1
 
-        print(f"Explained {i}/{len(X_test)}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{top1_vertex},{ce_count},{ie_count}")
+        print(f"Explained {i}/{len(X_test)}:", end="")
+        print(
+            f"{y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{top1_vertex},{ce_count},{ie_count}"
+        )
         print(f"\t\tAncestors of {top1_vertex}:{ancestors}")
 
     accuracy = (tp_count + tn_count) / (tp_count + fn_count + tn_count + fp_count)
