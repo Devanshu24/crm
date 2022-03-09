@@ -8,6 +8,7 @@ from crm.core import Network
 from crm.utils import (  # get_explanations,
     get_max_explanations,
     get_metrics,
+    load_object,
     make_dataset_cli,
     seed_all,
     train,
@@ -20,6 +21,14 @@ def cmd_line_args():
     )
     parser.add_argument("-f", "--file", help="input file", required=True)
     parser.add_argument("-o", "--output", help="output file", required=True)
+    parser.add_argument(
+        "-s",
+        "--saved-model",
+        type=str,
+        help="location of saved model",
+        required=False,
+        default=None,
+    )
     parser.add_argument(
         "-n", "--num-epochs", type=int, help="number of epochs", required=True
     )
@@ -96,11 +105,22 @@ def main():
     n = Network(len(adj_list), adj_list)
     n.to(device)
 
+    if args.saved_model:
+        print("***Loading Saved Model***")
+        n = load_object(args.saved_model)
+
     print("***Training CRM***")
     criterion = F.cross_entropy
     optimizer = torch.optim.Adam(n.parameters(), lr=0.001)
     train_losses, train_accs = train(
-        n, X_train, y_train, args.num_epochs, optimizer, criterion, verbose=args.verbose
+        n,
+        X_train,
+        y_train,
+        args.num_epochs,
+        optimizer,
+        criterion,
+        args.output + "_model",
+        verbose=args.verbose,
     )
 
     # Train metrics

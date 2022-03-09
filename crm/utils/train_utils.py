@@ -4,7 +4,7 @@ import torch
 from tqdm.auto import tqdm, trange
 
 from crm.core import Network
-from crm.utils import get_metrics
+from crm.utils import get_metrics, save_object
 
 
 def train(
@@ -14,6 +14,7 @@ def train(
     num_epochs: int,
     optimizer: torch.optim.Optimizer,
     criterion,
+    save_here: str,
     X_val=None,
     y_val=None,
     verbose: bool = False,
@@ -60,6 +61,7 @@ def train(
                 tqdm.write(f"Val loss: {val_losses[-1]}")
                 tqdm.write(f"Val acc: {val_accs[-1]}")
             tqdm.write("-------------------------------------")
+        save_object(n, f"{save_here}_{e}.pt")
     return (
         (train_losses, train_accs, val_losses, val_accs)
         if X_val is not None and y_val is not None
