@@ -124,9 +124,10 @@ def main():
     )
 
     # Train metrics
-    print("***Train Metrics***")
-    print(get_metrics(n, X_train, y_train))
-    print("-------------------------------------")
+    if not args.saved_model:
+        print("***Train Metrics***")
+        print(get_metrics(n, X_train, y_train))
+        print("-------------------------------------")
 
     # Test metrics
     print("***Test Metrics***")
@@ -153,6 +154,7 @@ def main():
                 X_test,
                 y_test,
                 true_explanations=true_explanations,
+                k=1,
                 verbose=args.verbose,
             )
             print("-------------------------------------")

@@ -175,22 +175,16 @@ def get_explanations(
     print(f"FN (top-{k}): {fn_rels[:k]}")
 
 
-# added by T:BFS to get the ancestors
-def get_ancestors_of_neuron(n: Network, current_neuron):
-    visited = []
-    queue = []
-
-    visited.append(current_neuron)
-    queue.append(current_neuron)
-
+# added by T:BFS to get the ancestors of neurons
+def get_ancestors_of_neurons(n: Network, current_neurons):
+    visited = list(current_neurons)
+    queue = list(current_neurons)
     while queue:
-        visit = queue.pop(0)  # noqa
-
-        for predecessor_neuron in n.neurons[current_neuron].predecessor_neurons:
+        visit = queue.pop(0)
+        for predecessor_neuron in n.neurons[visit].predecessor_neurons:
             if predecessor_neuron not in visited:
                 visited.append(predecessor_neuron)
                 queue.append(predecessor_neuron)
-
     return visited
 
 
@@ -206,9 +200,9 @@ def get_max_explanations(
     ce_count = 0
     ie_count = 0
 
-    print(f"Explaining {len(X_test)} number of test instances::")
+    print(f"Explaining {len(X_test)} test instances::")
     print(
-        "Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-1_neuron,ce_count,ie_count"
+        f"Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-{k}_neurons,ce_count,ie_count"
     )
     for i in tqdm(range(len(X_test)), desc="Explaining X_test"):
         n.reset()
@@ -231,8 +225,9 @@ def get_max_explanations(
                     assert False
 
         rels = [sorted(x, key=lambda x: x, reverse=True) for x in rels]
-        top1_vertex = rels[n.num_layers - 2][:1][0][1]
-        ancestors = get_ancestors_of_neuron(n, top1_vertex)
+        topk_rels = rels[n.num_layers - 2][:k]
+        topk_vertices = [x[1] for x in topk_rels]
+        ancestors = get_ancestors_of_neurons(n, topk_vertices)
 
         # obtain eval metrics: accuracy and fidelity
         if y_test[i] == 1:
@@ -258,9 +253,9 @@ def get_max_explanations(
                 ce_count += 1
 
         print(
-            f"{i}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{top1_vertex},{ce_count},{ie_count}"
+            f"{i}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{topk_vertices},{ce_count},{ie_count}"
         )
-        print(f"\tAncestors of {top1_vertex}: {ancestors}")
+        print(f"\tAncestors of {topk_vertices}: {ancestors}")
         print("\tTop-5 neurons in each CRM layer (ordered by relevance, descending):")
         for l_id in reversed(range(n.num_layers)):
             print(f"\t\tL{l_id}: {rels[l_id][:5]}")

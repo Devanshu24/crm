@@ -1,3 +1,4 @@
+import os
 import re
 from typing import List
 
@@ -57,25 +58,27 @@ def make_dataset_cli(
     train_pos_file = train_file + "_pos"
     train_neg_file = train_file + "_neg"
 
-    with open(f"{train_pos_file}", "r") as f:
-        while True:
-            gg = f.readline().split(" ")[3:-1]
-            if not gg:
-                break
-            all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
-            X_train.append(dd)
-            y_train.append(torch.tensor(1))
+    if os.path.exists(f"{train_pos_file}"):
+        with open(f"{train_pos_file}", "r") as f:
+            while True:
+                gg = f.readline().split(" ")[3:-1]
+                if not gg:
+                    break
+                all_pos = [int(e) - 1 for e in gg]
+                dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+                X_train.append(dd)
+                y_train.append(torch.tensor(1))
 
-    with open(f"{train_neg_file}", "r") as f:
-        while True:
-            gg = f.readline().split(" ")[3:-1]
-            if not gg:
-                break
-            all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
-            X_train.append(dd)
-            y_train.append(torch.tensor(0))
+    if os.path.exists(f"{train_neg_file}"):
+        with open(f"{train_neg_file}", "r") as f:
+            while True:
+                gg = f.readline().split(" ")[3:-1]
+                if not gg:
+                    break
+                all_pos = [int(e) - 1 for e in gg]
+                dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+                X_train.append(dd)
+                y_train.append(torch.tensor(0))
 
     test_dataset = []
     for test_file in test_files:
@@ -84,25 +87,28 @@ def make_dataset_cli(
         test_pos_file = test_file + "_pos"
         test_neg_file = test_file + "_neg"
 
-        with open(f"{test_pos_file}", "r") as f:
-            while True:
-                gg = f.readline().split(" ")[3:-1]
-                if not gg:
-                    break
-                all_pos = [int(e) - 1 for e in gg]
-                dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
-                X_test.append(dd)
-                y_test.append(torch.tensor(1))
+        if os.path.exists(f"{test_pos_file}"):
+            with open(f"{test_pos_file}", "r") as f:
+                while True:
+                    gg = f.readline().split(" ")[3:-1]
+                    if not gg:
+                        break
+                    all_pos = [int(e) - 1 for e in gg]
+                    dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+                    X_test.append(dd)
+                    y_test.append(torch.tensor(1))
 
-        with open(f"{test_neg_file}", "r") as f:
-            while True:
-                gg = f.readline().split(" ")[3:-1]
-                if not gg:
-                    break
-                all_pos = [int(e) - 1 for e in gg]
-                dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
-                X_test.append(dd)
-                y_test.append(torch.tensor(0))
+        if os.path.exists(f"{test_neg_file}"):
+            with open(f"{test_neg_file}", "r") as f:
+                while True:
+                    gg = f.readline().split(" ")[3:-1]
+                    if not gg:
+                        break
+                    all_pos = [int(e) - 1 for e in gg]
+                    dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+                    X_test.append(dd)
+                    y_test.append(torch.tensor(0))
+
         test_dataset.append((X_test, y_test))
 
     adj_list = [[] for i in range(num_neurons)]
@@ -205,48 +211,52 @@ def make_dataset(folder, network_name, device=torch.device("cpu"), save: bool = 
     X_train = []
     y_train = []
 
-    with open(f"{train_pos_file}", "r") as f:
-        while True:
-            gg = f.readline().split(" ")[3:-1]
-            if not gg:
-                break
-            all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
-            X_train.append(dd)
-            y_train.append(torch.tensor(1))
+    if os.path.exists(f"{train_pos_file}"):
+        with open(f"{train_pos_file}", "r") as f:
+            while True:
+                gg = f.readline().split(" ")[3:-1]
+                if not gg:
+                    break
+                all_pos = [int(e) - 1 for e in gg]
+                dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+                X_train.append(dd)
+                y_train.append(torch.tensor(1))
 
-    with open(f"{train_neg_file}", "r") as f:
-        while True:
-            gg = f.readline().split(" ")[3:-1]
-            if not gg:
-                break
-            all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
-            X_train.append(dd)
-            y_train.append(torch.tensor(0))
+    if os.path.exists(f"{train_neg_file}"):
+        with open(f"{train_neg_file}", "r") as f:
+            while True:
+                gg = f.readline().split(" ")[3:-1]
+                if not gg:
+                    break
+                all_pos = [int(e) - 1 for e in gg]
+                dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+                X_train.append(dd)
+                y_train.append(torch.tensor(0))
 
     X_test = []
     y_test = []
 
-    with open(f"{test_pos_file}", "r") as f:
-        while True:
-            gg = f.readline().split(" ")[3:-1]
-            if not gg:
-                break
-            all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
-            X_test.append(dd)
-            y_test.append(torch.tensor(1))
+    if os.path.exists(f"{test_pos_file}"):
+        with open(f"{test_pos_file}", "r") as f:
+            while True:
+                gg = f.readline().split(" ")[3:-1]
+                if not gg:
+                    break
+                all_pos = [int(e) - 1 for e in gg]
+                dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+                X_test.append(dd)
+                y_test.append(torch.tensor(1))
 
-    with open(f"{test_neg_file}", "r") as f:
-        while True:
-            gg = f.readline().split(" ")[3:-1]
-            if not gg:
-                break
-            all_pos = [int(e) - 1 for e in gg]
-            dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
-            X_test.append(dd)
-            y_test.append(torch.tensor(0))
+    if os.path.exists(f"{test_neg_file}"):
+        with open(f"{test_neg_file}", "r") as f:
+            while True:
+                gg = f.readline().split(" ")[3:-1]
+                if not gg:
+                    break
+                all_pos = [int(e) - 1 for e in gg]
+                dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
+                X_test.append(dd)
+                y_test.append(torch.tensor(0))
 
     adj_list = [[] for i in range(num_neurons)]
     for u, v in edges:
