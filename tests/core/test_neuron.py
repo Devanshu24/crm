@@ -19,7 +19,7 @@ def test_predecessor():
     n = Neuron(0)
     predecessors = [Neuron(1), Neuron(2), Neuron(3)]
     n.set_predecessor_neurons(predecessors)
-    assert n.predeccesor_neurons == predecessors
+    assert n.predecessor_neurons == predecessors
 
 
 def test_activation():
