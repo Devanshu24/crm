@@ -61,9 +61,12 @@ def make_dataset_cli(
     if os.path.exists(f"{train_pos_file}"):
         with open(f"{train_pos_file}", "r") as f:
             while True:
-                gg = f.readline().split(" ")[3:-1]
+                gg = f.readline()  # .split(" ")[3:-1]
                 if not gg:
                     break
+                gg = gg.split(" ")[3:-1]
+                if not gg:
+                    continue
                 all_pos = [int(e) - 1 for e in gg]
                 dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                 X_train.append(dd)
@@ -72,9 +75,12 @@ def make_dataset_cli(
     if os.path.exists(f"{train_neg_file}"):
         with open(f"{train_neg_file}", "r") as f:
             while True:
-                gg = f.readline().split(" ")[3:-1]
+                gg = f.readline()  # .split(" ")[3:-1]
                 if not gg:
                     break
+                gg = gg.split(" ")[3:-1]
+                if not gg:
+                    continue
                 all_pos = [int(e) - 1 for e in gg]
                 dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                 X_train.append(dd)
@@ -90,9 +96,12 @@ def make_dataset_cli(
         if os.path.exists(f"{test_pos_file}"):
             with open(f"{test_pos_file}", "r") as f:
                 while True:
-                    gg = f.readline().split(" ")[3:-1]
+                    gg = f.readline()  # .split(" ")[3:-1]
                     if not gg:
                         break
+                    gg = gg.split(" ")[3:-1]
+                    if not gg:
+                        continue
                     all_pos = [int(e) - 1 for e in gg]
                     dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                     X_test.append(dd)
@@ -101,9 +110,12 @@ def make_dataset_cli(
         if os.path.exists(f"{test_neg_file}"):
             with open(f"{test_neg_file}", "r") as f:
                 while True:
-                    gg = f.readline().split(" ")[3:-1]
+                    gg = f.readline()  # .split(" ")[3:-1]
                     if not gg:
                         break
+                    gg = gg.split(" ")[3:-1]
+                    if not gg:
+                        continue
                     all_pos = [int(e) - 1 for e in gg]
                     dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                     X_test.append(dd)

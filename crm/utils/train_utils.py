@@ -1,6 +1,12 @@
 import random
 
+import numpy as np
 import torch
+from ray import tune
+from ray.tune.schedulers import AsyncHyperBandScheduler
+from ray.tune.suggest import ConcurrencyLimiter
+from ray.tune.suggest.optuna import OptunaSearch
+from sklearn.model_selection import train_test_split
 from tqdm.auto import tqdm, trange
 
 from crm.core import Network
@@ -14,7 +20,7 @@ def train(
     num_epochs: int,
     optimizer: torch.optim.Optimizer,
     criterion,
-    save_here: str,
+    save_here: str = None,
     X_val=None,
     y_val=None,
     verbose: bool = False,
@@ -23,6 +29,7 @@ def train(
     val_losses = []
     train_accs = []
     val_accs = []
+    min_loss = 1e10
     for e in trange(num_epochs):
         c = list(zip(X_train, y_train))
         random.shuffle(c)
@@ -45,7 +52,8 @@ def train(
             if X_val is not None and y_val is not None:
                 local_val_losses = []
                 for j in range(len(X_val)):
-                    out = n.forward(X_val).reshape(1, -1)
+                    f_mapper = X_val[j]
+                    out = n.forward(f_mapper).reshape(1, -1)
                     loss = criterion(out, y_val[j].reshape(1))
                     local_val_losses.append(loss.item())
                     n.reset()
@@ -53,6 +61,14 @@ def train(
                 val_accs.append(
                     get_metrics(n, X_val, y_val, output_dict=True)["accuracy"]
                 )
+                if val_losses[-1] < min_loss:
+                    min_loss = val_losses[-1]
+                    patience = 0
+                else:
+                    patience += 1
+                if patience > 3:
+                    print("Patience exceeded. Stopping training.")
+                    break
         if verbose:
             tqdm.write(f"Epoch {e}")
             tqdm.write(f"Train loss: {train_losses[-1]}")
@@ -61,9 +77,66 @@ def train(
                 tqdm.write(f"Val loss: {val_losses[-1]}")
                 tqdm.write(f"Val acc: {val_accs[-1]}")
             tqdm.write("-------------------------------------")
-        save_object(n, f"{save_here}_{e}.pt")
+        if save_here is not None:
+            save_object(n, f"{save_here}_{e}.pt")
     return (
         (train_losses, train_accs, val_losses, val_accs)
         if X_val is not None and y_val is not None
         else (train_losses, train_accs)
     )
+
+
+def get_best_config(
+    n: Network,
+    X,
+    y,
+    num_epochs: int,
+    optimizer: torch.optim.Optimizer,
+    criterion,
+):
+    """Uses Ray Tune and Optuna to find the best configuration for the network."""
+
+    def train_with_config(config):
+        """Train the network with the given config."""
+        optimizer = torch.optim.Adam(n.parameters(), lr=config["lr"])
+        X_train, X_val, y_train, y_val = train_test_split(
+            X, y, test_size=0.2, random_state=24, stratify=y
+        )
+        train_losses, train_accs, val_losses, val_accs = train(
+            n=n,
+            X_train=X_train,
+            y_train=y_train,
+            num_epochs=num_epochs,
+            optimizer=optimizer,
+            criterion=criterion,
+            X_val=X_val,
+            y_val=y_val,
+            verbose=False,
+        )
+        return {
+            "mean_train_loss": np.mean(train_losses),
+            "mean_train_acc": np.mean(train_accs),
+            "mean_val_loss": np.mean(val_losses),
+            "mean_val_acc": np.mean(val_accs),
+        }
+
+    config = {"lr": tune.loguniform(1e-4, 1e-2)}
+    algo = OptunaSearch()
+    # uncomment and set max_concurrent to limit number of cores
+    algo = ConcurrencyLimiter(algo, max_concurrent=16)
+    scheduler = AsyncHyperBandScheduler()
+
+    analysis = tune.run(
+        train_with_config,
+        num_samples=128,
+        config=config,
+        name="optuna_train",
+        metric="mean_val_acc",
+        mode="max",
+        search_alg=algo,
+        scheduler=scheduler,
+        verbose=0,
+        max_failures=1,
+    )
+
+    return analysis.best_config

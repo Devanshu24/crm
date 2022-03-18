@@ -6,6 +6,7 @@ import torch.nn.functional as F
 
 from crm.core import Network
 from crm.utils import (  # get_explanations,
+    get_best_config,
     get_max_explanations,
     get_metrics,
     load_object,
@@ -35,6 +36,10 @@ def cmd_line_args():
     parser.add_argument(
         "-e", "--explain", help="get explanations for predictions", action="store_true"
     )
+    parser.add_argument(
+        "-t", "--tune", help="tune the hyper parameters", action="store_true"
+    )
+
     parser.add_argument(
         "-v", "--verbose", help="get verbose outputs", action="store_true"
     )
@@ -74,31 +79,6 @@ def main():
     X_train, y_train, test_dataset, adj_list, edges = make_dataset_cli(
         graph_file, train_file, test_files, device=device
     )
-    # layer_one_neurons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
-    # num_neurons = max(layer_one_neurons)+1
-    # e1 = []
-    # for e in edges:
-    #     if e[0] in layer_one_neurons and e[1] in layer_one_neurons:
-    #         e1.append(e)
-    # adj_list = [[] for i in range(num_neurons)]
-    # for u, v in e1:
-    #     adj_list[u].append(v)
-    # n = Network(num_neurons, adj_list)
-    # orig_output_neurons = n.output_neurons
-    # adj_list.append([])
-    # adj_list.append([])
-    # num_neurons = len(adj_list)
-    # for i in range(num_neurons):
-    #     if i in orig_output_neurons:
-    #         adj_list[i].append(num_neurons - 2)
-    #         adj_list[i].append(num_neurons - 1)
-    # for i in range(len(X_train)):
-    #     X_train[i][num_neurons - 2] = 1
-    #     X_train[i][num_neurons - 1] = 1
-    # for i in range(len(test_dataset)):
-    #     for j in range(len(test_dataset[i][0])):
-    #         test_dataset[i][0][j][num_neurons - 2] = 1
-    #         test_dataset[i][0][j][num_neurons - 1] = 1
 
     # Create CRM structure and train with input data
     print("***Creating CRM structure***")
@@ -109,17 +89,24 @@ def main():
         print("***Loading Saved Model***")
         n = load_object(args.saved_model)
 
-    print("***Training CRM***")
     criterion = F.cross_entropy
     optimizer = torch.optim.Adam(n.parameters(), lr=0.001)
+    if args.tune:
+        print("***Get Best Config***")
+        best = get_best_config(
+            n, X_train, y_train, args.num_epochs, optimizer, criterion
+        )
+        print(best)
+
+    print("***Training CRM***")
     train_losses, train_accs = train(
         n,
         X_train,
         y_train,
         args.num_epochs,
-        optimizer,
+        torch.optim.Adam(n.parameters(), lr=best["lr"] if args.tune else 0.001),
         criterion,
-        args.output + "_model",
+        save_here=args.output + "_model",
         verbose=args.verbose,
     )
 
