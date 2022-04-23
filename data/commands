@@ -1,0 +1,500 @@
+ 1571  htop
+ 1572  c
+ 1573  python main.py -f ./data/minichess/config -o ./data/minichess/res_max_expl -n 3 -e -v -t
+ 1574  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/res_max_expl_dev -n 10 -e -v
+ 1575  c
+ 1576  python main.py -f ./data/minichess/config -o ./data/minichess/res_max_expl -n 15 -e -v -t
+ 1577  c
+ 1578  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/res_max_expl_dev -n 4 -e -v -t
+ 1579  c
+ 1580  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/res_max_expl_dev_10 -n 10 -e -v
+ 1581  c
+ 1582  source /home/dell7810/anaconda3/bin/activate
+ 1583  conda activate crm
+ 1584  c
+ 1585  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/res_max_expl_dev_10 -n 10 -e -v
+ 1586  c
+ 1587  rm n
+ 1588  rm nohup.out
+ 1589  c
+ 1590  nohup python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/res_max_expl_20 -n 20 -v &
+ 1591  crm
+ 1592  jupyter lab
+ 1593  cd Devanshu/CRM/crm/
+ 1594  tail data/786_0_v2/res_max_expl
+ 1595  tail data/786_0_v2/res_max_expl_dev
+ 1596  vi data/786_0_v2/res_max_expl_dev
+ 1597  htop
+ 1598  git add .
+ 1599  c
+ 1600  tail nohup.out
+ 1601  source /home/dell7810/anaconda3/bin/activate
+ 1602  conda activate crm
+ 1603  python main.py -f ./data/minichess/config -o ./data/minichess/res_max_expl -n 15 -v
+ 1604  conda activate cr
+ 1605  conda activate crm
+ 1606  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/res_max_expl_20 -n 0 -v -s ./data/786_0_v2/res_max_expl_20_model_5.pt
+ 1607  cd Devanshu/CRM/crm/
+ 1608  ls
+ 1609  vi data/786_0_v2/res_max_expl_dev
+ 1610  ls
+ 1611  htop
+ 1612  ls
+ 1613  cd Devanshu/CRM/crm/
+ 1614  ls
+ 1615  htop
+ 1616  cd data/
+ 1617  ls
+ 1618  cd 786_0/
+ 1619  ls
+ 1620  vi res_max_expl
+ 1621  htop
+ 1622  history | tail
+ 1623  history | tail -100
+ 1624  ls
+ 1625  cd ..
+ 1626  ls
+ 1627  cd minichess/
+ 1628  ls
+ 1629  vi res_max_expl
+ 1630  cd ..
+ 1631  ls -lt
+ 1632  cat */res* | grep "best"
+ 1633  cat */res* | grep "Best"
+ 1634  cat */res_max_expl | grep "Best"
+ 1635  cat 786_0/res_max_expl | grep "Best"
+ 1636  cat minichess/res_max_expl | grep "Best"
+ 1637  cat trains/res_max_expl | grep "Best"
+ 1638  cat chess/res_max_expl | grep "Best"
+ 1639  cat chess_noeq/res_max_expl | grep "Best"
+ 1640  cd ..
+ 1641  vi crm/utils/train_utils.py
+ 1642  conda activate crm
+ 1643  python
+ 1644  vi crm/utils/train_utils.py
+ 1645  cat command.hist
+ 1646  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 1 -e -v -t
+ 1647  vi crm/utils/train_utils.py
+ 1648  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 1 -e -v
+ 1649  cd data/786_0_v2/
+ 1650  ls
+ 1651  cp ../786_0/config .
+ 1652  vi config
+ 1653  cd ../../
+ 1654  nohup python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/res_max_expl -n 10 -e -v &
+ 1655  htop
+ 1656  tail nohup.out
+ 1657  c
+ 1658  tail data/786_0_v2/res_max_expl
+ 1659  tail nohup.out
+ 1660  q
+ 1661  tail nohup.out
+ 1662  q
+ 1663  tail nohup.out
+ 1664  vi data/786_0_v2/res_max_expl
+ 1665  exit
+ 1666  vi crm_output.pl
+ 1667  cd ../..
+ 1668  cd ..
+ 1669  conda activate crm
+ 1670  cd data/
+ 1671  cd 786_0/
+ 1672  ls
+ 1673  cd raw/
+ 1674  ls
+ 1675  vi crm_output.pl
+ 1676  cd ../../../
+ 1677  ls
+ 1678  ls -lt
+ 1679  vi main.py
+ 1680  ls -lt
+ 1681  htop
+ 1682  tail nohup.out
+ 1683  htop
+ 1684  ls
+ 1685  tail data/786_0_v2/res_max_expl_dev
+ 1686  htop
+ 1687  tail data/786_0_v2/res_max_expl_dev
+ 1688  tail nohup.out
+ 1689  tail data/786_0_v2/res_max_expl_dev
+ 1690  htop
+ 1691  tail data/786_0_v2/res_max_expl_dev
+ 1692  htop
+ 1693  vi main.py
+ 1694  vi crm/utils/train_utils.py
+ 1695  tail data/786_0_v2/res_max_expl_dev
+ 1696  htop
+ 1697  exit
+ 1698  cd Devanshu/CRM/crm/
+ 1699  cd data/
+ 1700  cd 786_0_v3
+ 1701  cd raw/
+ 1702  vi rand_crm_d5c5v6r1.pl
+ 1703  grep "depth=1" rand_crm_d5c5v6r1.pl
+ 1704  grep "depth=1" rand_crm_d5c5v6r1.pl | wc -l
+ 1705  cd ..
+ 1706  vi res_max_expl
+ 1707  grep "depth=1" raw/rand_crm_d5c5v6r1.pl | wc -l
+ 1708  grep "depth=0" raw/rand_crm_d5c5v6r1.pl | wc -l
+ 1709  grep "depth=2" raw/rand_crm_d5c5v6r1.pl | wc -l
+ 1710  grep "depth=3" raw/rand_crm_d5c5v6r1.pl | wc -l
+ 1711  grep "depth=4" raw/rand_crm_d5c5v6r1.pl | wc -l
+ 1712  grep "depth=5" raw/rand_crm_d5c5v6r1.pl | wc -l
+ 1713  exit
+ 1714  cd Devanshu/CRM/crm/
+ 1715  tail nohup.out
+ 1716  vi data/A498/res_max_expl
+ 1717  htop
+ 1718  vi data/A498/res_max_expl
+ 1719  tail nohup.out
+ 1720  crm
+ 1721  git status
+ 1722  htop
+ 1723  exit
+ 1724  source /home/dell7810/anaconda3/bin/activate
+ 1725  conda activate crm
+ 1726  htop
+ 1727  source /home/dell7810/anaconda3/bin/activate
+ 1728  conda activate crm
+ 1729  htop
+ 1730  c
+ 1731  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 1 -e -v
+ 1732  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 10 -v
+ 1733  htop
+ 1734  python main.py -f ./data/786_0_v2/config -o ./delete -n 2
+ 1735  c
+ 1736  pytest
+ 1737  pytest -vvv
+ 1738  pytest tests/core/test_network.py -s -vvv -k test_forward
+ 1739  c
+ 1740  pytest tests/core/test_network.py -s -vvv -k test_forward
+ 1741  pytest
+ 1742  c
+ 1743  pytest
+ 1744  pytest -vvv
+ 1745  c
+ 1746  pytest
+ 1747  pytest -vv
+ 1748  pytest -vvv
+ 1749  c
+ 1750  python main.py -f ./data/786_0_v2/config -o ./delete_v2 -n 2
+ 1751  pytest -vvv
+ 1752  c
+ 1753  python main.py -f ./data/786_0_v2/config -o ./delete_v2 -n 2
+ 1754  c
+ 1755  python main.py -f ./data/786_0_v2/config -o ./delete_v2 -n 2
+ 1756  c
+ 1757  source /home/dell7810/anaconda3/bin/activate
+ 1758  conda activate crm
+ 1759  c
+ 1760  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 10 -v
+ 1761  pytest
+ 1762  pytest -vvv
+ 1763  pytest -vvv --durations=0
+ 1764  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 10 -v
+ 1765  c
+ 1766  pytest
+ 1767  pytest -vvv --durations=0
+ 1768  c
+ 1769  \
+ 1770  source /home/dell7810/anaconda3/bin/activate
+ 1771  conda activate crm
+ 1772  jupyter server list
+ 1773  source /home/dell7810/anaconda3/bin/activate
+ 1774  conda activate crm
+ 1775  c
+ 1776  python distributed/dist.py
+ 1777  python distributed/dist.py  --rank 0
+ 1778  c
+ 1779  source /home/dell7810/anaconda3/bin/activate
+ 1780  conda activate crm
+ 1781  c
+ 1782  jupyter lab
+ 1783  crm
+ 1784  htop
+ 1785  crm
+ 1786  cd distributed/
+ 1787  python dist.py  --rank 1
+ 1788  crm
+ 1789  python distributed/dist.py  --rank 1
+ 1790  cd distributed/
+ 1791  python distributed/dist.py  --rank 1
+ 1792  python dist.py  --rank 2
+ 1793  crm
+ 1794  cd distributed/
+ 1795  python dist.py  --rank 0
+ 1796  vim dist.py
+ 1797  python dist.py  --rank 0
+ 1798  crm
+ 1799  cd distributed/q
+ 1800  cd distributed/
+ 1801  python dist.py  --rank 3
+ 1802  crm
+ 1803  clear
+ 1804  ls
+ 1805  cd distributed/
+ 1806  clear
+ 1807  ls
+ 1808  rm dist.py
+ 1809  wget https://github.com/pytorch/examples/raw/main/distributed/rpc/rnn/rnn.py
+ 1810  wget https://raw.githubusercontent.com/pytorch/examples/main/distributed/rpc/rnn/main.py
+ 1811  python main.py
+ 1812  crm
+ 1813  htop
+ 1814  crm
+ 1815  c
+ 1816  cd d
+ 1817  cd distributed/
+ 1818  l
+ 1819  vim m
+ 1820  vim main.py
+ 1821  c
+ 1822  python main.py
+ 1823  vim main.py
+ 1824  python main.py
+ 1825  vim main.py
+ 1826  python main.py
+ 1827  vim main.py
+ 1828  c
+ 1829  vim main.py
+ 1830  c
+ 1831  python main.py
+ 1832  vim main.py
+ 1833  python main.py
+ 1834  c
+ 1835  python main.py
+ 1836  vim main.py
+ 1837  c
+ 1838  python main.py
+ 1839  c
+ 1840  python main.py
+ 1841  vim main.py
+ 1842  c
+ 1843  vim main.py
+ 1844  c
+ 1845  python main.py
+ 1846  c
+ 1847  htopsource /home/dell7810/anaconda3/bin/activate
+ 1848  conda activate crm
+ 1849  htop
+ 1850  htsource /home/dell7810/anaconda3/bin/activate
+ 1851  opconda activate crm
+ 1852  htop
+ 1853  source /home/dell7810/anaconda3/bin/activate
+ 1854  conda activate crm
+ 1855  c
+ 1856  pre-commit run --all-files
+ 1857  c
+ 1858  pip3 install -U  autopep8
+ 1859  autopep8 -i distributed/rpc_parameter_server.py
+ 1860  python distributed/rpc_parameter_server.py
+ 1861  htop
+ 1862  cd distributed/
+ 1863  wget https://docs.ray.io/en/latest/_downloads/b5eb8fc2e98b3be5c7b1eff17860f5ed/plot_parameter_server.py
+ 1864  python plot_parameter_server.py
+ 1865  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 10 -v
+ 1866  cd ..
+ 1867  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 10 -v
+ 1868  cd ..
+ 1869  cd crm/
+ 1870  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 10 -v
+ 1871  c
+ 1872  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 10 -v
+ 1873  c
+ 1874  python main.py -f ./data/minichess/config -o ./data/minichess/results1 -n 10 -v
+ 1875  c
+ 1876  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/distributed -n 2
+ 1877  c
+ 1878  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/distributed -n 2
+ 1879  c
+ 1880  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/distributed -n 2
+ 1881  c
+ 1882  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/distributed -n 2
+ 1883  c
+ 1884  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/distributed -n 2
+ 1885  c
+ 1886  nohup python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/distributed -n 2 &
+ 1887  crm
+ 1888  c
+ 1889  cd distributed/
+ 1890  wget https://github.com/pytorch/examples/raw/main/distributed/rpc/parameter_server/rpc_parameter_server.py
+ 1891  c
+ 1892  ls
+ 1893  vim r
+ 1894  vim ru
+ 1895  vim rpc_parameter_server.py
+ 1896  c
+ 1897  python rpc_parameter_server.py
+ 1898  vim rpc_parameter_server.py
+ 1899  c
+ 1900  python rpc_parameter_server.py
+ 1901  vim rpc_parameter_server.py
+ 1902  python rpc_parameter_server.py
+ 1903  vim rpc_parameter_server.py
+ 1904  python rpc_parameter_server.py
+ 1905  vim rpc_parameter_server.py
+ 1906  c
+ 1907  python rpc_parameter_server.py
+ 1908  code .
+ 1909  killall code
+ 1910  c
+ 1911  python rpc_parameter_server.py
+ 1912  c
+ 1913  python rpc_parameter_server.py
+ 1914  htop
+ 1915  c
+ 1916  python rpc_parameter_server.py
+ 1917  c
+ 1918  python rpc_parameter_server.py --world-size 2
+ 1919  python rpc_parameter_server.py --world_size 2
+ 1920  python rpc_parameter_server.py --world_size 3
+ 1921  crm
+ 1922  tail nohup.out
+ 1923  htop
+ 1924  rm nohup.out
+ 1925  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/distributed -n 2 &
+ 1926  vim main.py
+ 1927  c
+ 1928  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/distributed -n 2 &
+ 1929  htop
+ 1930  c
+ 1931  conda activate crm
+ 1932  vi data/786_0_v2/res_max_expl
+ 1933  nohup python main.py -f ./data/A498/config -o ./data/A498/res_max_expl -n 10 -e -v &
+ 1934  htop
+ 1935  vi data/A498/res_max_expl
+ 1936  vi nohup.out
+ 1937  tail nohup.out
+ 1938  vi data/A498/res_max_expl
+ 1939  kill 6564
+ 1940  ls
+ 1941  htop
+ 1942  nohup python main.py -f ./data/A498/config -o ./data/A498/res_max_expl_gs -n 10 -e -v -t &
+ 1943  htop
+ 1944  vi crm/utils/train_utils.py
+ 1945  vi data/A498/res_max_expl_gs
+ 1946  cd data/786_0
+ 1947  ls
+ 1948  cd raw/
+ 1949  ls
+ 1950  vi crm_output.pl
+ 1951  cd ../..
+ 1952  vi 786_0_v2/raw/crm_output.pl
+ 1953  vi 786_0_v3/raw/crm_output.pl
+ 1954  cd ..
+ 1955  ls
+ 1956  nohup python main.py -f ./data/786_0_v4/config -o ./data/786_0_v4/res_max_expl -n 10 -e -v &
+ 1957  htop
+ 1958  vi data/786_0_v4/res_max_expl
+ 1959  nohup python main.py -f ./data/786_0_v4/config -o ./data/786_0_v4/res_max_expl_gs -n 10 -e -v -t &
+ 1960  htop
+ 1961  vi data/786_0_v4/res_max_expl_gs
+ 1962  htop
+ 1963  vi data/786_0_v4/res_max_expl_gs
+ 1964  vi data/786_0_v4/res_max_expl
+ 1965  clear
+ 1966  conda activate crm
+ 1967  cd Devanshu/CRM/crm/ls
+ 1968  nohup python main.py -f ./data/786_0_v3/config -o ./data/786_0_v3/res_max_expl -n 10 &
+ 1969  vi nohup.out
+ 1970  cd Devanshu/CRM/
+ 1971  nohup python main.py -f ./data/786_0_v3/config -o ./data/786_0_v3/res_max_expl -n 10 &
+ 1972  htop
+ 1973  vi nohup.out
+ 1974  cd crm/
+ 1975  nohup python main.py -f ./data/786_0_v3/config -o ./data/786_0_v3/res_max_expl -n 10 &
+ 1976  htop
+ 1977  ls
+ 1978  vi nohup.out
+ 1979  vi ../nohup.out
+ 1980  rm ../nohup.out
+ 1981  rm ../../../nohup.out
+ 1982  ls
+ 1983  python main.py -f ./data/786_0_v3/config -o ./data/786_0_v3/res_max_expl -n 10
+ 1984  vi data/786_v3/config
+ 1985  python main.py -f ./data/786_0_v3/config -o ./data/786_0_v3/res_max_expl -n 10 -e
+ 1986  python main.py -f ./data/786_0_v3/config -o ./data/786_0_v3/res_max_expl -n 10 -e -v
+ 1987  python main.py -f ./data/786_0_v2/config -o ./data/786_0_v2/1111 -n 1 -e -v
+ 1988  rm data/786_0_v2/1111
+ 1989  nohup python main.py -f ./data/786_0_v3/config -o ./data/786_0_v3/res_max_expl -n 10 &
+ 1990  htop
+ 1991  tail nohup.out
+ 1992  htop
+ 1993  tail nohup.out
+ 1994  tail data/786_0_v3/res_max_expl
+ 1995  tail nohup.out
+ 1996  cd Devanshu/CRM/crm/
+ 1997  ls
+ 1998  cd ..
+ 1999  ls
+ 2000  cd crm/
+ 2001  ls
+ 2002  cd ..
+ 2003  ls
+ 2004  cd crm/
+ 2005  ls
+ 2006  cd data/
+ 2007  ls
+ 2008  cd 786_0_BotGNN_preds/
+ 2009  ls
+ 2010  wc -l *
+ 2011  man paste
+ 2012  paste train_classes.pl 786_0_train_preds.txt | head
+ 2013  paste -d , train_classes.pl 786_0_train_preds.txt | head
+ 2014  paste -d , train_classes.pl 786_0_train_preds.txt > train.txt
+ 2015  paste -d , test_classes.pl 786_0_test_preds.txt > test.txt
+ 2016  wc -l *
+ 2017  vi test.txt
+ 2018  rm *.pl
+ 2019  rm *.txt
+ 2020  ls
+ 2021  vi 786_0_train_preds.txt
+ 2022  vi 786_0_test_preds.txt
+ 2023  head *
+ 2024  grep pos 786_0_train_preds.txt | wc -l
+ 2025  grep neg 786_0_train_preds.txt | wc -l
+ 2026  grep pos, 786_0_train_preds.txt | wc -l
+ 2027  grep neg, 786_0_train_preds.txt | wc -l
+ 2028  grep pos, 786_0_train_preds.txt > train.p
+ 2029  grep neg, 786_0_train_preds.txt > train.n
+ 2030  grep pos, 786_0_test_preds.txt > train.p
+ 2031  grep neg, 786_0_test_preds.txt > train.n
+ 2032  ls
+ 2033  grep pos, 786_0_train_preds.txt > train.p
+ 2034  grep neg, 786_0_train_preds.txt > train.n
+ 2035  grep pos, 786_0_test_preds.txt > test.p
+ 2036  grep neg, 786_0_test_preds.txt > test.n
+ 2037  ls
+ 2038  wc -l ../786_0_v2/raw/rand_crm_d3c3v6r1_train_features_pos
+ 2039  head ../786_0_v2/raw/rand_crm_d3c3v6r1_train_features_pos
+ 2040  paste -d, ../786_0_v2/raw/rand_crm_d3c3v6r1_train_features_pos train.p > tr
+ 2041  paste -d, ../786_0_v2/raw/rand_crm_d3c3v6r1_train_features_neg train.n >> tr
+ 2042  paste -d, ../786_0_v2/raw/rand_crm_d3c3v6r1_test_features_pos test.p >> ts
+ 2043  paste -d, ../786_0_v2/raw/rand_crm_d3c3v6r1_test_features_neg test.n >> ts
+ 2044  ls
+ 2045  wc -l tr
+ 2046  wc -l ts
+ 2047  vi tr
+ 2048  cat tr | grep ppos | sed "s/,pos,ppos//g" | head
+ 2049* cat tr | grep pneg | sed "s/,pos,ppos//g" | wc -l
+ 2050  cat tr | grep ppos | sed "s/,pos,ppos//g" | sed "s/,neg,ppos//g" | head
+ 2051  cat tr | grep ppos | sed "s/,pos,ppos//g" | sed "s/,neg,ppos//g" | wc -l
+ 2052  cat tr | grep "neg,ppos"
+ 2053  cat tr | grep ",ppos" | sed "s/,pos,ppos//g" | sed "s/,neg,ppos//g" | wc -l
+ 2054  cat tr | grep ",ppos" | sed "s/,pos,ppos//g" | sed "s/,neg,ppos//g" > rand_crm_d3c3v6r1_train_features_pos
+ 2055  vi rand_crm_d3c3v6r1_train_features_pos
+ 2056  vi 786_0_train_preds.txt
+ 2057  vi rand_crm_d3c3v6r1_train_features_pos
+ 2058  vi tr
+ 2059  wc -l tr
+ 2060  head -2 *
+ 2061  cat tr | grep ",pos" | wc -l
+ 2062  cat tr | grep ",neg" | wc -l
+ 2063  cat tr | grep ",ppos" | wc -l
+ 2064  cat tr | grep ",pneg" | wc -l
+ 2065  cat tr | grep ",pneg" | sed "s/,pos,pneg//g" | sed "s/,neg,pneg//g" > rand_crm_d3c3v6r1_train_features_neg
+ 2066  cat ts | grep ",ppos" | sed "s/,pos,ppos//g" | sed "s/,neg,ppos//g" > rand_crm_d3c3v6r1_test_features_pos
+ 2067  cat ts | grep ",pneg" | sed "s/,pos,pneg//g" | sed "s/,neg,pneg//g" > rand_crm_d3c3v6r1_test_features_neg
+ 2068  wc -l *
+ 2069  cd ..
+ 2070  history | tail -500 > commands

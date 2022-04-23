@@ -197,12 +197,14 @@ def get_max_explanations(
     tn_count = 0
     fp_count = 0
 
-    ce_count = 0
-    ie_count = 0
+    cep_count = 0  # correctly explained positives
+    cen_count = 0  # correctly explained negatives
+    iep_count = 0  # incorrectly explained positives
+    ien_count = 0  # incorrectly explained negatives
 
     print(f"Explaining {len(X_test)} test instances::")
     print(
-        f"Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-{k}_neurons,ce_count,ie_count"
+        f"Instance: y,y_pred,tp_count,fn_count,tn_count,fp_count,Top-{k}_neurons,cep_count,cen_count,iep_count,ien_count"
     )
     for i in tqdm(range(len(X_test)), desc="Explaining X_test"):
         n.reset()
@@ -237,9 +239,9 @@ def get_max_explanations(
                 fn_count += 1
 
             if set(true_explanations) & set(ancestors):
-                ce_count += 1
+                cep_count += 1
             else:
-                ie_count += 1
+                iep_count += 1
 
         if y_test[i] == 0:
             if pred == 0:
@@ -248,12 +250,12 @@ def get_max_explanations(
                 fp_count += 1
 
             if set(true_explanations) & set(ancestors):
-                ie_count += 1
+                ien_count += 1
             else:
-                ce_count += 1
+                cen_count += 1
 
         print(
-            f"{i}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{topk_vertices},{ce_count},{ie_count}"
+            f"{i}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{topk_vertices},{cep_count},{cen_count},{iep_count},{ien_count}"
         )
         print(f"\tAncestors of {topk_vertices}: {ancestors}")
         print("\tTop-5 neurons in each CRM layer (ordered by relevance, descending):")
@@ -261,12 +263,17 @@ def get_max_explanations(
             print(f"\t\tL{l_id}: {rels[l_id][:5]}")
 
     accuracy = (tp_count + tn_count) / (tp_count + fn_count + tn_count + fp_count)
-    fidelity = ce_count / (ce_count + ie_count)
-    print("\nExplanation statistics:")
+    fidelity = (cep_count + cen_count) / (cep_count + cen_count + iep_count + ien_count)
+
+    print("\n-------------------------------------")
+    print("Explanation statistics:")
+    print("-------------------------------------")
     print(f"TP: {tp_count}")
     print(f"FN: {fn_count}")
     print(f"TN: {tn_count}")
     print(f"FP: {fp_count}")
-    print(f"CE: {ce_count}")
-    print(f"IE: {ie_count}")
+    print(f"CEP: {cep_count}")
+    print(f"CEN: {cen_count}")
+    print(f"IEP: {iep_count}")
+    print(f"IEN: {ien_count}")
     print(f"Accuracy: {accuracy}, Fidelity: {fidelity}")

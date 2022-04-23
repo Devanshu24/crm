@@ -6,4 +6,4 @@ from crm.utils.utils import (  # isort:skip
 )  # isort:skip
 from crm.utils.data_utils import edges_to_adj_list, make_dataset, make_dataset_cli
 from crm.utils.explainer_utils import get_explanations, get_max_explanations
-from crm.utils.train_utils import get_best_config, train
+from crm.utils.train_utils import get_best_config, train, train_distributed

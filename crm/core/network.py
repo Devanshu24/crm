@@ -1,8 +1,13 @@
+from itertools import repeat
 from typing import Callable
 
 import torch
+import torch.multiprocessing as mp
+from torch.multiprocessing import Pool
 
 from crm.core import Neuron
+
+# from torch.multiprocessing.pool import ThreadPool
 
 
 class Network:
@@ -23,6 +28,63 @@ class Network:
         self._assign_layers()
         self.has_forwarded = False
         self.is_fresh = True
+
+    def _forward_layer(self, n_id, f_mapper, queue):
+
+        # print(n_id, f_mapper)
+
+        # print(f"Forwarding {n_id}")
+        if self.neurons[n_id].predecessor_neurons:
+            for pred in self.neurons[n_id].predecessor_neurons:
+                # print(f"Predecessor {pred} = {self.neurons[pred].value}")
+                self.neurons[n_id].value = self.neurons[n_id].value + (
+                    self.weights[(pred, n_id)] * self.neurons[pred].value
+                )
+                # print(f"New Value: {n_id} = {self.neurons[n_id].value}")
+                self.neurons[n_id].value = f_mapper[n_id] * self.neurons[
+                    n_id
+                ].activation_fn(self.neurons[n_id].value)
+        else:
+            self.neurons[n_id].value = f_mapper[n_id]
+        if type(self.neurons[n_id].value) == torch.Tensor:
+            queue.put((n_id, self.neurons[n_id].value.detach()))
+        else:
+            queue.put((n_id, self.neurons[n_id].value))
+        # print(f"FINAL: {n_id} = {self.neurons[n_id].value}")
+
+    def fast_forward(self, f_mapper):
+        """Fast forward the network with the given inputs"""
+        if not self.is_fresh:
+            raise Exception(
+                "Network has already been forwarded. You may want to reset it."
+            )
+        self.has_forwarded = True
+        self.is_fresh = False
+
+        layer_mapper = [[] for _ in range(self.num_layers)]
+        for n_id in self.topo_order:
+            layer_mapper[self.neurons[n_id].layer].append(n_id)
+
+        manager = mp.Manager()
+        queue = manager.Queue()
+
+        # pool_tuple =
+
+        # print(layer_mapper)
+        pool = Pool(mp.cpu_count())
+        for layer in range(self.num_layers):
+            pool.starmap(
+                self._forward_layer,
+                zip(layer_mapper[layer], repeat(f_mapper), repeat(queue)),
+            )
+            while not queue.empty():
+                n_id, value = queue.get()
+                # print(f"{n_id} = {value}")
+                self.neurons[n_id].value = value
+        pool.close()
+        pool.join()
+
+        return torch.stack([self.neurons[i].value for i in self.output_neurons])
 
     def forward(self, f_mapper):
         if not self.is_fresh:
@@ -49,9 +111,11 @@ class Network:
         return (p for p in self.weights.values())
 
     def set_neuron_activation(
-        self, n_id: int, activation_fn: Callable, activation_fn_grad: Callable
+        self,
+        n_id: int,
+        activation_fn: Callable,
     ):
-        self.neurons[n_id].set_activation_fn(activation_fn, activation_fn_grad)
+        self.neurons[n_id].set_activation_fn(activation_fn)
 
     def reset(self):
         for n in self.neurons:
@@ -66,6 +130,24 @@ class Network:
             self.weights[key] = (
                 self.weights[key].to(device).detach().requires_grad_(True)
             )
+
+    def get_weights(self):
+        return self.weights
+
+    def set_weights(self, weights):
+        self.weights = weights
+
+    def get_gradients(self):
+        grads = []
+        for p in self.parameters():
+            grad = None if p.grad is None else p.grad.data.cpu().numpy()
+            grads.append(grad)
+        return grads
+
+    def set_gradients(self, gradients):
+        for g, p in zip(gradients, self.parameters()):
+            if g is not None:
+                p.grad = torch.from_numpy(g)
 
     def _set_output_neurons(self):
         self.output_neurons = []

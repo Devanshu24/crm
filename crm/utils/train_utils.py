@@ -1,16 +1,68 @@
 import random
 
 import numpy as np
+import ray
 import torch
+import torch.distributed.autograd as dist_autograd
 from ray import tune
 from ray.tune.schedulers import AsyncHyperBandScheduler
 from ray.tune.suggest import ConcurrencyLimiter
+from ray.tune.suggest.basic_variant import BasicVariantGenerator
 from ray.tune.suggest.optuna import OptunaSearch
 from sklearn.model_selection import train_test_split
 from tqdm.auto import tqdm, trange
 
 from crm.core import Network
+from crm.distributed import DataWorker, ParameterServer
 from crm.utils import get_metrics, save_object
+
+
+def train_distributed(
+    n: Network,
+    X_train,
+    y_train,
+    num_epochs: int,
+    optimizer: torch.optim.Optimizer,
+    criterion,
+    X_val,
+    y_val,
+    num_workers: int,
+    verbose: bool = True,
+):
+    iterations = 10
+    test_loader = zip(X_val, y_val)
+    print("Running Asynchronous Parameter Server Training.")
+
+    ray.init(ignore_reinit_error=True)
+    ps = ParameterServer.remote(1e-3, n.num_neurons, n.adj_list)
+    workers = [
+        DataWorker.remote(X_train, y_train, n.num_neurons, n.adj_list)
+        for i in range(num_workers)
+    ]
+
+    current_weights = ps.get_weights.remote()
+
+    gradients = {}
+    for worker in workers:
+        gradients[worker.compute_gradients.remote(current_weights)] = worker
+
+    for i in range(iterations * num_workers):
+        ready_gradient_list, _ = ray.wait(list(gradients))
+        ready_gradient_id = ready_gradient_list[0]
+        worker = gradients.pop(ready_gradient_id)
+
+        # Compute and apply gradients.
+        current_weights = ps.apply_gradients.remote(*[ready_gradient_id])
+        gradients[worker.compute_gradients.remote(current_weights)] = worker
+
+        if i % 10 == 0:
+            pass
+        # Evaluate the current model after every 10 updates.
+        n.set_weights(ray.get(current_weights))
+        accuracy = get_metrics(n, X_val, y_val, output_dict=True)["accuracy"]
+        print("Iter {}: \taccuracy is {:.1f}".format(i, accuracy))
+
+    print("Final accuracy is {:.1f}.".format(accuracy))
 
 
 def train(
@@ -36,6 +88,7 @@ def train(
         X_train, y_train = zip(*c)
         local_train_losses = []
         for i in trange(len(X_train)):
+            # print(f"Epoch {e}/{num_epochs} | Batch {i}/{len(X_train)}")
             f_mapper = X_train[i]
             out = n.forward(f_mapper).reshape(1, -1)
             loss = criterion(out, y_train[i].reshape(1))
@@ -120,15 +173,15 @@ def get_best_config(
             "mean_val_acc": np.mean(val_accs),
         }
 
-    config = {"lr": tune.loguniform(1e-4, 1e-2)}
-    algo = OptunaSearch()
+    config = {"lr": tune.grid_search([0.01, 0.001, 0.005, 0.0001])}
+    algo = BasicVariantGenerator(max_concurrent=16)
     # uncomment and set max_concurrent to limit number of cores
-    algo = ConcurrencyLimiter(algo, max_concurrent=16)
+    # algo = ConcurrencyLimiter(algo, max_concurrent=16)
     scheduler = AsyncHyperBandScheduler()
 
     analysis = tune.run(
         train_with_config,
-        num_samples=128,
+        num_samples=1,
         config=config,
         name="optuna_train",
         metric="mean_val_acc",

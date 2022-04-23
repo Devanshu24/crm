@@ -64,10 +64,10 @@ def make_dataset_cli(
                 gg = f.readline()  # .split(" ")[3:-1]
                 if not gg:
                     break
-                gg = gg.split(" ")[3:-1]
+                gg = gg.split(" ")[3:]
                 if not gg:
                     continue
-                all_pos = [int(e) - 1 for e in gg]
+                all_pos = [int(e) - 1 for e in gg if e != "\n"]
                 dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                 X_train.append(dd)
                 y_train.append(torch.tensor(1))
@@ -78,10 +78,10 @@ def make_dataset_cli(
                 gg = f.readline()  # .split(" ")[3:-1]
                 if not gg:
                     break
-                gg = gg.split(" ")[3:-1]
+                gg = gg.split(" ")[3:]
                 if not gg:
                     continue
-                all_pos = [int(e) - 1 for e in gg]
+                all_pos = [int(e) - 1 for e in gg if e != "\n"]
                 dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                 X_train.append(dd)
                 y_train.append(torch.tensor(0))
@@ -99,10 +99,10 @@ def make_dataset_cli(
                     gg = f.readline()  # .split(" ")[3:-1]
                     if not gg:
                         break
-                    gg = gg.split(" ")[3:-1]
+                    gg = gg.split(" ")[3:]
                     if not gg:
                         continue
-                    all_pos = [int(e) - 1 for e in gg]
+                    all_pos = [int(e) - 1 for e in gg if e != "\n"]
                     dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                     X_test.append(dd)
                     y_test.append(torch.tensor(1))
@@ -113,10 +113,10 @@ def make_dataset_cli(
                     gg = f.readline()  # .split(" ")[3:-1]
                     if not gg:
                         break
-                    gg = gg.split(" ")[3:-1]
+                    gg = gg.split(" ")[3:]
                     if not gg:
                         continue
-                    all_pos = [int(e) - 1 for e in gg]
+                    all_pos = [int(e) - 1 for e in gg if e != "\n"]
                     dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                     X_test.append(dd)
                     y_test.append(torch.tensor(0))

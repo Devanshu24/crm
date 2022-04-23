@@ -1,0 +1,57 @@
+Namespace(explain=False, file='./data/786_0_v2/config', gpu=False, num_epochs=20, output='./data/786_0_v2/res_max_expl_20', saved_model=None, tune=False, verbose=True)
+***Loading data***
+***Creating CRM structure***
+***Training CRM***
+Epoch 0
+Train loss: 0.8042646227276067
+Train acc: 0.5946930280957337
+Val loss: 0.6956236112432984
+Val acc: 0.604989604989605
+-------------------------------------
+Epoch 1
+Train loss: 0.6719743947598372
+Train acc: 0.6586888657648283
+Val loss: 0.6784876640418955
+Val acc: 0.604989604989605
+-------------------------------------
+Epoch 2
+Train loss: 0.6350948056706774
+Train acc: 0.6779396462018731
+Val loss: 0.6741493282197193
+Val acc: 0.6174636174636174
+-------------------------------------
+Epoch 3
+Train loss: 0.6187267644525408
+Train acc: 0.6748178980228928
+Val loss: 0.694858489356397
+Val acc: 0.604989604989605
+-------------------------------------
+Epoch 4
+Train loss: 0.6187259863731225
+Train acc: 0.6987513007284079
+Val loss: 0.6878013129141697
+Val acc: 0.6340956340956341
+-------------------------------------
+Epoch 5
+Train loss: 0.6058841811404735
+Train acc: 0.6966701352757544
+Val loss: 0.6890529443823542
+Val acc: 0.6340956340956341
+-------------------------------------
+Patience exceeded. Stopping training.
+Namespace(explain=False, file='./data/786_0_v2/config', gpu=False, num_epochs=0, output='./data/786_0_v2/res_max_expl_20', saved_model='./data/786_0_v2/res_max_expl_20_model_5.pt', tune=False, verbose=True)
+***Loading data***
+***Creating CRM structure***
+***Loading Saved Model***
+***Training CRM***
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.6196    0.5875    0.6031       463
+           1     0.6774    0.7060    0.6914       568
+
+    accuracy                         0.6528      1031
+   macro avg     0.6485    0.6467    0.6472      1031
+weighted avg     0.6514    0.6528    0.6517      1031
+
+-------------------------------------

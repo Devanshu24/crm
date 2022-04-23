@@ -9,10 +9,8 @@ class Neuron:
         self,
         n_id: int,
         activation_fn: Callable = F.relu,
-        activation_fn_grad: Callable = lambda x: 1 if x > 0 else 0,
     ):
         self.activation_fn = activation_fn
-        self.activation_fn_grad = activation_fn_grad
         self.n_id = n_id
         self.value = torch.tensor(0)
         self.grad = 0
@@ -27,9 +25,8 @@ class Neuron:
     def set_predecessor_neurons(self, predecessor_neurons: list):
         self.predecessor_neurons = predecessor_neurons
 
-    def set_activation_fn(self, activation_fn: Callable, activation_fn_grad: Callable):
+    def set_activation_fn(self, activation_fn: Callable):
         self.activation_fn = activation_fn
-        self.activation_fn_grad = activation_fn_grad
 
     def __repr__(self):
         return (

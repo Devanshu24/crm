@@ -3,6 +3,7 @@ import sys
 
 import torch
 import torch.nn.functional as F
+from sklearn.model_selection import train_test_split
 
 from crm.core import Network
 from crm.utils import (  # get_explanations,
@@ -13,6 +14,7 @@ from crm.utils import (  # get_explanations,
     make_dataset_cli,
     seed_all,
     train,
+    train_distributed,
 )
 
 
@@ -63,6 +65,7 @@ class Logger(object):
 
 def main():
     seed_all(24)
+    torch.set_num_threads(16)
     args = cmd_line_args()
     device = torch.device("cuda" if torch.cuda.is_available() and args.gpu else "cpu")
     sys.stdout = Logger(args.output)
@@ -76,6 +79,7 @@ def main():
         train_file = f.readline()[:-1]
         test_files = f.readline()[:-1].split()
         true_explanations = list(map(int, f.readline()[:-1].split()))
+
     X_train, y_train, test_dataset, adj_list, edges = make_dataset_cli(
         graph_file, train_file, test_files, device=device
     )
@@ -99,13 +103,31 @@ def main():
         print(best)
 
     print("***Training CRM***")
-    train_losses, train_accs = train(
+    X_train, X_val, y_train, y_val = train_test_split(
+        X_train, y_train, test_size=0.2, random_state=24, stratify=y_train
+    )
+
+    # train_distributed(
+    #     n,
+    #     X_train,
+    #     y_train,
+    #     args.num_epochs,
+    #     optimizer,
+    #     criterion,
+    #     X_val,
+    #     y_val,
+    #     num_workers=16,
+    # )
+
+    train_losses, train_accs, val_losses, val_accs = train(
         n,
         X_train,
         y_train,
         args.num_epochs,
         torch.optim.Adam(n.parameters(), lr=best["lr"] if args.tune else 0.001),
         criterion,
+        X_val=X_val,
+        y_val=y_val,
         save_here=args.output + "_model",
         verbose=args.verbose,
     )
@@ -148,4 +170,13 @@ def main():
 
 
 if __name__ == "__main__":
+    import cProfile
+    import pstats
+
+    profiler = cProfile.Profile()
+    profiler.enable()
     main()
+    profiler.disable()
+    stats = pstats.Stats(profiler).sort_stats("cumtime")
+    stats.print_stats()
+    # main()
