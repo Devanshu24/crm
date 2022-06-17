@@ -1,0 +1,1221 @@
+Namespace(explain=False, file='./repeat-config', gpu=False, num_epochs=10, output='./data/NCI-datasets-repeats/gi50_screen_DLD_1/crm_r1/2_0_0.5_10/res_max_expl', predict=True, saved_model=None, tune=False, verbose=True)
+***Loading data***
+***Creating CRM structure***
+***Training CRM***
+Epoch 0
+Train loss: 0.8467954401705814
+Train acc: 0.6442166910688141
+Val loss: 0.648885784639692
+Val acc: 0.6140350877192983
+-------------------------------------
+Epoch 1
+Train loss: 0.6549841164844622
+Train acc: 0.6837481698389458
+Val loss: 0.600793117429877
+Val acc: 0.6374269005847953
+-------------------------------------
+Epoch 2
+Train loss: 0.6120508547321143
+Train acc: 0.6881405563689604
+Val loss: 0.6159066715714204
+Val acc: 0.6549707602339181
+-------------------------------------
+Epoch 3
+Train loss: 0.5848101670900826
+Train acc: 0.705710102489019
+Val loss: 0.6130351488257778
+Val acc: 0.631578947368421
+-------------------------------------
+Epoch 4
+Train loss: 0.5642140991440181
+Train acc: 0.7130307467057101
+Val loss: 0.6464796807322166
+Val acc: 0.6081871345029239
+-------------------------------------
+Patience exceeded. Stopping training.
+***Train Metrics***
+              precision    recall  f1-score   support
+
+           0     0.5449    0.4575    0.4974       212
+           1     0.7723    0.8280    0.7992       471
+
+    accuracy                         0.7130       683
+   macro avg     0.6586    0.6428    0.6483       683
+weighted avg     0.7017    0.7130    0.7055       683
+
+-------------------------------------
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.4860    0.4602    0.4727       113
+           1     0.7645    0.7826    0.7734       253
+
+    accuracy                         0.6831       366
+   macro avg     0.6252    0.6214    0.6231       366
+weighted avg     0.6785    0.6831    0.6806       366
+
+-------------------------------------
+***Predicting the class labels for the test set***
+Making predictions for 366 test instances::
+Instance: y,y_pred
+Inst 0: 1,0
+Inst 1: 1,1
+Inst 2: 1,1
+Inst 3: 1,1
+Inst 4: 1,0
+Inst 5: 1,1
+Inst 6: 1,1
+Inst 7: 1,1
+Inst 8: 1,1
+Inst 9: 1,1
+Inst 10: 1,1
+Inst 11: 1,1
+Inst 12: 1,1
+Inst 13: 1,1
+Inst 14: 1,1
+Inst 15: 1,1
+Inst 16: 1,1
+Inst 17: 1,0
+Inst 18: 1,1
+Inst 19: 1,1
+Inst 20: 1,0
+Inst 21: 1,1
+Inst 22: 1,1
+Inst 23: 1,0
+Inst 24: 1,1
+Inst 25: 1,1
+Inst 26: 1,1
+Inst 27: 1,1
+Inst 28: 1,0
+Inst 29: 1,1
+Inst 30: 1,1
+Inst 31: 1,0
+Inst 32: 1,1
+Inst 33: 1,1
+Inst 34: 1,1
+Inst 35: 1,1
+Inst 36: 1,1
+Inst 37: 1,1
+Inst 38: 1,1
+Inst 39: 1,1
+Inst 40: 1,1
+Inst 41: 1,1
+Inst 42: 1,0
+Inst 43: 1,1
+Inst 44: 1,0
+Inst 45: 1,1
+Inst 46: 1,1
+Inst 47: 1,1
+Inst 48: 1,1
+Inst 49: 1,1
+Inst 50: 1,0
+Inst 51: 1,1
+Inst 52: 1,1
+Inst 53: 1,1
+Inst 54: 1,1
+Inst 55: 1,1
+Inst 56: 1,1
+Inst 57: 1,1
+Inst 58: 1,1
+Inst 59: 1,1
+Inst 60: 1,0
+Inst 61: 1,0
+Inst 62: 1,1
+Inst 63: 1,1
+Inst 64: 1,1
+Inst 65: 1,1
+Inst 66: 1,0
+Inst 67: 1,1
+Inst 68: 1,0
+Inst 69: 1,1
+Inst 70: 1,1
+Inst 71: 1,0
+Inst 72: 1,1
+Inst 73: 1,1
+Inst 74: 1,1
+Inst 75: 1,1
+Inst 76: 1,1
+Inst 77: 1,1
+Inst 78: 1,0
+Inst 79: 1,1
+Inst 80: 1,1
+Inst 81: 1,1
+Inst 82: 1,1
+Inst 83: 1,0
+Inst 84: 1,1
+Inst 85: 1,0
+Inst 86: 1,0
+Inst 87: 1,1
+Inst 88: 1,0
+Inst 89: 1,0
+Inst 90: 1,0
+Inst 91: 1,1
+Inst 92: 1,1
+Inst 93: 1,1
+Inst 94: 1,1
+Inst 95: 1,1
+Inst 96: 1,1
+Inst 97: 1,0
+Inst 98: 1,1
+Inst 99: 1,1
+Inst 100: 1,1
+Inst 101: 1,1
+Inst 102: 1,1
+Inst 103: 1,1
+Inst 104: 1,1
+Inst 105: 1,1
+Inst 106: 1,1
+Inst 107: 1,1
+Inst 108: 1,0
+Inst 109: 1,1
+Inst 110: 1,1
+Inst 111: 1,1
+Inst 112: 1,1
+Inst 113: 1,1
+Inst 114: 1,1
+Inst 115: 1,1
+Inst 116: 1,1
+Inst 117: 1,1
+Inst 118: 1,1
+Inst 119: 1,1
+Inst 120: 1,1
+Inst 121: 1,1
+Inst 122: 1,1
+Inst 123: 1,1
+Inst 124: 1,1
+Inst 125: 1,1
+Inst 126: 1,1
+Inst 127: 1,1
+Inst 128: 1,1
+Inst 129: 1,0
+Inst 130: 1,1
+Inst 131: 1,0
+Inst 132: 1,1
+Inst 133: 1,1
+Inst 134: 1,0
+Inst 135: 1,1
+Inst 136: 1,1
+Inst 137: 1,1
+Inst 138: 1,0
+Inst 139: 1,1
+Inst 140: 1,1
+Inst 141: 1,0
+Inst 142: 1,0
+Inst 143: 1,1
+Inst 144: 1,1
+Inst 145: 1,1
+Inst 146: 1,1
+Inst 147: 1,1
+Inst 148: 1,0
+Inst 149: 1,1
+Inst 150: 1,1
+Inst 151: 1,1
+Inst 152: 1,1
+Inst 153: 1,1
+Inst 154: 1,1
+Inst 155: 1,1
+Inst 156: 1,1
+Inst 157: 1,0
+Inst 158: 1,1
+Inst 159: 1,0
+Inst 160: 1,1
+Inst 161: 1,0
+Inst 162: 1,1
+Inst 163: 1,1
+Inst 164: 1,1
+Inst 165: 1,1
+Inst 166: 1,1
+Inst 167: 1,1
+Inst 168: 1,0
+Inst 169: 1,0
+Inst 170: 1,1
+Inst 171: 1,1
+Inst 172: 1,1
+Inst 173: 1,1
+Inst 174: 1,0
+Inst 175: 1,1
+Inst 176: 1,1
+Inst 177: 1,1
+Inst 178: 1,0
+Inst 179: 1,1
+Inst 180: 1,0
+Inst 181: 1,1
+Inst 182: 1,1
+Inst 183: 1,0
+Inst 184: 1,1
+Inst 185: 1,1
+Inst 186: 1,1
+Inst 187: 1,1
+Inst 188: 1,0
+Inst 189: 1,1
+Inst 190: 1,1
+Inst 191: 1,0
+Inst 192: 1,0
+Inst 193: 1,1
+Inst 194: 1,0
+Inst 195: 1,1
+Inst 196: 1,1
+Inst 197: 1,1
+Inst 198: 1,1
+Inst 199: 1,1
+Inst 200: 1,0
+Inst 201: 1,1
+Inst 202: 1,1
+Inst 203: 1,1
+Inst 204: 1,1
+Inst 205: 1,1
+Inst 206: 1,1
+Inst 207: 1,0
+Inst 208: 1,1
+Inst 209: 1,1
+Inst 210: 1,1
+Inst 211: 1,1
+Inst 212: 1,1
+Inst 213: 1,1
+Inst 214: 1,1
+Inst 215: 1,1
+Inst 216: 1,1
+Inst 217: 1,0
+Inst 218: 1,1
+Inst 219: 1,1
+Inst 220: 1,0
+Inst 221: 1,1
+Inst 222: 1,1
+Inst 223: 1,1
+Inst 224: 1,1
+Inst 225: 1,1
+Inst 226: 1,1
+Inst 227: 1,1
+Inst 228: 1,1
+Inst 229: 1,1
+Inst 230: 1,1
+Inst 231: 1,1
+Inst 232: 1,1
+Inst 233: 1,1
+Inst 234: 1,0
+Inst 235: 1,1
+Inst 236: 1,0
+Inst 237: 1,0
+Inst 238: 1,1
+Inst 239: 1,0
+Inst 240: 1,1
+Inst 241: 1,1
+Inst 242: 1,0
+Inst 243: 1,1
+Inst 244: 1,1
+Inst 245: 1,1
+Inst 246: 1,1
+Inst 247: 1,0
+Inst 248: 1,1
+Inst 249: 1,1
+Inst 250: 1,1
+Inst 251: 1,1
+Inst 252: 1,0
+Inst 253: 0,0
+Inst 254: 0,0
+Inst 255: 0,1
+Inst 256: 0,0
+Inst 257: 0,1
+Inst 258: 0,1
+Inst 259: 0,0
+Inst 260: 0,1
+Inst 261: 0,0
+Inst 262: 0,0
+Inst 263: 0,1
+Inst 264: 0,0
+Inst 265: 0,0
+Inst 266: 0,1
+Inst 267: 0,0
+Inst 268: 0,1
+Inst 269: 0,1
+Inst 270: 0,0
+Inst 271: 0,1
+Inst 272: 0,1
+Inst 273: 0,1
+Inst 274: 0,1
+Inst 275: 0,1
+Inst 276: 0,0
+Inst 277: 0,1
+Inst 278: 0,0
+Inst 279: 0,0
+Inst 280: 0,1
+Inst 281: 0,1
+Inst 282: 0,1
+Inst 283: 0,0
+Inst 284: 0,1
+Inst 285: 0,1
+Inst 286: 0,1
+Inst 287: 0,1
+Inst 288: 0,0
+Inst 289: 0,0
+Inst 290: 0,0
+Inst 291: 0,0
+Inst 292: 0,0
+Inst 293: 0,0
+Inst 294: 0,1
+Inst 295: 0,0
+Inst 296: 0,1
+Inst 297: 0,1
+Inst 298: 0,0
+Inst 299: 0,0
+Inst 300: 0,0
+Inst 301: 0,0
+Inst 302: 0,0
+Inst 303: 0,0
+Inst 304: 0,0
+Inst 305: 0,0
+Inst 306: 0,1
+Inst 307: 0,1
+Inst 308: 0,1
+Inst 309: 0,1
+Inst 310: 0,0
+Inst 311: 0,0
+Inst 312: 0,0
+Inst 313: 0,0
+Inst 314: 0,0
+Inst 315: 0,1
+Inst 316: 0,1
+Inst 317: 0,1
+Inst 318: 0,1
+Inst 319: 0,0
+Inst 320: 0,1
+Inst 321: 0,1
+Inst 322: 0,0
+Inst 323: 0,0
+Inst 324: 0,0
+Inst 325: 0,1
+Inst 326: 0,1
+Inst 327: 0,1
+Inst 328: 0,1
+Inst 329: 0,1
+Inst 330: 0,1
+Inst 331: 0,1
+Inst 332: 0,1
+Inst 333: 0,0
+Inst 334: 0,1
+Inst 335: 0,1
+Inst 336: 0,1
+Inst 337: 0,1
+Inst 338: 0,0
+Inst 339: 0,0
+Inst 340: 0,1
+Inst 341: 0,1
+Inst 342: 0,0
+Inst 343: 0,0
+Inst 344: 0,1
+Inst 345: 0,1
+Inst 346: 0,1
+Inst 347: 0,0
+Inst 348: 0,0
+Inst 349: 0,1
+Inst 350: 0,1
+Inst 351: 0,1
+Inst 352: 0,0
+Inst 353: 0,0
+Inst 354: 0,1
+Inst 355: 0,1
+Inst 356: 0,1
+Inst 357: 0,1
+Inst 358: 0,0
+Inst 359: 0,0
+Inst 360: 0,1
+Inst 361: 0,0
+Inst 362: 0,1
+Inst 363: 0,1
+Inst 364: 0,0
+Inst 365: 0,0
+         496852990 function calls (496167791 primitive calls) in 1999.000 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.006    0.006 1999.000 1999.000 main.py:70(main)
+        1   15.338   15.338 1885.976 1885.976 /home/dell7810/Devanshu/CRM/crm/crm/utils/train_utils.py:68(train)
+     4098   12.868    0.003  814.799    0.199 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/autograd/grad_mode.py:23(decorate_context)
+     4098   33.902    0.008  801.834    0.196 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/optim/adam.py:55(step)
+     4098  196.196    0.048  682.722    0.167 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/optim/functional.py:53(adam)
+    11663  612.264    0.052  679.157    0.058 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:89(forward)
+     4098    0.052    0.000  340.492    0.083 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/tensor.py:181(backward)
+     4098    0.027    0.000  340.441    0.083 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/autograd/__init__.py:68(backward)
+     4098  340.306    0.083  340.306    0.083 {method 'run_backward' of 'torch._C._EngineBase' objects}
+       14    0.033    0.002  326.909   23.351 /home/dell7810/Devanshu/CRM/crm/crm/utils/utils.py:18(get_metrics)
+ 28202436  191.291    0.000  191.291    0.000 {method 'mul_' of 'torch._C._TensorBase' objects}
+ 98708526  129.645    0.000  136.771    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/tensor.py:933(grad)
+ 28202436  133.532    0.000  133.532    0.000 {method 'add_' of 'torch._C._TensorBase' objects}
+     4098   22.647    0.006  117.535    0.029 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/optim/optimizer.py:167(zero_grad)
+ 11709652   11.982    0.000   66.565    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/nn/functional.py:1124(relu)
+ 14101218   61.686    0.000   61.686    0.000 {method 'sqrt' of 'torch._C._TensorBase' objects}
+ 11709652   53.307    0.000   53.307    0.000 {built-in method relu}
+ 14101218   50.457    0.000   50.457    0.000 {method 'addcdiv_' of 'torch._C._TensorBase' objects}
+ 14101218   46.065    0.000   46.065    0.000 {method 'addcmul_' of 'torch._C._TensorBase' objects}
+        1    0.005    0.005   28.714   28.714 /home/dell7810/Devanshu/CRM/crm/crm/utils/utils.py:33(get_predictions)
+ 14118423   13.411    0.000   14.977    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/tensor.py:596(__hash__)
+ 14101218   14.273    0.000   14.273    0.000 {method 'zero_' of 'torch._C._TensorBase' objects}
+    11663   13.982    0.001   13.982    0.001 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:120(reset)
+ 70539846    7.864    0.000    7.864    0.000 {method 'append' of 'list' objects}
+ 98727196    7.130    0.000    7.130    0.000 {built-in method builtins.hasattr}
+     5124    0.030    0.000    6.873    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/nn/functional.py:2416(cross_entropy)
+     5124    0.012    0.000    6.061    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/nn/functional.py:1581(log_softmax)
+     5124    6.049    0.001    6.049    0.001 {method 'log_softmax' of 'torch._C._TensorBase' objects}
+ 14104659    5.398    0.000    5.398    0.000 {method 'requires_grad_' of 'torch._C._TensorBase' objects}
+        5    0.000    0.000    4.888    0.978 /home/dell7810/Devanshu/CRM/crm/crm/utils/utils.py:8(save_object)
+        5    0.010    0.002    4.888    0.978 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:266(dump)
+        5    0.000    0.000    4.878    0.976 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:466(dump)
+        5    0.000    0.000    4.878    0.976 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:476(dump)
+ 495795/5    1.087    0.000    4.878    0.976 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:535(save)
+  57725/5    0.179    0.000    4.878    0.976 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:621(save_reduce)
+   6115/5    0.030    0.000    4.877    0.975 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:960(save_module_dict)
+   6115/5    0.010    0.000    4.877    0.975 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:964(save_dict)
+  23320/5    0.091    0.000    4.877    0.975 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:977(_batch_setitems)
+ 14101218    3.496    0.000    3.496    0.000 {built-in method math.sqrt}
+     4111    0.024    0.000    3.472    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1159(__iter__)
+     4103    0.045    0.000    3.444    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1197(update)
+     4140    0.018    0.000    3.376    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1324(refresh)
+     4147    0.027    0.000    3.321    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1463(display)
+109340/40520    0.206    0.000    3.304    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:873(save_tuple)
+     4147    0.023    0.000    2.849    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1149(__str__)
+     4147    2.566    0.001    2.791    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:355(format_meter)
+ 15116933    1.673    0.000    1.673    0.000 {built-in method builtins.id}
+        1    0.018    0.018    1.521    1.521 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:11(make_dataset_cli)
+ 11729128    1.280    0.000    1.280    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/_jit_internal.py:750(is_scripting)
+14497810/14497784    1.210    0.000    1.210    0.000 {built-in method builtins.len}
+    40520    0.050    0.000    1.179    0.000 {method '__reduce_ex__' of 'object' objects}
+    17205    0.028    0.000    1.128    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/storage.py:32(__reduce__)
+    17205    0.062    0.000    1.097    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:333(save)
+    17205    0.228    0.000    0.964    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:377(_legacy_save)
+ 12230/20    0.013    0.000    0.860    0.043 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:924(save_list)
+ 12230/20    0.036    0.000    0.860    0.043 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:937(_batch_appends)
+     5124    0.044    0.000    0.772    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/nn/functional.py:2204(nll_loss)
+      589    0.755    0.001    0.755    0.001 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:71(<dictcomp>)
+     5124    0.702    0.000    0.702    0.000 {built-in method torch._C._nn.nll_loss}
+   179475    0.240    0.000    0.399    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:491(memoize)
+    11677    0.386    0.000    0.386    0.000 {built-in method stack}
+    17205    0.114    0.000    0.338    0.000 {method 'dump' of '_pickle.Pickler' objects}
+      253    0.321    0.001    0.321    0.001 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:106(<dictcomp>)
+     4177    0.014    0.000    0.299    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:348(print_status)
+   377090    0.115    0.000    0.296    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:432(get)
+   732250    0.209    0.000    0.290    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:241(write)
+    17205    0.185    0.000    0.262    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/tensor.py:83(__reduce_ex__)
+      265    0.258    0.001    0.258    0.001 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:85(<dictcomp>)
+   495800    0.179    0.000    0.239    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:217(commit_frame)
+    24934    0.011    0.000    0.233    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:143(inner)
+   120435    0.131    0.000    0.224    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:382(persistent_id)
+    12452    0.212    0.000    0.212    0.000 {method 'flush' of '_io.TextIOWrapper' objects}
+   157085    0.106    0.000    0.197    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:751(save_long)
+    57725    0.171    0.000    0.181    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:438(__missing__)
+     8268    0.037    0.000    0.144    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1440(moveto)
+     4177    0.009    0.000    0.143    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:342(fp_write)
+    68820    0.138    0.000    0.138    0.000 {built-in method _pickle.dump}
+     4177    0.007    0.000    0.137    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:333(disp_len)
+     4177    0.008    0.000    0.118    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:329(_text_width)
+     4189    0.025    0.000    0.110    0.000 {built-in method builtins.sum}
+    33172    0.083    0.000    0.109    0.000 {method 'format' of 'str' objects}
+    14129    0.104    0.000    0.104    0.000 {method 'write' of '_io.TextIOWrapper' objects}
+     4098    0.032    0.000    0.102    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/autograd/__init__.py:28(_make_grads)
+      113    0.101    0.001    0.101    0.001 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:120(<dictcomp>)
+    17205    0.030    0.000    0.100    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:789(save_bytes)
+      380    0.001    0.000    0.096    0.000 {built-in method builtins.print}
+      820    0.001    0.000    0.095    0.000 main.py:62(write)
+   553770    0.086    0.000    0.086    0.000 {method 'get' of 'dict' objects}
+   206535    0.054    0.000    0.085    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:330(<genexpr>)
+   568059    0.083    0.000    0.083    0.000 {built-in method builtins.getattr}
+   118705    0.052    0.000    0.081    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:526(get)
+   732245    0.081    0.000    0.081    0.000 {method 'write' of '_io.BytesIO' objects}
+    17221    0.079    0.000    0.079    0.000 {method 'keys' of 'dict' objects}
+       14    0.001    0.000    0.074    0.005 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1964(classification_report)
+     6539    0.074    0.000    0.074    0.000 {built-in method argmax}
+    10248    0.073    0.000    0.073    0.000 {method 'reshape' of 'torch._C._TensorBase' objects}
+       56    0.002    0.000    0.066    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1370(precision_recall_fscore_support)
+     4098    0.065    0.000    0.065    0.000 {built-in method ones_like}
+    17205    0.027    0.000    0.064    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:280(_should_read_directly)
+   293235    0.062    0.000    0.062    0.000 {built-in method _struct.pack}
+17206/17205    0.025    0.000    0.059    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:255(inner)
+   495805    0.056    0.000    0.056    0.000 {method 'tell' of '_io.BytesIO' objects}
+   357843    0.053    0.000    0.055    0.000 {built-in method builtins.isinstance}
+    17205    0.020    0.000    0.051    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:228(_open_file_like)
+   495795    0.048    0.000    0.048    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:605(persistent_id)
+        2    0.000    0.000    0.046    0.023 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:14(__init__)
+     8281    0.015    0.000    0.042    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:288(format_interval)
+    17205    0.041    0.000    0.041    0.000 {method '_write_file' of 'torch._C.FloatStorageBase' objects}
+     5856    0.041    0.000    0.041    0.000 {method 'item' of 'torch._C._TensorBase' objects}
+     8294    0.027    0.000    0.039    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:222(_is_ascii)
+       56    0.002    0.000    0.038    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:374(multilabel_confusion_matrix)
+     4104    0.017    0.000    0.037    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/autograd/grad_mode.py:89(__exit__)
+3772/2983    0.005    0.000    0.037    0.000 {built-in method numpy.core._multiarray_umath.implement_array_function}
+     4134    0.036    0.000    0.036    0.000 {built-in method now}
+     4147    0.027    0.000    0.035    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1445(format_dict)
+        1    0.000    0.000    0.034    0.034 /home/dell7810/Devanshu/CRM/crm/crm/utils/utils.py:45(seed_all)
+    24698    0.034    0.000    0.034    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:233(__call__)
+   179475    0.033    0.000    0.033    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:514(put)
+        2    0.000    0.000    0.033    0.017 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/cuda/__init__.py:46(is_available)
+        2    0.033    0.017    0.033    0.017 {built-in method torch._C._cuda_getDeviceCount}
+     8208    0.022    0.000    0.033    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/autograd/grad_mode.py:166(__init__)
+     4104    0.030    0.000    0.031    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/autograd/grad_mode.py:80(__init__)
+    17205    0.031    0.000    0.031    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:272(_is_compressed_file)
+   202358    0.031    0.000    0.031    0.000 {built-in method unicodedata.east_asian_width}
+   120435    0.028    0.000    0.028    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/__init__.py:265(is_storage)
+     4104    0.012    0.000    0.028    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/autograd/grad_mode.py:85(__enter__)
+    27453    0.028    0.000    0.028    0.000 {method 'size' of 'torch._C._TensorBase' objects}
+        2    0.003    0.002    0.026    0.013 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:168(_set_weights)
+     6882    0.025    0.000    0.025    0.000 {built-in method zeros_like}
+      126    0.001    0.000    0.024    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:57(_check_targets)
+     4168    0.013    0.000    0.024    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:104(acquire)
+     4147    0.019    0.000    0.023    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:188(__format__)
+      504    0.004    0.000    0.023    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/multiclass.py:201(type_of_target)
+     1236    0.001    0.000    0.022    0.000 <__array_function__ internals>:2(unique)
+    17205    0.015    0.000    0.022    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:164(location_tag)
+     5438    0.022    0.000    0.022    0.000 {built-in method rand}
+    17205    0.016    0.000    0.022    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:193(_is_path)
+     3674    0.021    0.000    0.021    0.000 {built-in method tensor}
+     1236    0.002    0.000    0.020    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:138(unique)
+    17205    0.019    0.000    0.019    0.000 {method 'storage' of 'torch._C._TensorBase' objects}
+        2    0.000    0.000    0.019    0.010 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/optim/adam.py:34(__init__)
+        2    0.001    0.000    0.019    0.010 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/optim/optimizer.py:33(__init__)
+   132880    0.019    0.000    0.019    0.000 {built-in method builtins.issubclass}
+       56    0.000    0.000    0.019    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1329(_check_set_wise_labels)
+    17205    0.009    0.000    0.019    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/_namedtensor_internals.py:10(check_serializing_named_tensor)
+    17207    0.016    0.000    0.019    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:720(__hash__)
+      126    0.002    0.000    0.018    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/multiclass.py:41(unique_labels)
+        2    0.005    0.002    0.018    0.009 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/optim/optimizer.py:207(add_param_group)
+     1236    0.009    0.000    0.017    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:320(_unique1d)
+    17215    0.010    0.000    0.016    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:744(save_bool)
+     4168    0.012    0.000    0.015    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:108(release)
+    17332    0.015    0.000    0.015    0.000 {built-in method builtins.sorted}
+    17206    0.010    0.000    0.015    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:329(__hash__)
+     4147    0.012    0.000    0.015    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:155(__init__)
+      589    0.014    0.000    0.014    0.000 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:70(<listcomp>)
+    11663    0.013    0.000    0.013    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:108(<listcomp>)
+     4177    0.012    0.000    0.012    0.000 {method 'sub' of 're.Pattern' objects}
+        2    0.001    0.001    0.011    0.006 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:17(<listcomp>)
+      112    0.000    0.000    0.011    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/preprocessing/_label.py:119(transform)
+    17205    0.008    0.000    0.011    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:183(normalize_storage_type)
+      378    0.000    0.000    0.011    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/multiclass.py:76(<genexpr>)
+    12312    0.011    0.000    0.011    0.000 {built-in method torch._C.is_grad_enabled}
+    17205    0.009    0.000    0.011    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:224(__exit__)
+     2440    0.003    0.000    0.010    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/neuron.py:8(__init__)
+    17205    0.010    0.000    0.010    0.000 {method 'has_names' of 'torch._C._TensorBase' objects}
+    87113    0.010    0.000    0.010    0.000 {built-in method builtins.ord}
+    17205    0.009    0.000    0.009    0.000 {method 'size' of 'torch._C.FloatStorageBase' objects}
+        1    0.003    0.003    0.009    0.009 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:127(to)
+    17205    0.009    0.000    0.009    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:199(__init__)
+     8268    0.009    0.000    0.009    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:319(_term_move_up)
+    17205    0.009    0.000    0.009    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/utils/hooks.py:52(warn_if_has_hooks)
+      112    0.000    0.000    0.009    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/_encode.py:151(_encode)
+    12290    0.005    0.000    0.008    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/logging/__init__.py:1436(info)
+    34413    0.008    0.000    0.008    0.000 {built-in method builtins.hash}
+      732    0.004    0.000    0.008    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/tensor.py:528(__format__)
+    17205    0.008    0.000    0.008    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:116(_cpu_tag)
+     4168    0.008    0.000    0.008    0.000 {method 'acquire' of '_multiprocessing.SemLock' objects}
+      184    0.000    0.000    0.007    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:317(check_consistent_length)
+    17205    0.007    0.000    0.007    0.000 {method 'stride' of 'torch._C._TensorBase' objects}
+      112    0.001    0.000    0.007    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/_encode.py:193(_check_unknown)
+    57750    0.007    0.000    0.007    0.000 {built-in method builtins.callable}
+    17205    0.006    0.000    0.006    0.000 {method 'fileno' of '_io._IOBase' objects}
+    35558    0.006    0.000    0.006    0.000 {built-in method builtins.iter}
+    10204    0.006    0.000    0.006    0.000 {built-in method builtins.max}
+      504    0.002    0.000    0.006    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/multiclass.py:117(is_multilabel)
+     7385    0.006    0.000    0.006    0.000 {method 'split' of 'str' objects}
+       63    0.000    0.000    0.006    0.000 {built-in method builtins.next}
+      253    0.006    0.000    0.006    0.000 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:105(<listcomp>)
+    17205    0.006    0.000    0.006    0.000 {method 'storage_offset' of 'torch._C._TensorBase' objects}
+    17205    0.006    0.000    0.006    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:314(_check_dill_version)
+     5124    0.005    0.000    0.005    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/nn/functional.py:2461(<listcomp>)
+      168    0.000    0.000    0.005    0.000 <__array_function__ internals>:2(setdiff1d)
+       30    0.000    0.000    0.005    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:613(write)
+    20709    0.005    0.000    0.005    0.000 {built-in method builtins.divmod}
+     5856    0.005    0.000    0.005    0.000 {method 'dim' of 'torch._C._TensorBase' objects}
+     1236    0.005    0.000    0.005    0.000 {method 'sort' of 'numpy.ndarray' objects}
+      168    0.000    0.000    0.005    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:784(setdiff1d)
+       60    0.000    0.000    0.005    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:622(external_write_mode)
+     8208    0.005    0.000    0.005    0.000 {built-in method torch._C._set_grad_enabled}
+        1    0.000    0.000    0.005    0.005 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/model_selection/_split.py:2321(train_test_split)
+    10248    0.005    0.000    0.005    0.000 {built-in method builtins.any}
+      265    0.005    0.000    0.005    0.000 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:84(<listcomp>)
+      168    0.000    0.000    0.005    0.000 <__array_function__ internals>:2(in1d)
+     2438    0.001    0.000    0.005    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/re.py:198(search)
+     5124    0.004    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/nn/functional.py:2250(<listcomp>)
+    34410    0.004    0.000    0.004    0.000 {method 'flush' of '_io.BytesIO' objects}
+      378    0.000    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/multiclass.py:104(<genexpr>)
+      168    0.003    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:519(in1d)
+     4147    0.004    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:57(__init__)
+      252    0.000    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/multiclass.py:23(_unique_multiclass)
+    16456    0.004    0.000    0.004    0.000 {built-in method time.time}
+      126    0.000    0.000    0.004    0.000 <__array_function__ internals>:2(union1d)
+    18345    0.004    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:1599(is_dill)
+        2    0.002    0.001    0.004    0.002 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:199(_assign_layers)
+      185    0.004    0.000    0.004    0.000 {method 'write' of '_io.BufferedWriter' objects}
+      126    0.000    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:743(union1d)
+      484    0.002    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:253(_num_samples)
+     2190    0.002    0.000    0.004    0.000 {built-in method numpy.asarray}
+     1010    0.001    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/warnings.py:165(simplefilter)
+    12290    0.004    0.000    0.004    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/logging/__init__.py:1689(isEnabledFor)
+     4098    0.003    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/autograd/__init__.py:60(_tensor_or_tensors_to_tuple)
+        2    0.000    0.000    0.003    0.002 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:486(check_array)
+        1    0.000    0.000    0.003    0.003 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/model_selection/_split.py:1988(split)
+        6    0.001    0.000    0.003    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/random.py:293(shuffle)
+       30    0.000    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/contextlib.py:117(__exit__)
+    17205    0.003    0.000    0.003    0.000 {method 'getvalue' of '_io.BytesIO' objects}
+     5124    0.003    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/nn/_reduction.py:7(get_enum)
+    17205    0.003    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/serialization.py:202(__enter__)
+     4170    0.003    0.000    0.003    0.000 {method 'acquire' of '_thread.RLock' objects}
+     4152    0.003    0.000    0.003    0.000 {method 'update' of 'dict' objects}
+     4147    0.003    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:169(colour)
+      184    0.000    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:328(<listcomp>)
+        2    0.002    0.001    0.003    0.002 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:158(_setup_neurons)
+      420    0.001    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:994(column_or_1d)
+      126    0.000    0.000    0.003    0.000 <__array_function__ internals>:2(average)
+     4147    0.003    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:61(__format__)
+      126    0.000    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/function_base.py:280(average)
+     1010    0.001    0.000    0.003    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/warnings.py:181(_add_filter)
+     3441    0.003    0.000    0.003    0.000 {method 'to' of 'torch._C._TensorBase' objects}
+      112    0.001    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1265(_prf_divide)
+    17205    0.002    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:1149(cast)
+        7    0.000    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/auto.py:38(trange)
+     4100    0.002    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/random.py:250(_randbelow_with_getrandbits)
+     2466    0.001    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/re.py:289(_compile)
+     3441    0.002    0.000    0.002    0.000 {method 'detach' of 'torch._C._TensorBase' objects}
+     4916    0.002    0.000    0.002    0.000 {method 'readline' of '_io.TextIOWrapper' objects}
+     4098    0.002    0.000    0.002    0.000 {method 'numel' of 'torch._C._TensorBase' objects}
+     2438    0.002    0.000    0.002    0.000 {method 'search' of 're.Pattern' objects}
+       56    0.000    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/preprocessing/_label.py:85(fit)
+      154    0.000    0.000    0.002    0.000 <__array_function__ internals>:2(any)
+      538    0.002    0.000    0.002    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+      113    0.002    0.000    0.002    0.000 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:119(<listcomp>)
+        1    0.000    0.000    0.002    0.002 main.py:22(cmd_line_args)
+     4168    0.002    0.000    0.002    0.000 {method 'release' of '_multiprocessing.SemLock' objects}
+     4197    0.002    0.000    0.002    0.000 {built-in method builtins.abs}
+        7    0.000    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/asyncio.py:23(__init__)
+     1047    0.000    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/abc.py:96(__instancecheck__)
+        7    0.000    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:846(__init__)
+       30    0.000    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/contextlib.py:108(__enter__)
+        2    0.000    0.000    0.002    0.001 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:190(_topological_sort)
+       14    0.000    0.000    0.002    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1264(close)
+     1236    0.002    0.000    0.002    0.000 {method 'flatten' of 'numpy.ndarray' objects}
+     4147    0.001    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:165(colour)
+      168    0.000    0.000    0.001    0.000 <__array_function__ internals>:2(searchsorted)
+      168    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/numeric.py:149(ones)
+      420    0.000    0.000    0.001    0.000 <__array_function__ internals>:2(ravel)
+      198    0.001    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:69(_wrapreduction)
+ 2440/434    0.001    0.000    0.001    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:178(_topological_sort_util)
+     1010    0.001    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/warnings.py:458(__enter__)
+       56    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/_encode.py:7(_unique)
+     1047    0.001    0.000    0.001    0.000 {built-in method _abc._abc_instancecheck}
+      154    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2268(any)
+     4170    0.001    0.000    0.001    0.000 {method 'release' of '_thread.RLock' objects}
+      854    0.001    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/tensor.py:624(__array__)
+       84    0.000    0.000    0.001    0.000 {method 'mean' of 'numpy.ndarray' objects}
+       84    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/_methods.py:162(_mean)
+      168    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:1283(searchsorted)
+     1405    0.001    0.000    0.001    0.000 {built-in method numpy.empty}
+      183    0.000    0.000    0.001    0.000 <__array_function__ internals>:2(concatenate)
+       30    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:1055(save_global)
+     6336    0.001    0.000    0.001    0.000 {method 'items' of 'dict' objects}
+        1    0.000    0.000    0.001    0.001 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1638(__init__)
+        2    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/model_selection/_split.py:1569(split)
+       56    0.000    0.000    0.001    0.000 <__array_function__ internals>:2(hstack)
+      174    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:51(_wrapfunc)
+        7    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:759(compile)
+        2    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/model_selection/_split.py:1920(_iter_indices)
+       30    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1308(clear)
+     3259    0.001    0.000    0.001    0.000 {built-in method numpy.asanyarray}
+     1010    0.001    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/warnings.py:477(__exit__)
+       56    0.000    0.000    0.001    0.000 <__array_function__ internals>:2(isposinf)
+     1015    0.001    0.000    0.001    0.000 {method 'remove' of 'list' objects}
+      420    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:1718(ravel)
+      145    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:850(save_str)
+      112    0.000    0.000    0.001    0.000 {method 'any' of 'numpy.ndarray' objects}
+      154    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/_methods.py:54(_any)
+      168    0.000    0.000    0.001    0.000 <__array_function__ internals>:2(copyto)
+      112    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:1140(check_is_fitted)
+     1236    0.001    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:125(_unpack_tuple)
+      420    0.000    0.000    0.001    0.000 <__array_function__ internals>:2(shape)
+       15    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:1464(save_function)
+       56    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/shape_base.py:285(hstack)
+       10    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1337(add_argument)
+       15    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:1385(save_type)
+     1010    0.001    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/warnings.py:437(__init__)
+      168    0.001    0.000    0.001    0.000 {method 'searchsorted' of 'numpy.ndarray' objects}
+        2    0.000    0.000    0.001    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:152(_set_output_neurons)
+      224    0.001    0.000    0.001    0.000 {built-in method numpy.array}
+     2006    0.001    0.000    0.001    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:209(<listcomp>)
+       56    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/ufunclike.py:48(func)
+  500/485    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/abc.py:100(__subclasscheck__)
+        7    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:560(__new__)
+      144    0.000    0.000    0.001    0.000 {method 'sum' of 'numpy.ndarray' objects}
+        7    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:937(parse)
+      169    0.000    0.000    0.001    0.000 <__array_function__ internals>:2(bincount)
+        2    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/cuda/random.py:98(manual_seed_all)
+       56    0.001    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/ufunclike.py:127(isposinf)
+        2    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/cuda/__init__.py:112(_lazy_call)
+        2    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:193(format_stack)
+        1    0.000    0.000    0.001    0.001 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:53(<listcomp>)
+       15    0.000    0.000    0.001    0.000 {built-in method io.open}
+      882    0.001    0.000    0.001    0.000 {method 'numpy' of 'torch._C._TensorBase' objects}
+     14/7    0.000    0.000    0.001    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:435(_parse_sub)
+       23    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/re.py:250(compile)
+     3662    0.000    0.000    0.000    0.000 {method 'group' of 're.Match' objects}
+     6135    0.000    0.000    0.000    0.000 {method 'getrandbits' of '_random.Random' objects}
+     6884    0.000    0.000    0.000    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:111(<genexpr>)
+      144    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/_methods.py:46(_sum)
+     15/8    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:493(_parse)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:200(extract_stack)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:321(extract)
+  500/485    0.000    0.000    0.000    0.000 {built-in method _abc._abc_subclasscheck}
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2480(_get_formatter)
+       42    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(sum)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:161(__init__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/random.py:22(manual_seed)
+      732    0.000    0.000    0.000    0.000 {method '__format__' of 'int' objects}
+       84    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/_methods.py:66(_count_reduce_items)
+       93    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_weakrefset.py:58(__iter__)
+    47/46    0.000    0.000    0.000    0.000 {built-in method builtins.__import__}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1767(parse_args)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1774(parse_known_args)
+      924    0.000    0.000    0.000    0.000 {method 'ravel' of 'numpy.ndarray' objects}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1255(__init__)
+       42    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2123(sum)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1809(_parse_known_args)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:598(_code)
+     3030    0.000    0.000    0.000    0.000 {built-in method _warnings._filters_mutated}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/gettext.py:735(gettext)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/gettext.py:660(dgettext)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/gettext.py:579(translation)
+      110    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/codecs.py:319(decode)
+       33    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:285(line)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/gettext.py:538(find)
+       56    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(atleast_1d)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:583(_decr_instances)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:282(_screen_shape_linux)
+       11    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/linecache.py:15(getline)
+     2440    0.000    0.000    0.000    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/neuron.py:22(set_successor_neurons)
+       56    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/__init__.py:989(is_scalar_nan)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1877(consume_optional)
+     2440    0.000    0.000    0.000    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/neuron.py:25(set_predecessor_neurons)
+      3/1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:986(_find_and_load)
+       11    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/_fx/graph_module.py:24(patched_getline)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:1029(check_random_state)
+      112    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:1204(<listcomp>)
+     4100    0.000    0.000    0.000    0.000 {method 'bit_length' of 'int' objects}
+       11    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/linecache.py:37(getlines)
+     1010    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/model_selection/_split.py:2446(<genexpr>)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/linecache.py:82(updatecache)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/__init__.py:307(_safe_indexing)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:159(<listcomp>)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/_monitor.py:30(__init__)
+      3/1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:956(_find_and_load_unlocked)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/__init__.py:1021(_approximate_mode)
+      2/1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:211(_call_with_frames_removed)
+       37    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:657(get_lock)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:212(end_framing)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2084(_match_argument)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/__init__.py:225(_list_indexing)
+     1236    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:133(_unique_dispatcher)
+      378    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/multiclass.py:107(<genexpr>)
+       42    0.000    0.000    0.000    0.000 {method 'any' of 'numpy.generic' objects}
+       36    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:2158(<listcomp>)
+       36    0.000    0.000    0.000    0.000 {built-in method posix.stat}
+      240    0.000    0.000    0.000    0.000 {method 'item' of 'numpy.generic' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:92(__init__)
+     26/7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:71(_compile)
+       56    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/shape_base.py:23(atleast_1d)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:834(start)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:118(create_mp_lock)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/re.py:188(match)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:890(_find_spec)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/multiprocessing/context.py:70(RLock)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/__init__.py:234(<listcomp>)
+      110    0.000    0.000    0.000    0.000 {built-in method _codecs.utf_8_decode}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/multiprocessing/synchronize.py:186(__init__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/multiprocessing/synchronize.py:50(__init__)
+       15    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:910(_locate_function)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:357(indexable)
+       22    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/genericpath.py:16(exists)
+       42    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(result_type)
+      420    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:1928(shape)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/shutil.py:1312(get_terminal_size)
+        4    0.000    0.000    0.000    0.000 {method 'permutation' of 'numpy.random.mtrand.RandomState' objects}
+      362    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:576(_get_free_pos)
+      198    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:70(<dictcomp>)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1399(find_spec)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:536(_compile_info)
+        7    0.000    0.000    0.000    0.000 {built-in method fcntl.ioctl}
+       30    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/contextlib.py:238(helper)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1367(_get_spec)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/contextlib.py:72(inner)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:540(wait)
+       24    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:2126(<listcomp>)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:270(wait)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/Devanshu/CRM/crm/crm/utils/data_utils.py:126(<listcomp>)
+       30    0.000    0.000    0.000    0.000 {built-in method builtins.all}
+       56    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/ufunclike.py:22(func)
+       44    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_weakrefset.py:26(__exit__)
+       15    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:896(_import_module)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/tokenize.py:388(open)
+        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1498(find_spec)
+        4    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.lock' objects}
+      112    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/inspect.py:72(isclass)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:2104(<listcomp>)
+       30    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/os.py:670(__getitem__)
+       56    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/shape_base.py:218(_vhstack_dispatcher)
+       30    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/contextlib.py:82(__init__)
+        1    0.000    0.000    0.000    0.000 {function SeedSequence.generate_state at 0x7f032ff338b0}
+       56    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:47(_check_zero_division)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:162(__init__)
+       56    0.000    0.000    0.000    0.000 {method 'reshape' of 'numpy.ndarray' objects}
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:579(<setcomp>)
+       90    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:640(<genexpr>)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_weakrefset.py:106(remove)
+       28    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:112(__enter__)
+      113    0.000    0.000    0.000    0.000 {method 'copy' of 'numpy.ndarray' objects}
+        3    0.000    0.000    0.000    0.000 {method 'readlines' of '_io._IOBase' objects}
+      104    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:171(__eq__)
+        1    0.000    0.000    0.000    0.000 main.py:58(__init__)
+       51    0.000    0.000    0.000    0.000 {method 'remove' of 'set' objects}
+       18    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/posixpath.py:71(join)
+       28    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:115(__exit__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/joblib/externals/loky/backend/__init__.py:8(_make_name)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:452(__init__)
+    33/14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:174(getwidth)
+      174    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+        9    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/gettext.py:212(_expand_lang)
+      146    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:164(__getitem__)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1747(_add_action)
+      420    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:1924(_shape_dispatcher)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:27(format_list)
+       44    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_weakrefset.py:20(__enter__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/tempfile.py:144(__next__)
+      112    0.000    0.000    0.000    0.000 {built-in method builtins.vars}
+      2/1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:347(__getitem__)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:296(<listcomp>)
+       30    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:322(_getattribute)
+      420    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:1714(_ravel_dispatcher)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1589(_add_action)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1478(_get_optional_kwargs)
+       56    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/shape_base.py:207(_arrays_for_stack_dispatcher)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1388(add_argument_group)
+        1    0.000    0.000    0.000    0.000 {method 'choice' of 'numpy.random.mtrand.RandomState' objects}
+      182    0.000    0.000    0.000    0.000 {method 'encode' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:388(format)
+       59    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:254(get)
+       56    0.000    0.000    0.000    0.000 {method 'tolist' of 'numpy.ndarray' objects}
+        9    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/linecache.py:53(checkcache)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1567(__init__)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1856(take_action)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1398(_add_action)
+      252    0.000    0.000    0.000    0.000 {method 'pop' of 'set' objects}
+       77    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:233(__next)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:329(status_printer)
+        1    0.000    0.000    0.000    0.000 {built-in method _thread.start_new_thread}
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:154(numpyufunc)
+       90    0.000    0.000    0.000    0.000 {method 'getbuffer' of '_io.BytesIO' objects}
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/random.py:123(seed)
+       22    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:355(_escape)
+        2    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(may_share_memory)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:147(__enter__)
+      183    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/multiarray.py:148(concatenate)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:90(_assert_all_finite)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/enum.py:938(__and__)
+       30    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/os.py:748(encode)
+       56    0.000    0.000    0.000    0.000 {built-in method math.isnan}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/tokenize.py:295(detect_encoding)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:586(_format_args)
+       73    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:121(_path_join)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/tempfile.py:133(rng)
+      168    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/multiarray.py:1071(copyto)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_bootlocale.py:33(getpreferredencoding)
+       84    0.000    0.000    0.000    0.000 {built-in method numpy.core._multiarray_umath.normalize_axis_index}
+       10    0.000    0.000    0.000    0.000 {built-in method posix.get_terminal_size}
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:409(__init__)
+       44    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_weakrefset.py:16(__init__)
+        2    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(cumsum)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(split)
+       17    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+      127    0.000    0.000    0.000    0.000 {built-in method from_iterable}
+        8    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_weakrefset.py:81(add)
+      169    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/multiarray.py:883(bincount)
+       12    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:2124(<dictcomp>)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:761(__init__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/shape_base.py:799(split)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:96(closegroup)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:215(_supports_unicode)
+      168    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:1279(_searchsorted_dispatcher)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(array_split)
+      168    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:780(_setdiff1d_dispatcher)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/numeric.py:1858(isscalar)
+      154    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2263(_any_dispatcher)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2458(cumsum)
+        2    0.000    0.000    0.000    0.000 {function Random.seed at 0x7f03a5482670}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/shape_base.py:739(array_split)
+      168    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:515(_in1d_dispatcher)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1285(fp_write)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:157(_get_module_lock)
+      102    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/codecs.py:331(getstate)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2358(_get_values)
+       83    0.000    0.000    0.000    0.000 {built-in method builtins.min}
+       44    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_weakrefset.py:52(_commit_removals)
+      9/6    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:461(_get_literal_prefix)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/random.py:94(__init__)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(amin)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/model_selection/_split.py:2026(_validate_shuffle_split)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:659(__init__)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:105(__init__)
+      126    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/arraysetops.py:739(_union1d_dispatcher)
+       31    0.000    0.000    0.000    0.000 {method 'match' of 're.Pattern' objects}
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:74(__eq__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/tempfile.py:147(<listcomp>)
+      126    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/function_base.py:276(_average_dispatcher)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:116(__repr__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2763(amin)
+       37    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1308(register)
+        2    0.000    0.000    0.000    0.000 {method 'cumsum' of 'numpy.ndarray' objects}
+       21    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:101(wrapper_setattr)
+       52    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:172(append)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:136(disable_on_exception)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/__init__.py:237(_determine_key_type)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(prod)
+        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:135(_path_stat)
+        8    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/random.py:285(choice)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:224(__init__)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/enum.py:313(__call__)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_collections_abc.py:657(get)
+       39    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:249(match)
+        8    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:389(parent)
+        2    0.000    0.000    0.000    0.000 {method 'argsort' of 'numpy.ndarray' objects}
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:123(<listcomp>)
+       52    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:160(__len__)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:809(__init__)
+       11    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/linecache.py:147(lazycache)
+       62    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+       30    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:335(whichmodule)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/dill/_dill.py:136(ndarraysubclassinstance)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:276(_optimize_charset)
+       13    0.000    0.000    0.000    0.000 {built-in method utcfromtimestamp}
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:423(_simple)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/_ufunc_config.py:32(seterr)
+       46    0.000    0.000    0.000    0.000 {method 'rpartition' of 'str' objects}
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:909(__init__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2933(prod)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:369(<listcomp>)
+        7    0.000    0.000    0.000    0.000 {built-in method _locale.nl_langinfo}
+        9    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/locale.py:384(normalize)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1156(__hash__)
+       31    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:286(tell)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/_ufunc_config.py:429(__enter__)
+        9    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/codecs.py:309(__init__)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:120(_type_check)
+        8    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:762(__setattr__)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1514(_pop_action_class)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:88(__getattr__)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:84(opengroup)
+        6    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/_monitor.py:94(report)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(argsort)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:337(_make_indexable)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:505(__init__)
+       23    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1312(_registry_get)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/multiprocessing/util.py:171(register_after_fork)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1152(_comparable)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/tokenize.py:319(read_or_stop)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2225(_get_nargs_pattern)
+        1    0.000    0.000    0.000    0.000 {method 'seed' of 'numpy.random.mtrand.RandomState' objects}
+        3    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(swapaxes)
+       26    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:111(__init__)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:886(__init__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:1006(argsort)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:851(__init__)
+       56    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/ufunclike.py:68(_dispatcher)
+        3    0.000    0.000    0.000    0.000 {method 'readline' of '_io.BufferedReader' objects}
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/copyreg.py:99(_slotnames)
+       56    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/shape_base.py:19(_atleast_1d_dispatcher)
+       28    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:81(groups)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/types.py:171(__get__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/weakref.py:159(__setitem__)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/_config.py:24(get_config)
+       53    0.000    0.000    0.000    0.000 {method 'setdefault' of 'dict' objects}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:78(acquire)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:209(start_framing)
+        2    0.000    0.000    0.000    0.000 {built-in method torch._C._log_api_usage_once}
+        2    0.000    0.000    0.000    0.000 {method 'take' of 'numpy.ndarray' objects}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/tokenize.py:325(find_cookie)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1031(__init__)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(sort)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:222(__init__)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:921(fix_flags)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/enum.py:631(__new__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/random.py:721(getrandbits)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:369(from_list)
+       19    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/posixpath.py:41(_get_sep)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/Devanshu/CRM/crm/crm/core/network.py:110(parameters)
+       14    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:595(isstring)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:201(_is_utf)
+       14    0.000    0.000    0.000    0.000 {built-in method builtins.setattr}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:358(<genexpr>)
+       14    0.000    0.000    0.000    0.000 {built-in method _weakref.proxy}
+       13    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:292(walk_stack)
+       21    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:228(__init__)
+       42    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2118(_sum_dispatcher)
+       10    0.000    0.000    0.000    0.000 {method 'fileno' of '_io.TextIOWrapper' objects}
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:432(_generate_overlap_table)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2414(_get_value)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:151(__exit__)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:550(swapaxes)
+        7    0.000    0.000    0.000    0.000 {built-in method _sre.compile}
+       35    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+       42    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/multiarray.py:664(result_type)
+       20    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1146(__del__)
+       11    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/traceback.py:243(__init__)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1527(_check_conflict)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/posixpath.py:140(basename)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/_config.py:16(_get_threadlocal_config)
+        8    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:646(_is_dunder)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:579(format)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:58(__init__)
+       27    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/_ufunc_config.py:434(__exit__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:131(_get_kwargs)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1518(_get_handler)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:249(_compile_charset)
+        6    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:605(<lambda>)
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:222(_verbose_message)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:846(sort)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:219(_remove_dups_flatten)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:202(__init__)
+        1    0.000    0.000    0.000    0.000 {built-in method math.ceil}
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:570(_metavar_formatter)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:103(release)
+        7    0.000    0.000    0.000    0.000 {method 'difference' of 'set' objects}
+        9    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/codecs.py:260(__init__)
+        8    0.000    0.000    0.000    0.000 {built-in method __new__ of type object at 0x55b346d629a0}
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/_ufunc_config.py:131(geterr)
+        1    0.000    0.000    0.000    0.000 {method 'manual_seed' of 'torch._C.Generator' objects}
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:76(__init__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1954(consume_positionals)
+       50    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/scipy/sparse/base.py:1205(isspmatrix)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/pkg_resources/extern/__init__.py:57(find_spec)
+       22    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:176(cb)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:2(where)
+        7    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1330(_path_importer_cache)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/model_selection/_split.py:1909(__init__)
+        1    0.000    0.000    0.000    0.000 {built-in method torch._C.set_num_threads}
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/pickle.py:205(__init__)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:65(_combine_flags)
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/utils.py:231(_screen_shape_wrapper)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:725(find_spec)
+        5    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1983(<listcomp>)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/utils/validation.py:476(_ensure_no_complex_data)
+        8    0.000    0.000    0.000    0.000 {method 'copy' of 'dict' objects}
+        8    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2122(_parse_optional)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/pkg_resources/extern/__init__.py:24(_module_matches_namespace)
+       10    0.000    0.000    0.000    0.000 {method 'mro' of 'type' objects}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/os.py:752(decode)
+        1    0.000    0.000    0.000    0.000 {built-in method posix.urandom}
+        7    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:863(__enter__)
+       10    0.000    0.000    0.000    0.000 {method 'lstrip' of 'str' objects}
+        6    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/metrics/_classification.py:2129(<genexpr>)
+        6    0.000    0.000    0.000    0.000 {method 'decode' of 'bytes' objects}
+        7    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:867(__exit__)
+        1    0.000    0.000    0.000    0.000 {built-in method torch._C._cuda_isInBadFork}
+        4    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:492(_get_charset_prefix)
+        2    0.000    0.000    0.000    0.000 {method 'astype' of 'numpy.ndarray' objects}
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:168(__setitem__)
+        8    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:513(is_set)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:880(__call__)
+        9    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:1177(_make_invoke_excepthook)
+       10    0.000    0.000    0.000    0.000 {method 'clear' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/weakref.py:323(__new__)
+       11    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_compile.py:453(_get_iscased)
+        2    0.000    0.000    0.000    0.000 {built-in method posix.getpid}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:249(__exit__)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:800(find_spec)
+       19    0.000    0.000    0.000    0.000 {built-in method posix.fspath}
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:903(__call__)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:324(__eq__)
+        2    0.000    0.000    0.000    0.000 {built-in method numpy.seterrobj}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:172(_collect_type_vars)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:246(__enter__)
+        9    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/_collections_abc.py:302(__subclasshook__)
+       10    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/enum.py:753(value)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1759(_get_positional_actions)
+       13    0.000    0.000    0.000    0.000 {built-in method _imp.acquire_lock}
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1017(_handle_fromlist)
+        3    0.000    0.000    0.000    0.000 {method 'swapaxes' of 'numpy.ndarray' objects}
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:711(__eq__)
+        9    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/sklearn/model_selection/_split.py:1560(__init__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:1110(daemon)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/multiprocessing/context.py:233(get_context)
+       11    0.000    0.000    0.000    0.000 {method 'reverse' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:261(_is_owned)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:1306(current_thread)
+        3    0.000    0.000    0.000    0.000 {method 'startswith' of 'bytes' objects}
+       13    0.000    0.000    0.000    0.000 {built-in method _imp.release_lock}
+        7    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:1300(<lambda>)
+        7    0.000    0.000    0.000    0.000 main.py:66(flush)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:143(__init__)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:342(__init__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/multiprocessing/synchronize.py:90(_make_methods)
+        4    0.000    0.000    0.000    0.000 {built-in method numpy.geterrobj}
+        7    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/weakref.py:328(__init__)
+        9    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 {method 'seek' of '_io.BufferedReader' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method _imp.is_builtin}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/codecs.py:186(__init__)
+        2    0.000    0.000    0.000    0.000 {method 'get' of 'mappingproxy' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/logging/__init__.py:218(_acquireLock)
+        6    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:604(<listcomp>)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2106(_match_arguments_partial)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:734(_newname)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:255(_release_save)
+        4    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/sre_parse.py:162(__delitem__)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/logging/__init__.py:1276(disable)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:258(_acquire_restore)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/logging/__init__.py:227(_releaseLock)
+        2    0.000    0.000    0.000    0.000 {built-in method sys._getframe}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/six.py:194(find_spec)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1760(<listcomp>)
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2440(_check_value)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/logging/__init__.py:1675(getEffectiveLevel)
+        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:68(_relax_case)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/torch/cuda/__init__.py:107(is_initialized)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/threading.py:1095(daemon)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/urllib3/packages/six.py:190(find_spec)
+        2    0.000    0.000    0.000    0.000 {method 'isdisjoint' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method atexit.register}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/typing.py:669(<genexpr>)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/tqdm/std.py:100(<listcomp>)
+        1    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method _imp.is_frozen}
+        1    0.000    0.000    0.000    0.000 {built-in method from_bytes}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/multiprocessing/util.py:48(debug)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1240(__init__)
+        1    0.000    0.000    0.000    0.000 {method 'partition' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/multiprocessing/context.py:197(get_start_method)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/multiarray.py:1368(may_share_memory)
+        2    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+        3    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:546(_swapaxes_dispatcher)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2454(_cumsum_dispatcher)
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:2407(<listcomp>)
+        1    0.000    0.000    0.000    0.000 {method '__enter__' of '_thread.lock' objects}
+        2    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:1676(identity)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/multiarray.py:341(where)
+        1    0.000    0.000    0.000    0.000 {method 'append' of 'collections.deque' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2928(_prod_dispatcher)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/importlib_metadata/_compat.py:56(find_spec)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:1002(_argsort_dispatcher)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/contextlib.py:59(_recreate_cm)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/argparse.py:134(_get_args)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:842(_sort_dispatcher)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2758(_amin_dispatcher)
+        1    0.000    0.000    0.000    0.000 {method 'release' of '_thread.lock' objects}
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/shape_base.py:735(_array_split_dispatcher)
+        1    0.000    0.000    0.000    0.000 /home/dell7810/anaconda3/envs/crm/lib/python3.8/site-packages/numpy/lib/shape_base.py:795(_split_dispatcher)
+        1    0.000    0.000    0.000    0.000 {method '__exit__' of '_thread.lock' objects}

@@ -26,6 +26,7 @@ Let's first define some helper functions and import some dependencies.
 
 """
 import os
+import time
 
 import numpy as np
 import ray
@@ -202,7 +203,6 @@ test_loader = get_data_loader()[1]
 # instantiate a process for the parameter server, along with multiple
 # workers.
 
-import time
 
 start_time = time.time()
 

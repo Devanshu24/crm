@@ -1,0 +1,42 @@
+Namespace(explain=False, file='./NCI-config', gpu=False, num_epochs=0, output='./data/NCI-datasets/withBotGNNlabels/gi50_screen_A498/newtest_res', predict=False, saved_model='./data/NCI-datasets/withBotGNNlabels/gi50_screen_A498/res_max_expl_gs_model_2.pt', tune=False, verbose=True)
+***Loading data***
+Namespace(explain=False, file='./NCI-config', gpu=False, num_epochs=0, output='./data/NCI-datasets/withBotGNNlabels/gi50_screen_A498/newtest_res', predict=False, saved_model='./data/NCI-datasets/withBotGNNlabels/gi50_screen_A498/res_max_expl_gs_model_2.pt', tune=False, verbose=True)
+***Loading data***
+Namespace(explain=False, file='./NCI-config', gpu=False, num_epochs=0, output='./data/NCI-datasets/withBotGNNlabels/gi50_screen_A498/newtest_res', predict=False, saved_model='./data/NCI-datasets/withBotGNNlabels/gi50_screen_A498/res_max_expl_gs_model_2.pt', tune=False, verbose=True)
+***Loading data***
+Empty instance ID 95
+Empty instance ID 138
+Empty instance ID 147
+Empty instance ID 166
+Empty instance ID 457
+Loaded ./test_pos file with 618 instances (incl. empty instances).
+Empty instance ID 631
+Empty instance ID 657
+Empty instance ID 674
+Empty instance ID 697
+Empty instance ID 783
+Empty instance ID 789
+Empty instance ID 826
+Empty instance ID 835
+Empty instance ID 890
+Empty instance ID 909
+Empty instance ID 943
+Empty instance ID 973
+Empty instance ID 986
+Empty instance ID 996
+Empty instance ID 1026
+Loaded ./test_neg file with 426 instances (incl. empty instances).
+***Creating CRM structure***
+***Loading Saved Model***
+***Training CRM***
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.7264    0.7494    0.7377       411
+           1     0.8283    0.8108    0.8195       613
+
+    accuracy                         0.7861      1024
+   macro avg     0.7774    0.7801    0.7786      1024
+weighted avg     0.7874    0.7861    0.7867      1024
+
+-------------------------------------

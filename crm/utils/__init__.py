@@ -1,5 +1,6 @@
 from crm.utils.utils import (  # isort:skip
     get_metrics,  # isort:skip
+    get_predictions,
     load_object,  # isort:skip
     save_object,  # isort:skip
     seed_all,  # isort:skip

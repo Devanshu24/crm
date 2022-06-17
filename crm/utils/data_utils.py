@@ -93,19 +93,26 @@ def make_dataset_cli(
         test_pos_file = test_file + "_pos"
         test_neg_file = test_file + "_neg"
 
+        inst_id = 0
         if os.path.exists(f"{test_pos_file}"):
             with open(f"{test_pos_file}", "r") as f:
                 while True:
                     gg = f.readline()  # .split(" ")[3:-1]
                     if not gg:
                         break
+                    inst_id = inst_id + 1
                     gg = gg.split(" ")[3:]
                     if not gg:
+                        print(f"Empty instance ID {inst_id}")
                         continue
                     all_pos = [int(e) - 1 for e in gg if e != "\n"]
                     dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                     X_test.append(dd)
                     y_test.append(torch.tensor(1))
+        print(
+            f"Loaded {test_pos_file} file with {inst_id} instances (incl. empty instances)."
+        )
+        num_test_pos = inst_id
 
         if os.path.exists(f"{test_neg_file}"):
             with open(f"{test_neg_file}", "r") as f:
@@ -113,14 +120,19 @@ def make_dataset_cli(
                     gg = f.readline()  # .split(" ")[3:-1]
                     if not gg:
                         break
+                    inst_id = inst_id + 1
                     gg = gg.split(" ")[3:]
                     if not gg:
+                        print(f"Empty instance ID {inst_id}")
                         continue
                     all_pos = [int(e) - 1 for e in gg if e != "\n"]
                     dd = {i: 1 if i in all_pos else 0 for i in range(num_neurons)}
                     X_test.append(dd)
                     y_test.append(torch.tensor(0))
-
+        print(
+            f"Loaded {test_neg_file} file with {inst_id - num_test_pos} instances (incl. empty instances)."
+        )
+        quit()
         test_dataset.append((X_test, y_test))
 
     adj_list = [[] for i in range(num_neurons)]

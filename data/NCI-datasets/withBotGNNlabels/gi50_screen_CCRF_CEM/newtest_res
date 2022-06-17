@@ -1,0 +1,39 @@
+Namespace(explain=False, file='./NCI-config', gpu=False, num_epochs=0, output='./data/NCI-datasets/withBotGNNlabels/gi50_screen_CCRF_CEM/newtest_res', predict=False, saved_model='./data/NCI-datasets/withBotGNNlabels/gi50_screen_CCRF_CEM/res_max_expl_gs_model_0.pt', tune=False, verbose=True)
+***Loading data***
+Empty instance ID 14
+Empty instance ID 30
+Empty instance ID 68
+Empty instance ID 160
+Empty instance ID 277
+Empty instance ID 282
+Empty instance ID 334
+Empty instance ID 453
+Empty instance ID 545
+Loaded ./test_pos file with 714 instances (incl. empty instances).
+Empty instance ID 751
+Empty instance ID 765
+Empty instance ID 766
+Empty instance ID 779
+Empty instance ID 791
+Empty instance ID 800
+Empty instance ID 878
+Empty instance ID 901
+Empty instance ID 902
+Empty instance ID 927
+Empty instance ID 939
+Empty instance ID 1020
+Loaded ./test_neg file with 330 instances (incl. empty instances).
+***Creating CRM structure***
+***Loading Saved Model***
+***Training CRM***
+***Test Metrics***
+              precision    recall  f1-score   support
+
+           0     0.7482    0.6541    0.6980       318
+           1     0.8523    0.9007    0.8759       705
+
+    accuracy                         0.8240      1023
+   macro avg     0.8003    0.7774    0.7869      1023
+weighted avg     0.8200    0.8240    0.8206      1023
+
+-------------------------------------

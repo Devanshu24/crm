@@ -6,10 +6,11 @@ import torch.nn.functional as F
 from sklearn.model_selection import train_test_split
 
 from crm.core import Network
-from crm.utils import (  # get_explanations,
+from crm.utils import (  # get_explanations,; train_distributed,
     get_best_config,
     get_max_explanations,
     get_metrics,
+    get_predictions,
     load_object,
     make_dataset_cli,
     seed_all,
@@ -34,6 +35,9 @@ def cmd_line_args():
     )
     parser.add_argument(
         "-n", "--num-epochs", type=int, help="number of epochs", required=True
+    )
+    parser.add_argument(
+        "-p", "--predict", help="get predictions for a test set", action="store_true"
     )
     parser.add_argument(
         "-e", "--explain", help="get explanations for predictions", action="store_true"
@@ -144,6 +148,12 @@ def main():
         print(get_metrics(n, X_test, y_test))
         print("-------------------------------------")
 
+    # Predict for the test instances
+    if args.predict:
+        print("***Predicting the class labels for the test set***")
+        for X_test, y_test in test_dataset:
+            get_predictions(n, X_test, y_test)
+
     # Explain the test instances
     if args.explain:
         print("***Generating explanations for the test set***")
@@ -170,6 +180,7 @@ def main():
 
 
 if __name__ == "__main__":
+    """
     import cProfile
     import pstats
 
@@ -179,4 +190,5 @@ if __name__ == "__main__":
     profiler.disable()
     stats = pstats.Stats(profiler).sort_stats("cumtime")
     stats.print_stats()
-    # main()
+    """
+    main()

@@ -254,9 +254,9 @@ def get_max_explanations(
             else:
                 cen_count += 1
 
-        print(
-            f"{i}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{topk_vertices},{cep_count},{cen_count},{iep_count},{ien_count}"
-        )
+        print(  # noqa
+            f"Inst {i}: {y_test[i]},{pred},{tp_count},{fn_count},{tn_count},{fp_count},{topk_vertices},{cep_count},{cen_count},{iep_count},{ien_count}"  # noqa
+        )  # noqa
         print(f"\tAncestors of {topk_vertices}: {ancestors}")
         print("\tTop-5 neurons in each CRM layer (ordered by relevance, descending):")
         for l_id in reversed(range(n.num_layers)):

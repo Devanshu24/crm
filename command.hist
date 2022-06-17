@@ -1,2 +1,21 @@
  1950  python main.py -f ./data/chess3/config -o ./data/chess3/res_all_layers -n 1 -e -v
  1951  python main.py -f ./data/minichess/config -o ./data/minichess/results -n 0 -s ./data/minichess/results_model_0.pt -e -v
+
+cat test_pos_f172.txt | while read line; do a=`expr $line - 1`; echo $a; done;
+ 1863  cat test_pos_f172.txt | while read line; do a=`expr $line - 1`; cat ../res_max_expl_v2 | grep "$a: " >> /tmp/posguys; done;
+ 1865  rm /tmp/posguys; cat test_pos_f172.txt | while read line; do a=`expr $line - 1`; cat ../res_max_expl_v2 | grep "^$a: " | head; done;
+ 1866  rm /tmp/posguys; cat test_pos_f172.txt | while read line; do a=`expr $line - 1`; cat ../res_max_expl_v2 | grep "^$a: " | grep ": 1,1," | head; done;
+ 1867  rm /tmp/posguys; cat test_pos_f172.txt | while read line; do a=`expr $line - 1`; cat ../res_max_expl_v2 | grep "^$a: " | grep ": 1,1," >> /tmp/posguys; done;
+ 1989  cat adj_adj.csv | grep "FALSE" | gawk -F',' '{print $8}' | sort -u | while read line; do a=`expr $line + 1`; cat raw/rand_crm_d3c3v6r1.pl | grep "f($a)"; done;
+ 1990  cat adj_adj.csv | grep "FALSE" | gawk -F',' '{print $8}' | sort -u | while read line; do a=`expr $line + 1`; echo $a; done;
+ 1991  cat adj_adj.csv | grep "FALSE" | gawk -F',' '{print $8}' | sort -u | sed "s/[//g" | sed "s/]//g" | while read line; do a=`expr $line + 1`; echo $a; done;
+ 1995  cat adj_adj.csv | grep "FALSE" | gawk -F',' '{print $8}' | sort -u | sed "s/\[//g" | sed "s/]//g" | while read line; do a=`expr $line + 1`; echo $a; done;
+ 1996  cat adj_adj.csv | grep "FALSE" | gawk -F',' '{print $8}' | sort -u | sed "s/\[//g" | sed "s/]//g" | while read line; do a=`expr $line + 1`; cat raw/rand_crm_d3c3v6r1.pl | grep "f($a)"; done;
+ 1997  cat adj_adj.csv | grep "FALSE" | gawk -F',' '{print $8}' | sort -u | sed "s/\[//g" | sed "s/]//g" | while read line; do a=`expr $line + 1`; cat raw/rand_crm_d3c3v6r1.pl | grep "f($a)" | grep "func"; done;
+
+rm /tmp/r3; for i in {0..1043}; do cat data/A498_repeats/crm_r3/2_0_0.5_10/res_max_expl | grep "^$i: " | sed "s/: /,/g" | gawk -F"," '{print $2","$3}' >> /tmp/r3; done;
+
+rm /tmp/t*.csv; for i in {1..3}; do cat crm_r$i/2_0_0.5_10/res_max_expl | grep "Inst" | sed "s/Inst //g" | sed "s/: /,/g" | gawk -F"," '{print $2","$3}' > /tmp/t$i.csv; done;
+
+bash runcrm.bash
+python main.py -f ./data/trains/config  -o /tmp/trains_res -n 0 -s ./data/trains/res_max_expl_model_4.pt -p -v

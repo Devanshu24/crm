@@ -6,9 +6,7 @@ import torch
 import torch.distributed.autograd as dist_autograd
 from ray import tune
 from ray.tune.schedulers import AsyncHyperBandScheduler
-from ray.tune.suggest import ConcurrencyLimiter
 from ray.tune.suggest.basic_variant import BasicVariantGenerator
-from ray.tune.suggest.optuna import OptunaSearch
 from sklearn.model_selection import train_test_split
 from tqdm.auto import tqdm, trange
 
@@ -29,8 +27,9 @@ def train_distributed(
     num_workers: int,
     verbose: bool = True,
 ):
+    raise NotImplementedError("ToDo")
     iterations = 10
-    test_loader = zip(X_val, y_val)
+    test_loader = zip(X_val, y_val)  # noqa
     print("Running Asynchronous Parameter Server Training.")
 
     ray.init(ignore_reinit_error=True)
