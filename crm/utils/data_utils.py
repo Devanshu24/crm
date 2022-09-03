@@ -132,7 +132,7 @@ def make_dataset_cli(
         print(
             f"Loaded {test_neg_file} file with {inst_id - num_test_pos} instances (incl. empty instances)."
         )
-        quit()
+        # quit()
         test_dataset.append((X_test, y_test))
 
     adj_list = [[] for i in range(num_neurons)]
