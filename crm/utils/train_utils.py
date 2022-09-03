@@ -3,7 +3,6 @@ import random
 import numpy as np
 import ray
 import torch
-import torch.distributed.autograd as dist_autograd
 from ray import tune
 from ray.tune.schedulers import AsyncHyperBandScheduler
 from ray.tune.suggest.basic_variant import BasicVariantGenerator
