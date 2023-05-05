@@ -20,7 +20,6 @@ np.random.seed(seedval)
 
 # function to load data file and return train, val, test split
 def load_data(trainfile="train.csv", testfile="test.csv"):
-
     # load the data and prepare X and y
     Data = pd.read_csv("train.csv", header=None)
     print(
@@ -68,14 +67,12 @@ def load_data(trainfile="train.csv", testfile="test.csv"):
 
 # function to calculate accuracy
 def accuracy_score(y, y_pred):
-
     acc = np.mean(y == y_pred)
     return acc
 
 
 # function to calculate netsum and prediction for one instance
 def predictOne(W, X, thres):
-
     netsum = np.sum(W * X)  # net sum
 
     # threshold check
@@ -89,7 +86,6 @@ def predictOne(W, X, thres):
 
 # function to calculate netsums and predictions for all instances
 def predictAll(W, X, thres):
-
     NetSum = np.dot(X, W)
     Idx = np.where(NetSum >= thres)
     y_pred = np.zeros(X.shape[0])
@@ -100,7 +96,6 @@ def predictAll(W, X, thres):
 
 # function to compute and print the classification summary
 def ComputePerf(W, X, y, thres, print_flag=False):
-
     y_pred = predictAll(W, X, thres)  # compute the prediction
     acc = accuracy_score(y, y_pred)  # compute accuracy
 
@@ -117,7 +112,6 @@ def ComputePerf(W, X, y, thres, print_flag=False):
 def TrainWinnow2(
     X_train, y_train, X_val, y_val, params, max_epoch=10, patience=20, verbose=False
 ):
-
     n = X_train.shape[1]
     best_perf = 0.0  # best val set performance so far
     grid_space = len(params["Alpha"]) * len(params["Thres"])  # size of grid space
@@ -128,9 +122,7 @@ def TrainWinnow2(
 
     # grid search and training
     for alpha in params["Alpha"]:
-
         for thres in params["Thres"]:
-
             grid_iter += 1
 
             print("-----------------------------------------------------------------")
@@ -152,15 +144,12 @@ def TrainWinnow2(
             modelfound = False  # model found flag
 
             for epoch in range(0, max_epoch):
-
                 # Winnow loop (computation and update) starts
                 for i in range(1, X_train.shape[0]):
-
                     y_hat = predictOne(W, X_train.iloc[i, :], thres)
 
                     # Winnow prediction is a mismatch
                     if y_train.iloc[i] != y_hat:
-
                         # active attribute indices
                         Idx = np.where(X_train.iloc[i, :] == 1)
 
@@ -218,7 +207,6 @@ def TrainWinnow2(
 
 # main function
 def main():
-
     # call function to get the splits
     X_train, y_train, X_val, y_val, X_test, y_test = load_data(
         trainfile="train.csv", testfile="test.csv"

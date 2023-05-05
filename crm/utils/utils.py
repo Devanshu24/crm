@@ -35,7 +35,7 @@ def get_predictions(n, X_test, y_test):
     print("Instance: y,y_pred,y_pred_prob,oth_pred,oth_pred_prob")
 
     i = 0
-    for (x, y) in list(zip(X_test, y_test)):
+    for x, y in list(zip(X_test, y_test)):
         n.reset()
         preds = n.forward(x)
         preds.cpu().detach()

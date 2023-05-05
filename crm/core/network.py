@@ -30,7 +30,6 @@ class Network:
         self.is_fresh = True
 
     def _forward_layer(self, n_id, f_mapper, queue):
-
         # print(n_id, f_mapper)
 
         # print(f"Forwarding {n_id}")

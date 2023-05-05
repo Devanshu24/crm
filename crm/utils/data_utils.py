@@ -25,7 +25,6 @@ def make_dataset_cli(
 
     edges = []
     for i in range(len(edges_raw)):
-
         # Binary Operators
         b_match = re.search("a\((.*)\),\[a\((.*?)\),a\((.*?)\)\]", edges_raw[i])  # noqa
         u_match = re.search("a\((.*)\),\[a\((.*?)\)\]", edges_raw[i])  # noqa
@@ -201,7 +200,6 @@ def make_dataset(folder, network_name, device=torch.device("cpu"), save: bool = 
 
     edges = []
     for i in range(len(edges_raw)):
-
         # Binary Operators
         b_match = re.search("a\((.*)\),\[a\((.*?)\),a\((.*?)\)\]", edges_raw[i])  # noqa
         u_match = re.search("a\((.*)\),\[a\((.*?)\)\]", edges_raw[i])  # noqa

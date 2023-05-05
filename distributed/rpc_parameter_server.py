@@ -162,6 +162,7 @@ def run_parameter_server(rank, world_size):
 
 # --------- Trainers --------------------
 
+
 # nn.Module corresponding to the network trained by this trainer. The
 # forward() method simply invokes the network on the given parameter
 # server.
